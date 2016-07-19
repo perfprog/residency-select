@@ -1,0 +1,80 @@
+﻿@model IEnumerable<PPI.Core.Domain.Entities.OESSetup>
+@{
+    ViewBag.Title = "Event Requests";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <header class="main-box-header clearfix">
+            <div class="row">
+                <h2 class="pull-left">Events List</h2>
+
+            </div>
+        </header>
+
+        <div>
+            <table class="table table-responsive">
+                <tr>
+                    <th class="col-md-3">
+                        Events
+                    </th>
+                    <th class="col-md-3">
+                        Organization
+
+                    </th>
+                    <th class="col-md-1">
+                        Site
+
+                    </th>
+                    <th class="col-md-1">
+                        Specialty
+                    </th>
+                    <th class="col-md-1">
+                        Requested Date
+                    </th>
+
+                    <th class="col-md-1"></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="font-size:12px;">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Organization.OrganizationName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Site.SiteName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EventVGSpecialty.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreateDate, "ShortDateTime")
+                        </td>
+
+
+                        <td>
+                            <div class="groupbtn text-right">
+
+
+
+                                @if (@User.IsInRole("Admin"))
+                                {
+
+
+                                    <a href="@Url.Action("OESSetup", new { ID=item.Id })" class="btn btn-primary btn200 pull-left md-trigger mobile_full_width_btn" title="SetUp">SetUp</a>
+                                }
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

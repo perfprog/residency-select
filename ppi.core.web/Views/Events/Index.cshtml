@@ -1,0 +1,117 @@
+﻿@model IEnumerable<PPI.Core.Domain.Entities.Event>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <header class="main-box-header clearfix">
+            @*<div class="row">
+                <h2 class="pull-left">Events List</h2>
+                <div class="form-group pull-right">
+                    @if (@User.IsInRole("Admin"))
+                    {
+                        <a href="@Url.Action("Create","Events")" class="btn btn-primary btn200 pull-right mt20"><i class="fa fa-plus-circle fa-lg"></i> Add Event</a>
+                    }                               
+                </div>
+            </div>*@
+        </header>
+        @if (ViewBag.NumberSent > 0)
+        { 
+            <div class="validation-summary-errors">
+                @ViewBag.NumberSent Emails Sent
+            </div>
+        }
+        <div>
+            <table class="table table-responsive">
+                <tr>
+                    <th class="col-md-3">
+                        Event
+                    </th>
+                    <th class="col-md-3">
+                        @Html.DisplayNameFor(model => model.Description)
+
+                    </th>
+                    <th class="col-md-1">
+                        @Html.DisplayNameFor(model => model.StartDate)
+
+                    </th>
+                    <th class="col-md-1">
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </th>
+                    <th class="col-md-1">
+                        @Html.DisplayNameFor(model => model.ReviewDate)
+                    </th>
+                    <th class="col-md-1">
+                        Status
+                    </th>
+                    <th class="col-md-1">
+                        Type
+                    </th>
+                    <th class="col-md-1"></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="font-size:12px;">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartDate, "ShortDateTime")
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndDate, "ShortDateTime")
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ReviewDate, "ShortDateTime")
+                        </td>
+                        <td>
+                         @if (item.EventStatusId == 1)
+                            {
+                                <label class="label-success label label-large txt-white" style="width:100px;display:block ">@item.EventStatus.NameResx.ResxValues.FirstOrDefault(m => m.CultureId == 1).Value   </label>
+                            }
+                            else if (item.EventStatusId == 2)
+                            {
+                                <label class="label-warning label label-large txt-white" style="width:100px;display:block ">@item.EventStatus.NameResx.ResxValues.FirstOrDefault(m => m.CultureId == 1).Value</label>
+                            }
+                            else
+                            {
+                                <label class="label-danger label label-large txt-white" style="width:100px;display:block ">@item.EventStatus.NameResx.ResxValues.FirstOrDefault(m => m.CultureId == 1).Value</label>
+                            }
+                        </td>
+                        <td>
+                            @item.EventType.NameResx.ResxValues.FirstOrDefault(m => m.CultureId == 1).Value
+                        </td>
+                        <td>
+                            <div class="groupbtn text-right">
+                            @if (User.IsInRole("J3PAdmin") || User.IsInRole("SiteCordinator"))
+                            {
+                                <a href="@Url.Action("CordinatorEdit", new { id = item.Id })" title="Edit" class="btn btn-default btn-sm btn60">Edit</a>
+                            }
+                                                      
+                           
+                            @if (@User.IsInRole("Admin"))
+                            {
+
+                                <a href="@Url.Action("Edit", new { id = item.Id })" title="Edit" class="btn btn-default btn-sm btn60">Edit</a>
+                                <a href="@Url.Action("Delete", new { id=item.Id })" class="btn btn-danger btn-sm btn60" title="Delete" onclick="return confirm('You will not be able to do this action. Are you sure you wish to delete this Event?\n\nClick \'OK\' to delete the Event.  Click \'Cancel\' to do nothing and close this alert.');">Delete</a>
+                            }
+                            @if (User.IsInRole("J3PAdmin") || User.IsInRole("Admin"))
+                            {
+                                <a href="@Url.Action("Email", new { eventId = item.Id })" onclick="return confirm('This will send multiple emails');" class="btn btn-primary btn-sm btn60" id="EmailTRans" title="Email Transistion To Practice Guides" style="padding-left:2px;padding-right:2px;">Email TPG</a>
+                            }
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        </div>
+    </div>
+

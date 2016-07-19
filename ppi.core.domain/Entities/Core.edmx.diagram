@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bdf91a832b70470da3b3ed052ad3a1dc" Name="Diagram1" ZoomLevel="100" >
+        <EntityTypeShape EntityType="Core.Manual_Hogan_Import" Width="2.25" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Core.Program" Width="1.5" PointX="8.875" PointY="5" />
+        <EntityTypeShape EntityType="Core.HoganMVPI" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Core.HoganField" Width="2.125" PointX="5.25" PointY="16.125" />
+        <EntityTypeShape EntityType="Core.Language" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Core.PracticeCategory" Width="1.5" PointX="8.875" PointY="8.875" />
+        <EntityTypeShape EntityType="Core.PracticeLevel" Width="1.5" PointX="8.875" PointY="28.125" />
+        <EntityTypeShape EntityType="Core.PracticeScale" Width="2" PointX="11.125" PointY="16.125" />
+        <AssociationConnector Association="Core.FK_PracticeScale_HoganField" />
+        <AssociationConnector Association="Core.FK_PracticeScale_PracticeCategory" />
+        <AssociationConnector Association="Core.FK_PracticeScale_PracticeLevel" />
+        <EntityTypeShape EntityType="Core.PracticeReport" Width="2.5" PointX="5.25" PointY="20.25" />
+        <EntityTypeShape EntityType="Core.PracticeCategoryParagraph" Width="1.5" PointX="9.125" PointY="20.75" />
+        <AssociationConnector Association="Core.FK_PracticeCategoryParagraphs_HoganField" />
+        <AssociationConnector Association="Core.FK_PracticeCategoryParagraphs_PracticeCategory" />
+        <EntityTypeShape EntityType="Core.Culture" Width="1.5" PointX="9" PointY="35.625" />
+        <EntityTypeShape EntityType="Core.Resx" Width="3.75" PointX="0.75" PointY="19.375" />
+        <EntityTypeShape EntityType="Core.ResxValue" Width="1.5" PointX="11.25" PointY="25.25" />
+        <AssociationConnector Association="Core.FK_ResxValue_Culture" />
+        <AssociationConnector Association="Core.FK_HoganField_Resx" />
+        <AssociationConnector Association="Core.FK_ResxValue_Resx" />
+        <EntityTypeShape EntityType="Core.PracticeScaleReport" Width="2.5" PointX="13.875" PointY="17.5" />
+        <EntityTypeShape EntityType="Core.PracticeText" Width="2.625" PointX="5.25" PointY="12.25" />
+        <AssociationConnector Association="Core.FK_PracticeScaleReport_PracticeReport" />
+        <AssociationConnector Association="Core.FK_PracticeScaleReport_PracticeScale" />
+        <AssociationConnector Association="Core.FK_PracticeScaleReport_PracticeText" />
+        <AssociationConnector Association="Core.FK_PracticeText_Text" />
+        <AssociationConnector Association="Core.FK_PracticeReport_Resx" />
+        <AssociationConnector Association="Core.FK_PracticeReport_IntroductionResx" />
+        <AssociationConnector Association="Core.FK_PracticeReport_IntroductionThreeResx" />
+        <AssociationConnector Association="Core.FK_PracticeReport_IntroductionTwoResx" />
+        <AssociationConnector Association="Core.FK_PracticeScale_Program" />
+        <EntityTypeShape EntityType="Core.PracticeCategoryScale" Width="1.5" PointX="8.125" PointY="16.375" />
+        <EntityTypeShape EntityType="Core.PracticeParagraph" Width="1.5" PointX="8.5" PointY="24.5" />
+        <EntityTypeShape EntityType="Core.PracticeTextOption" Width="1.5" PointX="8.625" PointY="12.75" />
+        <AssociationConnector Association="Core.FK_PracticeCategoryScale_HoganField" />
+        <AssociationConnector Association="Core.FK_PracticeCategoryScale_PracticeCategory" />
+        <AssociationConnector Association="Core.FK_PracticeCategoryScale_Program" />
+        <AssociationConnector Association="Core.FK_PracticeParagraphs_PracticeReport" />
+        <AssociationConnector Association="Core.FK_PracticeTextOption_AlternativePracticeText" />
+        <AssociationConnector Association="Core.FK_PracticeTextOption_PracticeText" />
+        <EntityTypeShape EntityType="Core.Person" Width="1.5" PointX="13.75" PointY="35.75" />
+        <EntityTypeShape EntityType="Core.ReplacementExpression" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Core.ProgramPracticeReport" Width="1.5" PointX="11.5" PointY="21.875" />
+        <AssociationConnector Association="Core.FK_ProgramPracticeReports_ToTable" />
+        <AssociationConnector Association="Core.FK_ProgramPracticeReports_Program" />
+        <AssociationConnector Association="Core.FK_PracticeText_PracticeText" />
+        <AssociationConnector Association="Core.FK_HoganField_Resx2" />
+        <EntityTypeShape EntityType="Core.Event" Width="1.5" PointX="7.5" PointY="31.125" />
+        <EntityTypeShape EntityType="Core.EventStatus" Width="1.5" PointX="5.25" PointY="29.25" />
+        <AssociationConnector Association="Core.FK_Event_EventStatus" />
+        <AssociationConnector Association="Core.FK_EventStatus_Resx" />
+        <EntityTypeShape EntityType="Core.EventType" Width="1.5" PointX="5.25" PointY="34.375" />
+        <EntityTypeShape EntityType="Core.Site" Width="1.5" PointX="3.875" PointY="38.125" />
+        <AssociationConnector Association="Core.FK_Event_EventType" />
+        <AssociationConnector Association="Core.FK_EventType_Resx" />
+        <EntityTypeShape EntityType="Core.SiteUser" Width="1.5" PointX="6.125" PointY="41.875" />
+        <EntityTypeShape EntityType="Core.ProgramSiteHoganMVPI" Width="2.875" PointX="9.75" PointY="41.625" />
+        <EntityTypeShape EntityType="Core.ProgramSite" Width="2.875" PointX="6.125" PointY="38.5" />
+        <AssociationConnector Association="Core.FK_ResidencyProgramSitess_Program" />
+        <AssociationConnector Association="Core.FK_ProgramSiteHoganMVPI_ResidencyProgramHospitals" />
+        <AssociationConnector Association="Core.FK_ResidencyProgramSites_Site" />
+        <AssociationConnector Association="Core.FK_SiteUsers_Site" />
+        <EntityTypeShape EntityType="Core.vPersonBySite" Width="1.5" PointX="11.5" PointY="38.375" />
+        <AssociationConnector Association="Core.vPersonBySitePerson" />
+        <AssociationConnector Association="Core.vPersonBySiteSite" />
+        <EntityTypeShape EntityType="Core.Email" Width="1.5" PointX="13.75" PointY="21.5" />
+        <AssociationConnector Association="Core.FK_Email_Event" />
+        <EntityTypeShape EntityType="Core.EmailType" Width="1.5" PointX="5.25" PointY="9.5" />
+        <AssociationConnector Association="Core.FK_Email_EmailType" />
+        <AssociationConnector Association="Core.FK_EmailType_Resx" />
+        <EntityTypeShape EntityType="Core.EmailStatus" Width="1.5" PointX="5.25" PointY="31.875" />
+        <AssociationConnector Association="Core.FK_EmailStatus_Resx" />
+        <EntityTypeShape EntityType="Core.HoganUserInfo" Width="1.5" PointX="11.125" PointY="4.875" />
+        <AssociationConnector Association="Core.FK_HoganUserInfo_Program" />
+        <EntityTypeShape EntityType="Core.vDashboard" Width="2" PointX="10.875" PointY="34.75" />
+        <AssociationConnector Association="Core.vDashboardPerson" />
+        <AssociationConnector Association="Core.FK_PracticeScaleReport_PracticeText2" />
+        <EntityTypeShape EntityType="Core.PersonPracticeReport" Width="1.5" PointX="16" PointY="29.875" />
+        <AssociationConnector Association="Core.FK_PersonPracticeReport_Person" />
+        <AssociationConnector Association="Core.FK_PersonPracticeReport_PracticeReport" />
+        <AssociationConnector Association="Core.FK_Event_ProgramSites" />
+        <EntityTypeShape EntityType="Core.PersonEvent" Width="1.5" PointX="20" PointY="36.625" />
+        <AssociationConnector Association="Core.FK_PersonEvent_Event" />
+        <AssociationConnector Association="Core.FK_PersonEvent_Person" />
+        <EntityTypeShape EntityType="Core.EventPracticeReport" Width="1.5" PointX="3.375" PointY="3.75" />
+        <AssociationConnector Association="Core.FK_EventPracticeReport_Event" />
+        <AssociationConnector Association="Core.FK_EventPracticeReport_PracticeReport" />
+        <AssociationConnector Association="Core.FK_EventPracticeReport_IntroductionResx" />
+        <AssociationConnector Association="Core.FK_EventPracticeReport_IntroductionThreeResx" />
+        <AssociationConnector Association="Core.FK_EventPracticeReport_IntroductionTwoResx" />
+        <AssociationConnector Association="Core.FK_EventPracticeReport_TitleResx" />
+        <EntityTypeShape EntityType="Core.OrderForm" Width="2.75" PointX="14.125" PointY="12.625" />
+        <EntityTypeShape EntityType="Core.OrderFormPracticeReport" Width="1.5" PointX="6" PointY="5.375" />
+        <AssociationConnector Association="Core.FK_OrderForm_EventType" />
+        <AssociationConnector Association="Core.FK_OrderForm_Program" />
+        <EntityTypeShape EntityType="Core.OrderStatus" Width="1.5" PointX="0.75" PointY="6.875" />
+        <AssociationConnector Association="Core.FK_OrderForm_OrderStatus" />
+        <AssociationConnector Association="Core.FK_OrderFormPracticeReport_OrderForm" />
+        <AssociationConnector Association="Core.FK_OrderFormPracticeReport_PracticeReport" />
+        <AssociationConnector Association="Core.FK_PersonPracticeReport_Event" />
+        <EntityTypeShape EntityType="Core.AspNetRole" Width="1.5" PointX="22.375" PointY="2.5" />
+        <EntityTypeShape EntityType="Core.AspNetUserClaim" Width="1.5" PointX="26.875" PointY="1" />
+        <EntityTypeShape EntityType="Core.AspNetUserLogin" Width="1.5" PointX="26.875" PointY="3.75" />
+        <EntityTypeShape EntityType="Core.AspNetUser" Width="1.5" PointX="24.625" PointY="1.125" />
+        <AssociationConnector Association="Core.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" />
+        <AssociationConnector Association="Core.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="Core.FK_PersonPracticeReport_AspNetUsers" />
+        <AssociationConnector Association="Core.FK_SiteUsers_AspNetUsers" />
+        <AssociationConnector Association="Core.AspNetUserRoles" />
+        <EntityTypeShape EntityType="Core.ScheduledEmail" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Core.ScheduledEmailPerson" Width="1.5" PointX="8.5" PointY="0.5" />
+        <AssociationConnector Association="Core.FK_ScheduledEmailPerson_ScheduledEmail" />
+        <AssociationConnector Association="Core.FK_ScheduledEmailPerson_Person" />
+        <AssociationConnector Association="Core.FK_ScheduledEmail_Email" />
+        <EntityTypeShape EntityType="Core.PersonEmail" Width="1.5" PointX="16" PointY="25" />
+        <AssociationConnector Association="Core.FK_PersonEmail_Email" />
+        <AssociationConnector Association="Core.FK_PersonEmail_EmailStatus" />
+        <AssociationConnector Association="Core.FK_PersonEmail_Person" />
+        <EntityTypeShape EntityType="Core.ZCOExportMap" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="Core.ZCOExportTemplate" Width="1.5" PointX="0.75" PointY="13" />
+        <EntityTypeShape EntityType="Core.ZCOExportTemplateMap" Width="1.5" PointX="3" PointY="9.75" />
+        <AssociationConnector Association="Core.FK_ZCOExportTemplateMap_ZCOExportMap" />
+        <AssociationConnector Association="Core.FK_ZCOExportTemplateMap_ZCOExportTemplate" />
+        <EntityTypeShape EntityType="Core.ZCOUserMap" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Core.Organization" Width="1.5" PointX="11.375" PointY="8.75" />
+        <EntityTypeShape EntityType="Core.AssessmentOption" Width="1.5" PointX="11.375" PointY="8.75" />
+        <EntityTypeShape EntityType="Core.AssessmentQuestion" Width="1.5" PointX="11.375" PointY="11.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

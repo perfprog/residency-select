@@ -1,0 +1,39 @@
+﻿@model PPI.Core.Domain.Entities.Organization
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Delete Organization</h2>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.OrganizationName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.OrganizationName)
+                </dd>
+
+            </dl>
+
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="alert alert-block alert-danger fade in">
+                    <h4><strong>ALERT!</strong> Are you sure you want to delete this organization?</h4>
+                    <div class="mt20 mb20">You will not be able to undo this action.  To delete the organization click "Delete".  To cancel this action click "Cancel"</div>
+                    @Html.ActionLink("Cancel", "Index", new { area = "" }, new { @class = "btn btn-default btn200" }) <input type="submit" value="Delete" class="btn btn-danger btn200" />
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+

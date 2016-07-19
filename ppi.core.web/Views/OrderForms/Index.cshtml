@@ -1,0 +1,97 @@
+﻿@model IEnumerable<PPI.Core.Domain.Entities.OrderForm>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="main-box">
+    <div class="main-box-body clearfix">
+        <header class="main-box-header clearfix">
+            <div class="filter-block pull-right">
+                <a href="@Url.Action("Create","OrderForms")" class="btn btn-primary btn200 pull-right">
+                    <i class="fa fa-plus-circle fa-lg"></i> Add OrderForm
+                </a>
+            </div>
+        </header>
+        <div>
+            <table class="table table-responsive">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderDate)
+                    </th>
+                    <th>
+                        Site Name
+                    </th>
+                    <th>
+                        Event Name
+                    </th>                                       
+                    <th>
+                        @Html.DisplayNameFor(model => model.StartDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </th>                    
+                    <th>
+                        Event Type
+                    </th>
+                    <th>
+                        Program Name
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderDate, "ShortDateTime")
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Site)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EventName)
+                        </td>                        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartDate, "ShortDateTime")
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndDate, "ShortDateTime")
+                        </td>                        
+                        <td>
+                            @item.EventType.NameResx.ResxValues.FirstOrDefault(m => m.CultureId == 1).Value
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Program.ProgramName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrderStatus.Name)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Edit", new { id = item.Id })" class="table-link success">
+                                <span class="fa-stack">
+                                    <i class="fa fa-square fa-stack-2x"></i>
+                                    <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                            @if (item.OrderStatusId == 1 && !User.IsInRole("J3PAdmin") && !User.IsInRole("SiteCordinator")) 
+                            {
+                            <a href="@Url.Action("Convert","Events", new { id=item.Id })" class="table-link">
+                                <span class="fa-stack">
+                                    <i class="fa fa-square fa-stack-2x"></i>
+                                    <i class="fa fa-arrow-circle-up fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                            }
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

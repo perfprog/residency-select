@@ -1,0 +1,50 @@
+﻿@model PPI.Core.Domain.Entities.ProgramSite
+
+@{
+    ViewBag.Title = "DeleteDepartment";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <div>
+            <h2>Delete Specialty Department</h2>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayName("DepartmentName")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Site.SiteName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Site.Organization.OrganizationName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Site.Organization.OrganizationName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("SpecialtyName")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Program.ProgramName)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="alert alert-block alert-danger fade in">
+                <h4><strong>ALERT!</strong> Are you sure you want to delete this department?</h4>
+                <div class="mt20 mb20">You will not be able to undo this action.  To delete the department click "Delete".  To cancel this action click "Cancel"</div>
+                <button type="button" class="btn btn-default btn200" onClick="javascript:window.history.back()">Back to Departments</button> <input type="submit" value="Delete Department" class="btn btn-danger btn200" />
+                </div>
+            }
+        </div>
+        </div>
+    </div>

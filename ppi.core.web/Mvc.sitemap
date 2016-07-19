@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="Dashboard" controller="Administration" action="Index">
+    <mvcSiteMapNode title="Administration" controller="Home" action="About">
+      <mvcSiteMapNode title="Participants" controller="People" action="#" >
+        <mvcSiteMapNode title="People" controller="People" action="Index" />
+        <mvcSiteMapNode title="People Upload" controller="People" action="Load"/>
+      </mvcSiteMapNode>
+       <mvcSiteMapNode title="Organization" controller="Organization" action="Index"/>
+      <mvcSiteMapNode title="Department" controller="Site" action="Index"/>
+      <mvcSiteMapNode title="Specialty" controller="Program" action="Index"/>
+      <mvcSiteMapNode title="Events"  controller="Events" action="#" >
+        <mvcSiteMapNode title="Events" controller="Events" action="Index"/>
+        <mvcSiteMapNode title="OES" controller="OrderForms" action="OESSetup"/>
+        <mvcSiteMapNode title="Event Requests" controller="OrderForms" action="ListEventRequests"/>
+      </mvcSiteMapNode>
+     
+      <mvcSiteMapNode title="Email" controller="Emails" action="#">
+        <mvcSiteMapNode title="Editor" controller="Emails" action="Cordinator"/>
+        <mvcSiteMapNode title="Send" controller="Emails" action="Send"/>
+        <mvcSiteMapNode title="Setup" controller="Emails" action="Index"/>        
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Hogan User Upload" controller="Hogan" action="HoganUsers"/>
+      <mvcSiteMapNode title="Users" controller="Account" action="Index">
+        <mvcSiteMapNode title="Add User" controller="Account" action="Register"/>  
+      </mvcSiteMapNode>      
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Reports" controller="Reports" action="#">
+      <mvcSiteMapNode title="Manage Text" controller="Reports" action="ManageText"/>
+      <mvcSiteMapNode title="Manage Hogan Data" controller="Reports" action="Index"/>
+      <mvcSiteMapNode title="Get Reports" controller="Reports" action="GetReports"/>
+      <mvcSiteMapNode title="Hogan Export for ZCO" controller="Hogan" action="ZCOExportConfig"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="Billing" controller="Billing" action="Index"/>
+  </mvcSiteMapNode>
+</mvcSiteMap>

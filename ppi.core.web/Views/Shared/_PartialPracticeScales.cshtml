@@ -1,0 +1,21 @@
+﻿@model  PPI.Core.Web.Models.ManageTextViewModel
+@if (Model.Scales != null && Model.Scales.Count() > 0)
+{
+    <label>Scales</label>
+    @Html.DropDownListFor(m => m.ScaleId, new SelectList(Model.Scales, "Id", "LabelName"), "Select Scales");
+    <div class="row">@Html.ActionLink("Modify", "ModifyText", null, new {@id = "ModifySubmit",  @class = "btn btn-primary btn-sm" })</div>
+
+
+    <script type="text/javascript">
+        $('#ModifySubmit').click(function () {        
+        var scaleid = $('#ScaleId').val();
+        var programid = @Model.ProgramId;
+        var reportid = @Model.ReportId;
+        var cultureid = @Model.CultureId;
+        var path = '@Url.Content("~/Administration/Reports/ModifyText")' + "?programid=" + programid + "&reportid=" + reportid + "&scaleid=" + scaleid + "&cultureid=" + cultureid            
+        $(this).attr("href", path);
+    });
+    </script>
+
+}
+

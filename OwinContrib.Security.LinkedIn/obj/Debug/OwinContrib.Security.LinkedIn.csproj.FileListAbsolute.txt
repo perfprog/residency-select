@@ -1,0 +1,9 @@
+E:\Residency\Source\ppi.core.web.11122015\OwinContrib.Security.LinkedIn\bin\Debug\OwinContrib.Security.LinkedIn.dll.config
+E:\Residency\Source\ppi.core.web.11122015\OwinContrib.Security.LinkedIn\bin\Debug\OwinContrib.Security.LinkedIn.dll
+E:\Residency\Source\ppi.core.web.11122015\OwinContrib.Security.LinkedIn\bin\Debug\OwinContrib.Security.LinkedIn.pdb
+E:\Residency\Source\ppi.core.web.11122015\OwinContrib.Security.LinkedIn\bin\Debug\Microsoft.Owin.dll
+E:\Residency\Source\ppi.core.web.11122015\OwinContrib.Security.LinkedIn\bin\Debug\Microsoft.Owin.Security.dll
+E:\Residency\Source\ppi.core.web.11122015\OwinContrib.Security.LinkedIn\bin\Debug\Newtonsoft.Json.dll
+E:\Residency\Source\ppi.core.web.11122015\OwinContrib.Security.LinkedIn\bin\Debug\Owin.dll
+E:\Residency\Source\ppi.core.web.11122015\OwinContrib.Security.LinkedIn\obj\Debug\OwinContrib.Security.LinkedIn.dll
+E:\Residency\Source\ppi.core.web.11122015\OwinContrib.Security.LinkedIn\obj\Debug\OwinContrib.Security.LinkedIn.pdb

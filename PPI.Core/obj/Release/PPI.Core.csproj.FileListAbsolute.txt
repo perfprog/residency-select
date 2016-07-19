@@ -1,0 +1,12 @@
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core\bin\Release\PPI.Core.dll
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core\bin\Release\PPI.Core.pdb
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core\bin\Release\PostSharp.dll
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core\bin\Release\PostSharp.xml
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core\obj\Release\PPI.Core.dll
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core\obj\Release\PPI.Core.pdb
+F:\ppi.core.web.11122015\PPI.Core\bin\Release\PPI.Core.dll
+F:\ppi.core.web.11122015\PPI.Core\bin\Release\PPI.Core.pdb
+F:\ppi.core.web.11122015\PPI.Core\bin\Release\PostSharp.dll
+F:\ppi.core.web.11122015\PPI.Core\bin\Release\PostSharp.xml
+F:\ppi.core.web.11122015\PPI.Core\obj\Release\PPI.Core.dll
+F:\ppi.core.web.11122015\PPI.Core\obj\Release\PPI.Core.pdb

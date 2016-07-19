@@ -1,0 +1,369 @@
+﻿@model PPI.Core.Web.Models.PersonViewModel
+@using PPI.Core.Web.HtmlHelpers
+
+@{
+    ViewBag.Title = "People";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var metaCandidates = Model.People.FirstOrDefault();
+}
+
+@if (Model.Stats != null)
+{
+<div>
+    <!--Upload Stats PopUP-->
+    <div tabindex="-1" class="modal fade" id="uploadStatsDlg" role="dialog" aria-hidden="true" aria-labelledby="uploadStatsDlgLabel" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content modal-sm" style="width:700px">
+                <div class="modal-header">
+                    <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                    <h4>Participant Upload Results</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="max-height:750px;overflow-y:auto">
+                        <table style="width:90%">
+
+                            @if (Model.Stats != null && Model.Stats.Count > 0)
+                            {
+                                foreach (PPI.Core.Web.Models.PersonUploadStats stats in Model.Stats)
+                                {
+                                    <tr>
+                                        <td style="width:20%">
+                                            <b>File Name:</b>
+                                        </td>
+                                        <td>
+                                            @stats.FileName
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="height:10px"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="width:20%">
+                                            Added Rows:
+                                        </td>
+                                        <td>
+                                            @stats.RowsAdded
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="height:20px"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:20%">
+                                            Updated Rows:
+                                        </td>
+                                        <td>
+                                            @stats.RowsUpdated
+                                        </td>
+                                    </tr>
+
+                                    if (stats.UpdatedPersons != null && stats.UpdatedPersons.Count > 0)
+                                    {
+                                        <tr>
+                                            <td colspan="2" style="height:20px"></td>
+                                        </tr>
+
+                                        foreach (PPI.Core.Web.Models.PersonUploadRecord item in stats.UpdatedPersons)
+                                        {
+                                            <tr>
+                                                <td colspan="2">
+                                                    @item.PersonOutput
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+
+                                    <tr>
+                                        <td colspan="2" style="height:20px"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="width:20%">
+                                            Failed Rows:
+                                        </td>
+                                        <td>
+                                            @stats.RowsFailedOutput
+                                        </td>
+                                    </tr>
+
+                                    if (stats.FailedPersons != null && stats.FailedPersons.Count > 0)
+                                    {
+                                        <tr>
+                                            <td colspan="2" style="height:20px"></td>
+                                        </tr>
+
+                                        foreach (PPI.Core.Web.Models.PersonUploadRecord item in stats.FailedPersons)
+                                        {
+                                            <tr>
+                                                @if (!item.ImportLevel)
+                                                {
+                                                    <td colspan="2">
+                                                        Row #@item.UploadRowNumber
+                                                        <br />
+
+                                                        &nbsp;Error: @item.ErrorMessage
+                                                        <br />
+                                                        &nbsp;Raw Data: @item.PersonOutput
+                                                        <br />
+                                                        <br />
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td colspan="2">
+
+                                                        &nbsp;Error: @item.ErrorMessage
+                                                        <br />
+                                                        <br />
+                                                    </td>
+                                                }
+                                            </tr>
+                                        }
+                                    }
+
+                                    <tr>
+                                        <td colspan="2" style="height:20px"></td>
+                                    </tr>
+                                }
+
+                            }
+
+                            <tr>
+                                <td colspan="2">
+                                    @*<div class="form-group pull-right" style="margin-top:25px">
+                            <div>
+                                <input type="button" id="uploadStatsCloseBtn" value="Close" class="btn btn-success btn-lg" />
+                            </div>
+                        </div>*@
+                                </td>
+                            </tr>
+                        </table>
+
+
+
+                        <div class="form-group pull-right" style="margin-top:25px">
+                            <div>
+                                <input type="button" id="uploadStatsCloseBtn" value="Close" class="btn btn-success btn-lg" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--end PopUp -->
+</div>
+}
+
+<div class="main-box">
+    <div class="main-box-body clearfix">
+        <header class="main-box-header clearfix">           
+                @using (Html.BeginForm("Index", "People"))
+                {
+                    <div class="row">
+                        <h2 class="pull-left">Participants</h2>
+                        <div class="form-group pull-right">
+                        <a href="@Url.Action("New","People")" class="btn btn-primary btn200 pull-right mt20 ml20">
+                                <i class="fa fa-plus-circle fa-lg"></i> Add Person
+                        </a> <a href="@Url.Action("Load","People")" class="btn btn-primary btn200 pull-right mt20">
+                            <i class="fa fa-upload fa-lg"></i> Upload
+                            </a>
+                               
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                @Html.TextBox("search", null, new { @class = "form-control", @placeholder = "Search Last Name, Email, AAMC, or HoganID", @ID = "searchsubmit" })
+                                <span class="input-group-addon"><i class="fa fa-search search-icon"></i></span>
+                            </div>                            
+                        </div>
+                        <div class="form-group text-right">
+                            <label for="eventFilter" class="col-md-2 control-label bold">Events</label>
+                            <div class="col-md-6">
+                                @Html.DropDownList("eventFilter", (SelectList)ViewBag.Events, new { @class = "form-control pull-right", onchange = "this.form.submit();" })
+                        </div>
+                    </div>
+                </div>
+                    <div class="pull-right">
+                        <ul class="list-inline mt10 mb10">                        
+                            Results Per Page
+                            @Html.PageSizeList(new List<string> { "10", "20", "50", "ALL" }, x => Url.Action("SetPageSize", new { pageSize = x, redirectTo = "Index", searchFilter=@Model.SearchString }))
+                        </ul>
+                    </div>
+                }    
+        </header>
+
+
+
+
+
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th class="col-md-1">
+                        @Html.DisplayNameFor(model => metaCandidates.Title)
+                    </th>
+                    <th class="col-md-2">
+                        @Html.DisplayNameFor(model => metaCandidates.FirstName)
+                    </th>
+                    <th class="col-md-2">
+                        @Html.DisplayNameFor(m => metaCandidates.LastName)
+                    </th>
+                    <th class="col-md-1">
+                        @Html.DisplayNameFor(m => metaCandidates.Gender)
+                    </th>
+                    <th class="col-md-1">
+                        ID Number/AAMC Number
+                    </th>
+                    <th class="col-md-2">
+                        @Html.DisplayNameFor(m => metaCandidates.PrimaryEmail)
+                    </th>
+                    <th class="col-md-1">
+                        Survey Type
+                    </th>
+                    <th class="col-md-1">
+                        @Html.DisplayNameFor(m => metaCandidates.J3P_Id)
+                    </th>
+                    <th class="col-md-1">
+                        @Html.DisplayNameFor(m => metaCandidates.Hogan_Id)
+                    </th>
+                    <th class="col-md-1">
+                        Status
+                    </th>
+                    <th class="col-md-2"></th>
+                </tr>
+
+                @foreach (var item in Model.People)
+                {
+                    <tr>
+                        <td style="font-size:12px;">
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AAMCNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PrimaryEmail)
+                        </td>  
+                        <td>
+                            @if (!string.IsNullOrWhiteSpace(item.J3P_Id))
+                            { @Html.DisplayName("J3P"); }
+                            else
+                            { @Html.DisplayName("Hogan"); }
+                        </td>                     
+                        <td>
+                            @Html.DisplayFor(modelItem => item.J3P_Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Hogan_Id)
+                        </td>
+                        <td>
+                           
+                            <div id="assessmentStatus">
+                                @if (string.IsNullOrWhiteSpace(item.J3P_Id))
+                                {
+                                    if (!string.IsNullOrWhiteSpace(item.HPICompletedDate))
+                                    {
+                                        <span title="@item.HPICompletedDate" class="label label-large HPI">HPI</span>
+                                    }
+                                    if (!string.IsNullOrWhiteSpace(item.HDSCompletedDate))
+                                    {
+                                        <span title="@item.HDSCompletedDate" class="label label-large HDS">HDS</span>
+                                    }
+                                    if (!string.IsNullOrWhiteSpace(item.MVPICompletedDate))
+                                    {
+                                        <span title="@item.MVPICompletedDate" class="label label-large MVPI">MVPI</span>
+                                    }
+                                }
+                            </div>
+                        </td>
+                        <td>
+                            <div class="groupbtn">
+                            <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-default btn-sm btn60">Edit</a>
+                            <a href="@Url.Action("Profile", new { id = item.Id })" class="btn btn-primary btn-sm btn60">Profile</a>
+                                @if (!User.IsInRole("SiteCordinator"))
+                                {
+                                    <a href="@Url.Action("Delete", new { id = item.Id, page = Model.PagingInfo.CurrentPage })" class="btn btn-danger btn-sm btn60" onclick="return confirm('You will not be able to do this action. Are you sure you wish to delete this Participant?\n\nClick \'OK\' to delete the participant.  Click \'Cancel\' to do nothing and close this alert.');">Delete</a>
+                                }                            
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <footer>
+    <div class="row">
+        <div class="ml20">
+            OF @Model.PagingInfo.TotalRecords
+        </div>
+    </div>
+            <div class="pagination">
+                <ul class="pagination">
+                    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x, search = Model.SearchString, eventFilter = Model.eventFilter }))
+                </ul>
+            </div>
+            <a href="@Url.Action("Export", "People", new { page = Model.PagingInfo.CurrentPage, search = Model.SearchString, eventFilter = Model.eventFilter})" class="btn btn-primary btn200 pull-right">
+                <i class="fa fa-plus-circle fa-lg"></i> Export to CSV
+            </a>
+        </footer>
+    </div>
+</div>
+
+
+        @section Scripts
+    {
+            <script type="text/javascript">
+                var opts = {
+                    lines: 12, // The number of lines to draw
+                    length: 7, // The length of each line
+                    width: 4, // The line thickness
+                    radius: 10, // The radius of the inner circle
+                    color: '#000', // #rgb or #rrggbb
+                    speed: 1, // Rounds per second
+                    trail: 60, // Afterglow percentage
+                    shadow: false, // Whether to render a shadow
+                    hwaccel: false // Whether to use hardware acceleration
+                };
+
+                $("ul[class='pagination'] li a").click(function () {
+                    $("#loading").fadeIn();
+                    var target = document.getElementById('loading');
+                    var spinner = new Spinner(opts).spin(target);
+                    $(target).data('spinner', spinner);
+                });
+
+                $("form").submit(function () {
+                    $("#loading").fadeIn();
+                    var target = document.getElementById('loading');
+                    var spinner = new Spinner(opts).spin(target);
+                    $(target).data('spinner', spinner);
+                });
+
+                $(document).ready(function () {                    
+                    if ($('#uploadStatsDlg').length > 0) {
+                        $('#uploadStatsDlg').modal('show');
+                    }                    
+                });
+
+                $("#uploadStatsCloseBtn").click(function () {
+                    $('#uploadStatsDlg').modal('hide');
+                });
+
+            </script>
+        }
+

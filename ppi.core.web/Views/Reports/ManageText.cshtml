@@ -1,0 +1,102 @@
+﻿@model PPI.Core.Web.Models.ManageTextViewModel
+@section AddToHead{
+    <link href="@Url.Content("~/Content/Libraries/select2.css")" rel="stylesheet" type="text/css" />
+}
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+                <div class="main-box show-grid clearfix">
+                    <header class="main-box-header clearfix">
+                        <h2>Manage Report Text</h2>
+                    </header>
+                    <div class="main-box-body clearfix">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="main-box clearfix">
+                                    <div class="main-box-body clearfix">
+                                        <div class="row">
+
+                                            <div class="form-group">
+                                                @Html.Partial("_PartialManagePrograms", Model)
+                                            </div>
+                                            <div class="form-group">
+                                                <div id="Reports">
+                                                    @Html.Partial("_PartialPracticeReports", Model)
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div id="Scales">
+                                                    @Html.Partial("_PartialPracticeScales", Model)
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Select Language</label>
+                                                <select style="width:300px" id="sel24">
+                                                    <option value="1">us-EN</option>
+                                                    <option value="2">ca-FR</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+
+
+            @section Scripts
+    {
+                <script src="~/Scripts/Plugin/moment.min.js"></script>
+                <script src="~/Scripts/Plugin/select2.min.js"></script>
+                <script src="~/Scripts/Plugin/hogan.js"></script>
+                <script src="~/Scripts/Plugin/jquery.maskedinput.min.js"></script>
+
+                <script>
+                    $(function ($) {
+                        //nice select boxes
+                        $('#Report').select2();
+                        $('#Programs').select2();
+                        $('#sel22').select2();
+                        $('#sel23').select2();
+                        $('#sel24').select2();
+
+                        $('#sel2Multi').select2({
+                            placeholder: 'Select',
+                            allowClear: true
+                        });
+
+                        $('#sel2Multi2').select2({
+                            placeholder: 'Select',
+                            allowClear: true
+                        });
+                        $('#sel2Multi3').select2({
+                            placeholder: 'Select',
+                            allowClear: true
+                        });
+                    });
+
+
+                    $(document).ready($(function () {
+                        $('#ProgramId').change(function () {
+                            $(this).parents('form').submit();
+                        });
+                    }));
+
+
+                    $("form[id$='ReportForm']").submit(function () {
+                        $.ajax({
+                            url: $(this).attr('action'),
+                            type: 'post',
+                            data: $(this).serialize(),
+                            success: function (response) {
+                                $('#Reports').html(response);
+                            }
+                        });
+                        return false;
+                    });
+                </script>
+            }

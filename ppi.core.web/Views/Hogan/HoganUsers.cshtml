@@ -1,0 +1,68 @@
+﻿@model PPI.Core.Web.Models.HoganUsersViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <div class="col-md-4">            
+            <h2>New Hogan Users for Select Program</h2>
+            <br />
+            <form action="/Administration/Hogan/UploadFiles" method="post" enctype="multipart/form-data">
+                 <div class="alert alert-info">
+                    <i class="fa fa-info-circle fa-fw fa-lg"></i>
+                    <strong>Sample Upload File</strong><br /><br />
+                    <a href=""~/Uploadfiles/HoganUsers.csv"><label><i class="fa fa-file-excel-o fa-2x"></i></label>  View and download a sample upload file.</a>
+                </div>
+                <div class="form-group">
+                    <h2>Select Program and File:</h2>
+                    <br />
+                    @Html.DropDownList("ProgramId")
+                </div>
+                <input type="file" name="file" id="file" multiple placeholder="Select 1 or multiple files" />
+                <input type="submit" name="submit" class="btn btn-primary btn200 mt20" value="Submit" />
+            </form>
+
+        </div>
+        <div class="col-md-4">
+            <h2>Availible Hogan Codes</h2>
+            <br />
+            <ul class="list-group">
+                @foreach (var item in Model.HoganPrograms)
+                {
+                    <li class="list-group-item">
+                        <span class="badge badge-primary" style="width:40px; font-size:14px;">@item.Count</span>
+                        @item.ProgramName
+                    </li>                    
+                }
+            </ul>
+            
+        </div>
+        </div>
+    </div>
+
+        @section Scripts
+    {
+            <script type="text/javascript">
+                var opts = {
+                    lines: 12, // The number of lines to draw
+                    length: 7, // The length of each line
+                    width: 4, // The line thickness
+                    radius: 10, // The radius of the inner circle
+                    color: '#000', // #rgb or #rrggbb
+                    speed: 1, // Rounds per second
+                    trail: 60, // Afterglow percentage
+                    shadow: false, // Whether to render a shadow
+                    hwaccel: false // Whether to use hardware acceleration
+                };
+
+                $(document).ready(function () {
+                    $('form').submit(function () {
+                        $("#loading").fadeIn();
+                        var target = document.getElementById('loading');
+                        var spinner = new Spinner(opts).spin(target);
+                        $(target).data('spinner', spinner);
+                    });
+                });
+
+            </script>
+        }

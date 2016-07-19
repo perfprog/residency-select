@@ -1,0 +1,16 @@
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\bin\Release\PPI.Core.Database.dacpac
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\bin\Release\PPI.Core.Database.dll
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\bin\Release\PPI.Core.Database.pdb
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\bin\Release\master.dacpac
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\obj\Release\Model.xml
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\obj\Release\refactor.xml
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\obj\Release\postdeploy.sql
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\obj\Release\predeploy.sql
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\obj\Release\PPI.Core.Database.dll
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\obj\Release\PPI.Core.Database.pdb
+F:\ppi.core.web.11122015\PPI.Core.Database\bin\Release\PPI.Core.Database.dacpac
+F:\ppi.core.web.11122015\PPI.Core.Database\bin\Release\PPI.Core.Database.dll
+F:\ppi.core.web.11122015\PPI.Core.Database\bin\Release\PPI.Core.Database.pdb
+F:\ppi.core.web.11122015\PPI.Core.Database\bin\Release\master.dacpac
+F:\ppi.core.web.11122015\PPI.Core.Database\obj\Release\PPI.Core.Database.dll
+F:\ppi.core.web.11122015\PPI.Core.Database\obj\Release\PPI.Core.Database.pdb

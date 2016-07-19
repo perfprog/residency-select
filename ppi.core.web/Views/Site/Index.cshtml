@@ -1,0 +1,81 @@
+﻿
+@model IEnumerable<PPI.Core.Domain.Entities.Site>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <div class="row">
+            <h2 class="pull-left">Departments</h2>
+            <div class="form-group pull-right">
+                <a href="@Url.Action("Create", "Site")" class="btn btn-primary btn200 pull-right mt20"><i class="fa fa-plus-circle fa-lg"></i> Add Department</a>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table table-responsive">
+                <tr>
+                    <th class="col-md-3">
+                         @Html.DisplayName("DepartmentName")
+                    </th>
+                    <th class="col-md-3">
+                        @Html.DisplayNameFor(model => model.Organization.OrganizationName)
+                    </th>
+                    <th class="col-md-3">
+                        @Html.DisplayNameFor(model => model.FriendlyName)
+                    </th>
+                    <th class="col-md-1">
+                        @Html.DisplayNameFor(model => model.BrandingColor)
+                    </th>
+                    <th class="col-md-1">
+                        @Html.DisplayNameFor(model => model.BrandingLogo)
+                    </th>
+                    <th class="col-md-1">
+                        @Html.DisplayNameFor(model => model.BrandingBackground)
+                    </th>
+                    <th class="col-md-1"></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="font-size:12px;">
+                            @Html.DisplayFor(modelItem => item.SiteName)
+                        </td>
+                        <td >
+                            @Html.DisplayFor(modelItem => item.Organization.OrganizationName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FriendlyName)
+                        </td>
+                        <td>
+                            <div class="profile" style="background-color:@item.BrandingColor;">
+                                @Html.DisplayFor(modelItem => item.BrandingColor)
+                            </div>
+                        </td>
+                        <td>
+                            @if (item.BrandingLogo != null)
+                            {
+                                <img src="data:image;base64,@System.Convert.ToBase64String(item.BrandingLogo)" height="50px" width="150px" />
+                            }
+                        </td>
+                        <td>
+                            @if (item.BrandingBackground != null)
+                            {
+                                <img src="data:image;base64,@System.Convert.ToBase64String(item.BrandingBackground)" height="50px" width="150px" />
+                            }
+                        </td>
+                        <td>
+                            <div class="groupbtn text-right">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-default btn-sm btn60" })
+                                <!--@Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-sm btn60" })-->
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm btn60" })
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

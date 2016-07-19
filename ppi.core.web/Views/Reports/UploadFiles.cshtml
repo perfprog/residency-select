@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PPI.Core.Web.Models.UploadFileModel>
+
+@{
+    ViewBag.Title = "UploadFiles";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>UploadFiles</h2>
+        <br />
+        <div class="row">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Length)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SuccessfullCount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FailedCount)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Length)
+                    </td>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.SuccessfullCount)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.FailedCount)
+                    </th>
+                </tr>
+            }
+
+        </table>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.ActionLink("Back to Reports", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
+

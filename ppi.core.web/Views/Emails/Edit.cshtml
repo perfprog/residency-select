@@ -1,0 +1,106 @@
+﻿@model PPI.Core.Domain.Entities.Email
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <div class="row">
+        <h2>Edit Email</h2>
+        <hr />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.EmailTypeId)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EventId, "EventId", htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("EventId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EventId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DefaultFrom, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DefaultFrom, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DefaultFrom, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Introduction, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Introduction, new { @class = "form-control ckeditor", @rows = "5" })
+                        @Html.ValidationMessageFor(model => model.Introduction, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Closing, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Closing, new { @class = "form-control ckeditor", @rows = "5" })
+                        @Html.ValidationMessageFor(model => model.Closing, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.ActionLink("Back to Emails", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })
+                        <input type="submit" value="Save" class="btn btn-success btn200" onclick="javascript:return validate();" />
+                    </div>
+                </div>
+
+            </div>
+        }
+
+        </div>
+        </div>
+    </div>
+
+@section Scripts
+{
+<script src="~/Scripts/Plugin/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.config.toolbar = [
+['Bold', 'Italic', 'Underline', 'StrikeThrough', '-', 'TextColor', 'FontSize', '-', 'NumberedList', 'BulletedList', '-', 'Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', '-', 'Outdent', 'Indent', '-', 'spellchecker'],
+    ];
+</script>
+
+
+
+<script type="text/javascript">
+
+    function validate() {
+
+        if (!document.getElementById('DefaultFrom').value) {
+            alert('Please enter a Default From Email Address for this email.');
+            document.getElementById('DefaultFrom').focus();
+            return false;
+        } 
+
+        if (!document.getElementById('Subject').value) {
+            alert('Please enter a Subject for this email.');
+            document.getElementById('Subject').focus();
+            return false;
+        }
+
+    }
+
+</script>
+
+}

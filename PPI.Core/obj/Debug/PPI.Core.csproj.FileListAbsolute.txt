@@ -1,0 +1,6 @@
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core\bin\Debug\PPI.Core.dll
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core\bin\Debug\PPI.Core.pdb
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core\bin\Debug\PostSharp.dll
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core\bin\Debug\PostSharp.xml
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core\obj\Debug\PPI.Core.dll
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core\obj\Debug\PPI.Core.pdb

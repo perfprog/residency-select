@@ -1,0 +1,27 @@
+First Time Deployment;
+
+
+IIS:  Create Site and Applicaiton Pools
+Create new Site, and Applicaiton pool default settings
+Enable WebDev Deploy on the site using the administrator
+Give Permissions to Uploadfiles folder to you applicaion pool user.
+
+
+
+
+Sql Server:
+Create deployadmin SQL Server as account  Add the to dbcreator fix server role
+Create blank db  -- add to security  / give dbo to the permission
+Exec: Staging-Data.sql
+
+
+Create an user 'IIS APPPOOL\PPI.Core.Web'  [if you name the applicaiton pool diffrent it needs to match]
+give full access to this user and the ppi.core.domain, under the dbo schema.
+Manuall Setup the Admin Role as ID 1
+set a user to the admin in the AdminRoles Table
+
+
+
+Dont Forget Staging Data required for Setups
+
+Test w/ Vault

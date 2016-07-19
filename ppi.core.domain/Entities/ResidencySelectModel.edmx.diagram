@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8bd1c75d0cd441889e59df34ba7588c1" Name="Diagram1">
+        <EntityTypeShape EntityType="Residency_Select_Model.AspNetRole" Width="1.5" PointX="6" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.AspNetUserClaim" Width="2.125" PointX="10.5" PointY="46.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.AspNetUserLogin" Width="2.375" PointX="10.5" PointY="49" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.AspNetUser" Width="2.125" PointX="8.25" PointY="46.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.AssessmentQuestion" Width="1.75" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.AssessmentQuestionOption" Width="1.625" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.Culture" Width="1.5" PointX="0.75" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.Email" Width="1.5" PointX="5.25" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.EmailStatus" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.EmailType" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.EventPracticeReport" Width="1.5" PointX="5.375" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.EventStatus" Width="1.5" PointX="3" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.EventType" Width="1.5" PointX="3" PointY="28.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.HoganField" Width="1.5" PointX="3" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.HoganMVPI" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.HoganUserInfo" Width="1.5" PointX="3" PointY="46.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.Language" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.Manual_Hogan_Import" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.OrderForm" Width="2.125" PointX="8.25" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.OrderFormPracticeReport" Width="2.75" PointX="13.5" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.OrderStatus" Width="1.5" PointX="6" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.Organization" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.Person" Width="2.625" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.PersonAssessment" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.PersonEmail" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.PersonEvent" Width="1.5" PointX="7.5" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.PersonPracticeReport" Width="1.5" PointX="10.5" PointY="36" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.PracticeCategory" Width="1.5" PointX="9" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.PracticeCategoryParagraphs" Width="1.5" PointX="8.25" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.PracticeCategoryScale" Width="1.5" PointX="8.25" PointY="36.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.PracticeLevel" Width="1.5" PointX="9" PointY="43.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.PracticeParagraphs" Width="1.5" PointX="5.25" PointY="37.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.PracticeReport" Width="3" PointX="1.5" PointY="35.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.PracticeScale" Width="1.5" PointX="11.25" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.PracticeScaleReport" Width="1.5" PointX="13.5" PointY="36.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.PracticeText" Width="2.375" PointX="2.125" PointY="42.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.PracticeTextOption" Width="2.375" PointX="5.25" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.Program" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.ProgramPracticeReports" Width="1.5" PointX="8.25" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.ProgramSiteHoganMVPI" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.ReplacementExpression" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.Resx" Width="1.5" PointX="0.75" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.ResxValue" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.ScheduledEmail" Width="1.5" PointX="7.5" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.ScheduledEmailPerson" Width="2.625" PointX="9.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.Site" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.ZCOExportMap" Width="2" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.ZCOExportTemplate" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.ZCOExportTemplateMap" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.ZCOUserMap" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.vDashboard" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Residency_Select_Model.vPersonBySite" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="Residency_Select_Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PersonPracticeReport_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_ResxValue_Culture" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_Email_EmailType" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PersonEmail_Email" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_ScheduledEmail_Email" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_EmailStatus_Resx" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PersonEmail_EmailStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_EmailType_Resx" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_EventPracticeReport_IntroductionResx" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_EventPracticeReport_IntroductionThreeResx" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_EventPracticeReport_IntroductionTwoResx" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_EventPracticeReport_PracticeReport" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_EventPracticeReport_TitleResx" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_EventStatus_Resx" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_EventType_Resx" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OrderForm_EventType" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_HoganField_Resx" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_HoganField_Resx2" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeCategoryParagraphs_HoganField" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeCategoryScale_HoganField" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeScale_HoganField" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_HoganUserInfo_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OrderForm_OrderStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OrderForm_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OrderFormPracticeReport_OrderForm" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OrderFormPracticeReport_PracticeReport" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PersonEmail_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PersonEvent_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PersonPracticeReport_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_ScheduledEmailPerson_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PersonPracticeReport_PracticeReport" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeCategoryParagraphs_PracticeCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeCategoryScale_PracticeCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeScale_PracticeCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeCategoryScale_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeScale_PracticeLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeParagraphs_PracticeReport" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeReport_IntroductionResx" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeReport_IntroductionThreeResx" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeReport_IntroductionTwoResx" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeReport_Resx" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeScaleReport_PracticeReport" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_ProgramPracticeReports_PracticeReport" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeScale_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeScaleReport_PracticeScale" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeScaleReport_PracticeText" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeScaleReport_PracticeText2" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeText_PracticeText" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeText_Text" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeTextOption_AlternativePracticeText" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PracticeTextOption_PracticeText" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_ProgramPracticeReports_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_ResxValue_Resx" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_ScheduledEmailPerson_ScheduledEmail" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_ZCOExportTemplateMap_ZCOExportMap" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.FK_ZCOExportTemplateMap_ZCOExportTemplate" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="Residency_Select_Model.vDashboardPerson" />
+        <AssociationConnector Association="Residency_Select_Model.vPersonBySitePerson" />
+        <EntityTypeShape EntityType="Residency_Select_Model.ProgramSite" Width="2.25" PointX="3" PointY="9.875" />
+        <AssociationConnector Association="Residency_Select_Model.FK_ResidencyProgramSitess_Program" />
+        <AssociationConnector Association="Residency_Select_Model.FK_ProgramSiteHoganMVPI_ResidencyProgramHospitals" />
+        <AssociationConnector Association="Residency_Select_Model.FK_ResidencyProgramSites_Site" />
+        <EntityTypeShape EntityType="Residency_Select_Model.SiteUser" Width="1.5" PointX="11.5" PointY="25" />
+        <AssociationConnector Association="Residency_Select_Model.FK_SiteUsers_AspNetUsers1" />
+        <AssociationConnector Association="Residency_Select_Model.FK_SiteUsers_Site1" />
+        <EntityTypeShape EntityType="Residency_Select_Model.AssessmentResponseQuestionOption" Width="1.5" PointX="13.375" PointY="21" />
+        <AssociationConnector Association="Residency_Select_Model.FK_AssessmentResponseQuestionOption_AssessmentQuestion" />
+        <AssociationConnector Association="Residency_Select_Model.FK_AssessmentResponseQuestionOption_AssessmentQuestionOption" />
+        <EntityTypeShape EntityType="Residency_Select_Model.SurveyType" Width="1.5" PointX="12.375" PointY="0.875" />
+        <AssociationConnector Association="Residency_Select_Model.FK_Site_Organization" />
+        <EntityTypeShape EntityType="Residency_Select_Model.AssessmentResponse" Width="1.5" PointX="6.375" PointY="52" />
+        <AssociationConnector Association="Residency_Select_Model.FK_AssessmentResponse_Person" />
+        <AssociationConnector Association="Residency_Select_Model.FK_AssessmentResponseQuestionOption_AssessmentResponse" />
+        <EntityTypeShape EntityType="Residency_Select_Model.EventNotBillableReason" Width="1.5" PointX="3" PointY="50.25" />
+        <EntityTypeShape EntityType="Residency_Select_Model.EventVGSpecialty" Width="1.5" PointX="12.375" PointY="3.875" />
+        <EntityTypeShape EntityType="Residency_Select_Model.OESPracticeReport" Width="1.5" PointX="20.875" PointY="29.25" />
+        <EntityTypeShape EntityType="Residency_Select_Model.OESSchedule" Width="1.5" PointX="20.875" PointY="21.125" />
+        <EntityTypeShape EntityType="Residency_Select_Model.OESSetup" Width="1.5" PointX="18.625" PointY="19.125" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OESSetup_AspNetUsers" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OESSetup_EventNotBillableReason" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OESSetup_EventType" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OESSetup_EventVGSpecialty" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OESPracticeReport_OESSetup" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OESPracticeReport_PracticeReport" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OESSchedule_OESSetup" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OESSetup_OrderStatus" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OESSetup_Organization" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OESSetup_Program" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OESSetup_Site" />
+        <AssociationConnector Association="Residency_Select_Model.FK_OESSetup_SurveyType" />
+        <EntityTypeShape EntityType="Residency_Select_Model.Event" Width="2.75" PointX="18.625" PointY="13.125" />
+        <AssociationConnector Association="Residency_Select_Model.FK_Email_Event" />
+        <AssociationConnector Association="Residency_Select_Model.FK_Event_EventStatus" />
+        <AssociationConnector Association="Residency_Select_Model.FK_Event_EventType" />
+        <AssociationConnector Association="Residency_Select_Model.FK_Event_ProgramSites" />
+        <AssociationConnector Association="Residency_Select_Model.FK_Event_SurveyType" />
+        <AssociationConnector Association="Residency_Select_Model.FK_EventPracticeReport_Event" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PersonEvent_Event" />
+        <AssociationConnector Association="Residency_Select_Model.FK_PersonPracticeReport_Event" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

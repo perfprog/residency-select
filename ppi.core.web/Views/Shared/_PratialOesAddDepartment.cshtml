@@ -1,0 +1,70 @@
+﻿@model PPI.Core.Domain.Entities.Site
+<form enctype="multipart/form-data">
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.OrganizationId, new { id = "DepartmentOrganizationId" })
+
+        <div class="row">
+            @Html.Label("OrgnizationName", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+            <div class="col-md-7">
+                @Html.Editor("DeptOrgnizationName", new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+
+            </div>
+        </div>
+        <div class="row">
+            @Html.Label("DepartmentName", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+            <div class="col-md-7">
+                @Html.EditorFor(model => model.SiteName, new { id = "SiteName", htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SiteName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.FriendlyName, htmlAttributes: new { @class = "control-label col-md-5 bold" })
+            <div class="col-md-7">
+                @Html.EditorFor(model => model.FriendlyName, new { id = "FriendlyName", htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FriendlyName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.BrandingColor, htmlAttributes: new { @class = "control-label col-md-5 bold" })
+            <div class="col-md-7">
+                @Html.EditorFor(model => model.BrandingColor, new { htmlAttributes = new { @class = "form-control demo", id = "BrandingColor", @Value = "#009DDC" } })
+                @Html.ValidationMessageFor(model => model.BrandingColor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.BrandingLogo, htmlAttributes: new { @class = "control-label col-md-5 bold" })
+            <div class="col-md-7">
+                @if (@Model.BrandingLogo != null)
+                {
+                    <img src="data:image;base64,@System.Convert.ToBase64String(@Model.BrandingLogo)" height="50" width="150" />
+                }
+                <input type="file" name="File1" id="file1" />
+                @Html.ValidationMessageFor(model => model.BrandingLogo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(model => model.BrandingBackground, htmlAttributes: new { @class = "control-label col-md-5 bold" })
+            <div class="col-md-7">
+                @if (@Model.BrandingBackground != null)
+                {
+                    <img src="data:image;base64,@System.Convert.ToBase64String(@Model.BrandingBackground)" height="50" width="150" />
+                }
+                <input type="file" name="File2" id="file2" />
+                @Html.ValidationMessageFor(model => model.BrandingBackground, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.HiddenFor(model => model.BrandingBackgroundMimeType)
+        @Html.HiddenFor(model => model.BrandingLogoMimeType)
+        @Html.HiddenFor(model => model.BrandingBackground)
+        @Html.HiddenFor(model => model.BrandingLogo)
+
+
+    </div>
+</form>

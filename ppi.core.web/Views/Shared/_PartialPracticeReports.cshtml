@@ -1,0 +1,36 @@
+﻿@model  PPI.Core.Web.Models.ManageTextViewModel
+@if (Model.Reports != null && Model.Reports.Count() > 0)
+{
+    using (Ajax.BeginForm("SelectReport", "Reports", new AjaxOptions { UpdateTargetId = "Scales" }, new {id = "ScalesForm" }))
+    {
+        @Html.HiddenFor(m => m.ProgramId)
+        <label>Reports</label>
+        @Html.DropDownListFor(m => m.ReportId, new SelectList(Model.Reports, "Id", "Name"), "Select Report");
+
+    <script type="text/javascript">
+
+        $(document).ready($(function () {
+            $('#ReportId').change(function () {                
+                $(this).parents('form').submit();
+            });
+        }));
+
+        $("form[id$='ScalesForm']").submit(function () {            
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'post',
+                data: $(this).serialize(),
+                success: function (response) {
+                    $('#Scales').html(response);
+                }
+            });
+            return false;
+        });
+      
+    </script>
+
+    }
+}
+
+
+

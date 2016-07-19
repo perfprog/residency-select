@@ -1,0 +1,166 @@
+﻿@model PPI.Core.Web.Models.OrderFormEditViewModel
+@using PPI.Core.Web.HtmlHelpers
+@using PPI.Core.Web.Models;
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="main-box clearfix">
+    <div class="main-box-body">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-horizontal">
+                    <h2>OrderForm</h2>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.OrderForm.Id)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderForm.OrderDate, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.OrderForm.OrderDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OrderForm.OrderDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderForm.Site, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.OrderForm.Site, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OrderForm.Site, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderForm.ProgramId, "ProgramId", htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.OrderForm.ProgramId, (SelectList)ViewBag.ProgramId, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.OrderForm.ProgramId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderForm.EventName, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.OrderForm.EventName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OrderForm.EventName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderForm.EventDescription, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.OrderForm.EventDescription, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OrderForm.EventDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderForm.Billable, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.OrderForm.Billable, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.OrderForm.Billable, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderForm.SalesType, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.OrderForm.SalesType, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OrderForm.SalesType, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderForm.EventTypeId, "EventTypeId", htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.OrderForm.EventTypeId, (SelectList)ViewBag.EventTypeId, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.OrderForm.EventTypeId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderForm.StartDate, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.OrderForm.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OrderForm.StartDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderForm.EndDate, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.OrderForm.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OrderForm.EndDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderForm.ReviewDate, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.OrderForm.ReviewDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OrderForm.ReviewDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderForm.MatchDate, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.OrderForm.MatchDate, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OrderForm.MatchDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderForm.Placement, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.OrderForm.Placement, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OrderForm.Placement, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.OrderForm.OrderStatusId, "OrderStatusId", htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.OrderForm.OrderStatusId, (SelectList)ViewBag.OrderStatusId, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.OrderForm.OrderStatusId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            @Html.ActionLink("Back to Order Forms", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })
+                            <input type="submit" value="Save" class="btn btn-success btn200" />
+                        </div>
+                    </div>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="form-horizontal">
+                    <h2>Options</h2>
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            <h2>Select Reports</h2>
+                            <br />
+                            @Html.CheckBoxListFor("PracticeReportsIds", (List<CheckBoxModel>)ViewBag.Reports)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+        }
+            
+    </div>
+</div>
+            

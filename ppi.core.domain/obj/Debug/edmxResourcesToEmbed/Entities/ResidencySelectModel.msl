@@ -1,0 +1,924 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Residency_Select_ModelStoreContainer" CdmEntityContainer="ResidencySelect_Entities">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Residency_Select_Model.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="Residency_Select_Model.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="Residency_Select_Model.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Residency_Select_Model.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Culture">
+      <EntityTypeMapping TypeName="Residency_Select_Model.Culture">
+        <MappingFragment StoreEntitySet="Culture">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Email">
+      <EntityTypeMapping TypeName="Residency_Select_Model.Email">
+        <MappingFragment StoreEntitySet="Email">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EmailTypeId" ColumnName="EmailTypeId" />
+          <ScalarProperty Name="DefaultFrom" ColumnName="DefaultFrom" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Introduction" ColumnName="Introduction" />
+          <ScalarProperty Name="Closing" ColumnName="Closing" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailStatus">
+      <EntityTypeMapping TypeName="Residency_Select_Model.EmailStatus">
+        <MappingFragment StoreEntitySet="EmailStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NameResxId" ColumnName="NameResxId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailType">
+      <EntityTypeMapping TypeName="Residency_Select_Model.EmailType">
+        <MappingFragment StoreEntitySet="EmailType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NameResxId" ColumnName="NameResxId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventPracticeReport">
+      <EntityTypeMapping TypeName="Residency_Select_Model.EventPracticeReport">
+        <MappingFragment StoreEntitySet="EventPracticeReport">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="PracticeReportId" ColumnName="PracticeReportId" />
+          <ScalarProperty Name="ReportTitleResxId" ColumnName="ReportTitleResxId" />
+          <ScalarProperty Name="DefaultLogo" ColumnName="DefaultLogo" />
+          <ScalarProperty Name="DefaultLogoMimeType" ColumnName="DefaultLogoMimeType" />
+          <ScalarProperty Name="DefaultBackground" ColumnName="DefaultBackground" />
+          <ScalarProperty Name="DefaultBackgroundMimeType" ColumnName="DefaultBackgroundMimeType" />
+          <ScalarProperty Name="DefaultColor" ColumnName="DefaultColor" />
+          <ScalarProperty Name="IntroductionResxId" ColumnName="IntroductionResxId" />
+          <ScalarProperty Name="IntroductionTwoResxId" ColumnName="IntroductionTwoResxId" />
+          <ScalarProperty Name="IntroductionThreeResxId" ColumnName="IntroductionThreeResxId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventStatus">
+      <EntityTypeMapping TypeName="Residency_Select_Model.EventStatus">
+        <MappingFragment StoreEntitySet="EventStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NameResxId" ColumnName="NameResxId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventType">
+      <EntityTypeMapping TypeName="Residency_Select_Model.EventType">
+        <MappingFragment StoreEntitySet="EventType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NameResxId" ColumnName="NameResxId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoganField">
+      <EntityTypeMapping TypeName="Residency_Select_Model.HoganField">
+        <MappingFragment StoreEntitySet="HoganField">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="LabelName" ColumnName="LabelName" />
+          <ScalarProperty Name="StandardOrder" ColumnName="StandardOrder" />
+          <ScalarProperty Name="DefinitionTextResxId" ColumnName="DefinitionTextResxId" />
+          <ScalarProperty Name="BlurbTextResxId" ColumnName="BlurbTextResxId" />
+          <ScalarProperty Name="HoganCategory" ColumnName="HoganCategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoganMVPI">
+      <EntityTypeMapping TypeName="Residency_Select_Model.HoganMVPI">
+        <MappingFragment StoreEntitySet="HoganMVPI">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="LabelName" ColumnName="LabelName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoganUserInfo">
+      <EntityTypeMapping TypeName="Residency_Select_Model.HoganUserInfo">
+        <MappingFragment StoreEntitySet="HoganUserInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+          <ScalarProperty Name="Used" ColumnName="Used" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Language">
+      <EntityTypeMapping TypeName="Residency_Select_Model.Language">
+        <MappingFragment StoreEntitySet="Language">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manual_Hogan_Import">
+      <EntityTypeMapping TypeName="Residency_Select_Model.Manual_Hogan_Import">
+        <MappingFragment StoreEntitySet="Manual_Hogan_Import">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="Hogan_User_ID" ColumnName="Hogan_User_ID" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="HPIDate" ColumnName="HPIDate" />
+          <ScalarProperty Name="Valid" ColumnName="Valid" />
+          <ScalarProperty Name="Empathy" ColumnName="Empathy" />
+          <ScalarProperty Name="NotAnxious" ColumnName="NotAnxious" />
+          <ScalarProperty Name="NoGuilt" ColumnName="NoGuilt" />
+          <ScalarProperty Name="Calmness" ColumnName="Calmness" />
+          <ScalarProperty Name="EvenTempered" ColumnName="EvenTempered" />
+          <ScalarProperty Name="NoSomaticComplaint" ColumnName="NoSomaticComplaint" />
+          <ScalarProperty Name="Trusting" ColumnName="Trusting" />
+          <ScalarProperty Name="GoodAttachment" ColumnName="GoodAttachment" />
+          <ScalarProperty Name="Competitive" ColumnName="Competitive" />
+          <ScalarProperty Name="SelfConfidence" ColumnName="SelfConfidence" />
+          <ScalarProperty Name="NoDepression" ColumnName="NoDepression" />
+          <ScalarProperty Name="Leadership" ColumnName="Leadership" />
+          <ScalarProperty Name="Identity" ColumnName="Identity" />
+          <ScalarProperty Name="NoSocialAnxiety" ColumnName="NoSocialAnxiety" />
+          <ScalarProperty Name="LikesParties" ColumnName="LikesParties" />
+          <ScalarProperty Name="LikesCrowds" ColumnName="LikesCrowds" />
+          <ScalarProperty Name="ExperienceSeeking" ColumnName="ExperienceSeeking" />
+          <ScalarProperty Name="Exhibitionistic" ColumnName="Exhibitionistic" />
+          <ScalarProperty Name="Entertaining" ColumnName="Entertaining" />
+          <ScalarProperty Name="EasyToLiveWith" ColumnName="EasyToLiveWith" />
+          <ScalarProperty Name="Sensitive" ColumnName="Sensitive" />
+          <ScalarProperty Name="Caring" ColumnName="Caring" />
+          <ScalarProperty Name="LikesPeople" ColumnName="LikesPeople" />
+          <ScalarProperty Name="NoHostility" ColumnName="NoHostility" />
+          <ScalarProperty Name="Moralistic" ColumnName="Moralistic" />
+          <ScalarProperty Name="Mastery" ColumnName="Mastery" />
+          <ScalarProperty Name="Virtuous" ColumnName="Virtuous" />
+          <ScalarProperty Name="NotAutonomous" ColumnName="NotAutonomous" />
+          <ScalarProperty Name="NotSpontaneous" ColumnName="NotSpontaneous" />
+          <ScalarProperty Name="ImpulseControl" ColumnName="ImpulseControl" />
+          <ScalarProperty Name="AvoidsTrouble" ColumnName="AvoidsTrouble" />
+          <ScalarProperty Name="ScienceAbility" ColumnName="ScienceAbility" />
+          <ScalarProperty Name="Curiosity" ColumnName="Curiosity" />
+          <ScalarProperty Name="ThrillSeeking" ColumnName="ThrillSeeking" />
+          <ScalarProperty Name="IntellectualGames" ColumnName="IntellectualGames" />
+          <ScalarProperty Name="GeneratesIdeas" ColumnName="GeneratesIdeas" />
+          <ScalarProperty Name="Culture" ColumnName="Culture" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+          <ScalarProperty Name="MathAbility" ColumnName="MathAbility" />
+          <ScalarProperty Name="GoodMemory" ColumnName="GoodMemory" />
+          <ScalarProperty Name="Reading" ColumnName="Reading" />
+          <ScalarProperty Name="RValidity" ColumnName="RValidity" />
+          <ScalarProperty Name="RAdjustment" ColumnName="RAdjustment" />
+          <ScalarProperty Name="RAmbition" ColumnName="RAmbition" />
+          <ScalarProperty Name="RSociability" ColumnName="RSociability" />
+          <ScalarProperty Name="RInterpersonalSensitivity" ColumnName="RInterpersonalSensitivity" />
+          <ScalarProperty Name="RPrudence" ColumnName="RPrudence" />
+          <ScalarProperty Name="RInquisitive" ColumnName="RInquisitive" />
+          <ScalarProperty Name="RLearningApproach" ColumnName="RLearningApproach" />
+          <ScalarProperty Name="RServiceOrientation" ColumnName="RServiceOrientation" />
+          <ScalarProperty Name="RStressTolerance" ColumnName="RStressTolerance" />
+          <ScalarProperty Name="RReliability" ColumnName="RReliability" />
+          <ScalarProperty Name="RClericalPotential" ColumnName="RClericalPotential" />
+          <ScalarProperty Name="RSalesPotential" ColumnName="RSalesPotential" />
+          <ScalarProperty Name="RManagerialPotential" ColumnName="RManagerialPotential" />
+          <ScalarProperty Name="PValidity" ColumnName="PValidity" />
+          <ScalarProperty Name="PAdjustment" ColumnName="PAdjustment" />
+          <ScalarProperty Name="PAmbition" ColumnName="PAmbition" />
+          <ScalarProperty Name="PSociability" ColumnName="PSociability" />
+          <ScalarProperty Name="PInterpersonalSensitivity" ColumnName="PInterpersonalSensitivity" />
+          <ScalarProperty Name="PPrudence" ColumnName="PPrudence" />
+          <ScalarProperty Name="PInquisitive" ColumnName="PInquisitive" />
+          <ScalarProperty Name="PLearningApproach" ColumnName="PLearningApproach" />
+          <ScalarProperty Name="PServiceOrientation" ColumnName="PServiceOrientation" />
+          <ScalarProperty Name="PStressTolerance" ColumnName="PStressTolerance" />
+          <ScalarProperty Name="PReliability" ColumnName="PReliability" />
+          <ScalarProperty Name="PClericalPotential" ColumnName="PClericalPotential" />
+          <ScalarProperty Name="PSalesPotential" ColumnName="PSalesPotential" />
+          <ScalarProperty Name="PManagerialPotential" ColumnName="PManagerialPotential" />
+          <ScalarProperty Name="HDSDate" ColumnName="HDSDate" />
+          <ScalarProperty Name="RExcitable" ColumnName="RExcitable" />
+          <ScalarProperty Name="RSkeptical" ColumnName="RSkeptical" />
+          <ScalarProperty Name="RCautious" ColumnName="RCautious" />
+          <ScalarProperty Name="RReserved" ColumnName="RReserved" />
+          <ScalarProperty Name="RLeisurely" ColumnName="RLeisurely" />
+          <ScalarProperty Name="RBold" ColumnName="RBold" />
+          <ScalarProperty Name="RMischievous" ColumnName="RMischievous" />
+          <ScalarProperty Name="RColorful" ColumnName="RColorful" />
+          <ScalarProperty Name="RImaginative" ColumnName="RImaginative" />
+          <ScalarProperty Name="RDiligent" ColumnName="RDiligent" />
+          <ScalarProperty Name="RDutiful" ColumnName="RDutiful" />
+          <ScalarProperty Name="RUnlikeness" ColumnName="RUnlikeness" />
+          <ScalarProperty Name="PExcitable" ColumnName="PExcitable" />
+          <ScalarProperty Name="PSkeptical" ColumnName="PSkeptical" />
+          <ScalarProperty Name="PCautious" ColumnName="PCautious" />
+          <ScalarProperty Name="PReserved" ColumnName="PReserved" />
+          <ScalarProperty Name="PLeisurely" ColumnName="PLeisurely" />
+          <ScalarProperty Name="PBold" ColumnName="PBold" />
+          <ScalarProperty Name="PMischievous" ColumnName="PMischievous" />
+          <ScalarProperty Name="PColorful" ColumnName="PColorful" />
+          <ScalarProperty Name="PImaginative" ColumnName="PImaginative" />
+          <ScalarProperty Name="PDiligent" ColumnName="PDiligent" />
+          <ScalarProperty Name="PDutiful" ColumnName="PDutiful" />
+          <ScalarProperty Name="PUnlikeness" ColumnName="PUnlikeness" />
+          <ScalarProperty Name="MVPIDate" ColumnName="MVPIDate" />
+          <ScalarProperty Name="RAesthetic_Lifestyles" ColumnName="RAesthetic_Lifestyles" />
+          <ScalarProperty Name="RAesthetic_Beliefs" ColumnName="RAesthetic_Beliefs" />
+          <ScalarProperty Name="RAesthetic_Occupational_Prferences" ColumnName="RAesthetic_Occupational_Prferences" />
+          <ScalarProperty Name="RAesthetic_Aversions" ColumnName="RAesthetic_Aversions" />
+          <ScalarProperty Name="RAesthetic_Preferred_Associates" ColumnName="RAesthetic_Preferred_Associates" />
+          <ScalarProperty Name="RAffiliation_Lifestyles" ColumnName="RAffiliation_Lifestyles" />
+          <ScalarProperty Name="RAffiliation_Beliefs" ColumnName="RAffiliation_Beliefs" />
+          <ScalarProperty Name="RAffiliation_Occupational_Prferences" ColumnName="RAffiliation_Occupational_Prferences" />
+          <ScalarProperty Name="RAffiliation_Aversions" ColumnName="RAffiliation_Aversions" />
+          <ScalarProperty Name="RAffiliation_Preferred_Associates" ColumnName="RAffiliation_Preferred_Associates" />
+          <ScalarProperty Name="RAltruistic_Lifestyles" ColumnName="RAltruistic_Lifestyles" />
+          <ScalarProperty Name="RAltruistic_Beliefs" ColumnName="RAltruistic_Beliefs" />
+          <ScalarProperty Name="RAltruistic_Occupational_Prferences" ColumnName="RAltruistic_Occupational_Prferences" />
+          <ScalarProperty Name="RAltruistic_Aversions" ColumnName="RAltruistic_Aversions" />
+          <ScalarProperty Name="RAltruistic_Preferred_Associates" ColumnName="RAltruistic_Preferred_Associates" />
+          <ScalarProperty Name="RCommercial_Lifestyles" ColumnName="RCommercial_Lifestyles" />
+          <ScalarProperty Name="RCommercial_Beliefs" ColumnName="RCommercial_Beliefs" />
+          <ScalarProperty Name="RCommercial_Occupational_Prferences" ColumnName="RCommercial_Occupational_Prferences" />
+          <ScalarProperty Name="RCommercial_Aversions" ColumnName="RCommercial_Aversions" />
+          <ScalarProperty Name="RCommercial_Preferred_Associates" ColumnName="RCommercial_Preferred_Associates" />
+          <ScalarProperty Name="RHedonistic_Lifestyles" ColumnName="RHedonistic_Lifestyles" />
+          <ScalarProperty Name="RHedonistic_Beliefs" ColumnName="RHedonistic_Beliefs" />
+          <ScalarProperty Name="RHedonistic_Occupational_Prferences" ColumnName="RHedonistic_Occupational_Prferences" />
+          <ScalarProperty Name="RHedonistic_Aversions" ColumnName="RHedonistic_Aversions" />
+          <ScalarProperty Name="RHedonistic_Preferred_Associates" ColumnName="RHedonistic_Preferred_Associates" />
+          <ScalarProperty Name="RPower_Lifestyles" ColumnName="RPower_Lifestyles" />
+          <ScalarProperty Name="RPower_Beliefs" ColumnName="RPower_Beliefs" />
+          <ScalarProperty Name="RPower_Occupational_Prferences" ColumnName="RPower_Occupational_Prferences" />
+          <ScalarProperty Name="RPower_Aversions" ColumnName="RPower_Aversions" />
+          <ScalarProperty Name="RPower_Preferred_Associates" ColumnName="RPower_Preferred_Associates" />
+          <ScalarProperty Name="RRecognition_Lifestyles" ColumnName="RRecognition_Lifestyles" />
+          <ScalarProperty Name="RRecognition_Beliefs" ColumnName="RRecognition_Beliefs" />
+          <ScalarProperty Name="RRecognition_Occupational_Prferences" ColumnName="RRecognition_Occupational_Prferences" />
+          <ScalarProperty Name="RRecognition_Aversions" ColumnName="RRecognition_Aversions" />
+          <ScalarProperty Name="RRecognition_Preferred_Associates" ColumnName="RRecognition_Preferred_Associates" />
+          <ScalarProperty Name="RScientific_Lifestyles" ColumnName="RScientific_Lifestyles" />
+          <ScalarProperty Name="RScientific_Beliefs" ColumnName="RScientific_Beliefs" />
+          <ScalarProperty Name="RScientific_Occupational_Prferences" ColumnName="RScientific_Occupational_Prferences" />
+          <ScalarProperty Name="RScientific_Aversions" ColumnName="RScientific_Aversions" />
+          <ScalarProperty Name="RScientific_Preferred_Associates" ColumnName="RScientific_Preferred_Associates" />
+          <ScalarProperty Name="RSecurity_Lifestyles" ColumnName="RSecurity_Lifestyles" />
+          <ScalarProperty Name="RSecurity_Beliefs" ColumnName="RSecurity_Beliefs" />
+          <ScalarProperty Name="RSecurity_Occupational_Prferences" ColumnName="RSecurity_Occupational_Prferences" />
+          <ScalarProperty Name="RSecurity_Aversions" ColumnName="RSecurity_Aversions" />
+          <ScalarProperty Name="RSecurity_Preferred_Associates" ColumnName="RSecurity_Preferred_Associates" />
+          <ScalarProperty Name="RTradition_Lifestyles" ColumnName="RTradition_Lifestyles" />
+          <ScalarProperty Name="RTradition_Beliefs" ColumnName="RTradition_Beliefs" />
+          <ScalarProperty Name="RTradition_Occupational_Prferences" ColumnName="RTradition_Occupational_Prferences" />
+          <ScalarProperty Name="RTradition_Aversions" ColumnName="RTradition_Aversions" />
+          <ScalarProperty Name="RTradition_Preferred_Associates" ColumnName="RTradition_Preferred_Associates" />
+          <ScalarProperty Name="RAesthetic" ColumnName="RAesthetic" />
+          <ScalarProperty Name="RAffiliation" ColumnName="RAffiliation" />
+          <ScalarProperty Name="RAltruistic" ColumnName="RAltruistic" />
+          <ScalarProperty Name="RCommercial" ColumnName="RCommercial" />
+          <ScalarProperty Name="RHedonistic" ColumnName="RHedonistic" />
+          <ScalarProperty Name="RPower" ColumnName="RPower" />
+          <ScalarProperty Name="RRecognition" ColumnName="RRecognition" />
+          <ScalarProperty Name="RScientific" ColumnName="RScientific" />
+          <ScalarProperty Name="RSecurity" ColumnName="RSecurity" />
+          <ScalarProperty Name="RTradition" ColumnName="RTradition" />
+          <ScalarProperty Name="PAesthetic" ColumnName="PAesthetic" />
+          <ScalarProperty Name="PAffiliation" ColumnName="PAffiliation" />
+          <ScalarProperty Name="PAltruistic" ColumnName="PAltruistic" />
+          <ScalarProperty Name="PCommercial" ColumnName="PCommercial" />
+          <ScalarProperty Name="PHedonistic" ColumnName="PHedonistic" />
+          <ScalarProperty Name="PPower" ColumnName="PPower" />
+          <ScalarProperty Name="PRecognition" ColumnName="PRecognition" />
+          <ScalarProperty Name="PScientific" ColumnName="PScientific" />
+          <ScalarProperty Name="PSecurity" ColumnName="PSecurity" />
+          <ScalarProperty Name="PTradition" ColumnName="PTradition" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderForm">
+      <EntityTypeMapping TypeName="Residency_Select_Model.OrderForm">
+        <MappingFragment StoreEntitySet="OrderForm">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderStatusId" ColumnName="OrderStatusId" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="Site" ColumnName="Site" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
+          <ScalarProperty Name="Billable" ColumnName="Billable" />
+          <ScalarProperty Name="SalesType" ColumnName="SalesType" />
+          <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ReviewDate" ColumnName="ReviewDate" />
+          <ScalarProperty Name="MatchDate" ColumnName="MatchDate" />
+          <ScalarProperty Name="Placement" ColumnName="Placement" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderFormPracticeReport">
+      <EntityTypeMapping TypeName="Residency_Select_Model.OrderFormPracticeReport">
+        <MappingFragment StoreEntitySet="OrderFormPracticeReport">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderFormId" ColumnName="OrderFormId" />
+          <ScalarProperty Name="PracticeReportId" ColumnName="PracticeReportId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderStatus">
+      <EntityTypeMapping TypeName="Residency_Select_Model.OrderStatus">
+        <MappingFragment StoreEntitySet="OrderStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organization">
+      <EntityTypeMapping TypeName="Residency_Select_Model.Organization">
+        <MappingFragment StoreEntitySet="Organization">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Person">
+      <EntityTypeMapping TypeName="Residency_Select_Model.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="J3P_Id" ColumnName="J3P_Id" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="AAMCNumber" ColumnName="AAMCNumber" />
+          <ScalarProperty Name="PrimaryEmail" ColumnName="PrimaryEmail" />
+          <ScalarProperty Name="Hogan_Id" ColumnName="Hogan_Id" />
+          <ScalarProperty Name="Hogan_Password" ColumnName="Hogan_Password" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonAssessment">
+      <EntityTypeMapping TypeName="Residency_Select_Model.PersonAssessment">
+        <MappingFragment StoreEntitySet="PersonAssessment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="AssessmentId" ColumnName="AssessmentId" />
+          <ScalarProperty Name="AssessmentComplete" ColumnName="AssessmentComplete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonEmail">
+      <EntityTypeMapping TypeName="Residency_Select_Model.PersonEmail">
+        <MappingFragment StoreEntitySet="PersonEmail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="EmailStatusId" ColumnName="EmailStatusId" />
+          <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+          <ScalarProperty Name="EmailBody" ColumnName="EmailBody" />
+          <ScalarProperty Name="RetryCount" ColumnName="RetryCount" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="Origin" ColumnName="Origin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonEvent">
+      <EntityTypeMapping TypeName="Residency_Select_Model.PersonEvent">
+        <MappingFragment StoreEntitySet="PersonEvent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonPracticeReport">
+      <EntityTypeMapping TypeName="Residency_Select_Model.PersonPracticeReport">
+        <MappingFragment StoreEntitySet="PersonPracticeReport">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="PracticeReportId" ColumnName="PracticeReportId" />
+          <ScalarProperty Name="RunDate" ColumnName="RunDate" />
+          <ScalarProperty Name="AspNetUsersId" ColumnName="AspNetUsersId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PracticeCategory">
+      <EntityTypeMapping TypeName="Residency_Select_Model.PracticeCategory">
+        <MappingFragment StoreEntitySet="PracticeCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PracticeGroup" ColumnName="PracticeGroup" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PracticeCategoryParagraphs">
+      <EntityTypeMapping TypeName="Residency_Select_Model.PracticeCategoryParagraphs">
+        <MappingFragment StoreEntitySet="PracticeCategoryParagraphs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HoganFieldId" ColumnName="HoganFieldId" />
+          <ScalarProperty Name="PracticeCategoryId" ColumnName="PracticeCategoryId" />
+          <ScalarProperty Name="ParagraphGroup" ColumnName="ParagraphGroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PracticeCategoryScale">
+      <EntityTypeMapping TypeName="Residency_Select_Model.PracticeCategoryScale">
+        <MappingFragment StoreEntitySet="PracticeCategoryScale">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="PracticeCategoryId" ColumnName="PracticeCategoryId" />
+          <ScalarProperty Name="HoganFieldId" ColumnName="HoganFieldId" />
+          <ScalarProperty Name="LowerBound" ColumnName="LowerBound" />
+          <ScalarProperty Name="UpperBound" ColumnName="UpperBound" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PracticeLevel">
+      <EntityTypeMapping TypeName="Residency_Select_Model.PracticeLevel">
+        <MappingFragment StoreEntitySet="PracticeLevel">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PracticeParagraphs">
+      <EntityTypeMapping TypeName="Residency_Select_Model.PracticeParagraphs">
+        <MappingFragment StoreEntitySet="PracticeParagraphs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HoganFieldId" ColumnName="HoganFieldId" />
+          <ScalarProperty Name="ParagraphGroup" ColumnName="ParagraphGroup" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="PracticeReportId" ColumnName="PracticeReportId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PracticeReport">
+      <EntityTypeMapping TypeName="Residency_Select_Model.PracticeReport">
+        <MappingFragment StoreEntitySet="PracticeReport">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ReportTitle" ColumnName="ReportTitle" />
+          <ScalarProperty Name="ReportTitleResxId" ColumnName="ReportTitleResxId" />
+          <ScalarProperty Name="PracticeGroup" ColumnName="PracticeGroup" />
+          <ScalarProperty Name="DefaultLogo" ColumnName="DefaultLogo" />
+          <ScalarProperty Name="DefaultLogoMimeType" ColumnName="DefaultLogoMimeType" />
+          <ScalarProperty Name="DefaultBackground" ColumnName="DefaultBackground" />
+          <ScalarProperty Name="DefaultBackgroundMimeType" ColumnName="DefaultBackgroundMimeType" />
+          <ScalarProperty Name="DefaultColor" ColumnName="DefaultColor" />
+          <ScalarProperty Name="Introduction" ColumnName="Introduction" />
+          <ScalarProperty Name="IntroductionResxId" ColumnName="IntroductionResxId" />
+          <ScalarProperty Name="IntroductionTwo" ColumnName="IntroductionTwo" />
+          <ScalarProperty Name="IntroductionTwoResxId" ColumnName="IntroductionTwoResxId" />
+          <ScalarProperty Name="IntroductionThree" ColumnName="IntroductionThree" />
+          <ScalarProperty Name="IntroductionThreeResxId" ColumnName="IntroductionThreeResxId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PracticeScale">
+      <EntityTypeMapping TypeName="Residency_Select_Model.PracticeScale">
+        <MappingFragment StoreEntitySet="PracticeScale">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HoganFieldId" ColumnName="HoganFieldId" />
+          <ScalarProperty Name="PracticeCategoryId" ColumnName="PracticeCategoryId" />
+          <ScalarProperty Name="PracticeLevelId" ColumnName="PracticeLevelId" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="LowerBound" ColumnName="LowerBound" />
+          <ScalarProperty Name="UpperBound" ColumnName="UpperBound" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PracticeScaleReport">
+      <EntityTypeMapping TypeName="Residency_Select_Model.PracticeScaleReport">
+        <MappingFragment StoreEntitySet="PracticeScaleReport">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PracticeScaleId" ColumnName="PracticeScaleId" />
+          <ScalarProperty Name="PracticeReportId" ColumnName="PracticeReportId" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="SubOrder" ColumnName="SubOrder" />
+          <ScalarProperty Name="PracticeTextId" ColumnName="PracticeTextId" />
+          <ScalarProperty Name="InterviewPracticeTextId" ColumnName="InterviewPracticeTextId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PracticeText">
+      <EntityTypeMapping TypeName="Residency_Select_Model.PracticeText">
+        <MappingFragment StoreEntitySet="PracticeText">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TextResxId" ColumnName="TextResxId" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="IsIntroduction" ColumnName="IsIntroduction" />
+          <ScalarProperty Name="ParentPracticeTextId" ColumnName="ParentPracticeTextId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PracticeTextOption">
+      <EntityTypeMapping TypeName="Residency_Select_Model.PracticeTextOption">
+        <MappingFragment StoreEntitySet="PracticeTextOption">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PracticeTextId" ColumnName="PracticeTextId" />
+          <ScalarProperty Name="AlternativePracticeTextId" ColumnName="AlternativePracticeTextId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Program">
+      <EntityTypeMapping TypeName="Residency_Select_Model.Program">
+        <MappingFragment StoreEntitySet="Program">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgramPracticeReports">
+      <EntityTypeMapping TypeName="Residency_Select_Model.ProgramPracticeReports">
+        <MappingFragment StoreEntitySet="ProgramPracticeReports">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="PracticeReportId" ColumnName="PracticeReportId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgramSiteHoganMVPI">
+      <EntityTypeMapping TypeName="Residency_Select_Model.ProgramSiteHoganMVPI">
+        <MappingFragment StoreEntitySet="ProgramSiteHoganMVPI">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProgramSiteId" ColumnName="ProgramSiteId" />
+          <ScalarProperty Name="HoganFieldName" ColumnName="HoganFieldName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReplacementExpression">
+      <EntityTypeMapping TypeName="Residency_Select_Model.ReplacementExpression">
+        <MappingFragment StoreEntitySet="ReplacementExpression">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FindValue" ColumnName="FindValue" />
+          <ScalarProperty Name="Expression" ColumnName="Expression" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resx">
+      <EntityTypeMapping TypeName="Residency_Select_Model.Resx">
+        <MappingFragment StoreEntitySet="Resx">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataColumnDescription" ColumnName="DataColumnDescription" />
+          <ScalarProperty Name="DataColumnName" ColumnName="DataColumnName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResxValue">
+      <EntityTypeMapping TypeName="Residency_Select_Model.ResxValue">
+        <MappingFragment StoreEntitySet="ResxValue">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ResxId" ColumnName="ResxId" />
+          <ScalarProperty Name="CultureId" ColumnName="CultureId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScheduledEmail">
+      <EntityTypeMapping TypeName="Residency_Select_Model.ScheduledEmail">
+        <MappingFragment StoreEntitySet="ScheduledEmail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScheduledEmailPerson">
+      <EntityTypeMapping TypeName="Residency_Select_Model.ScheduledEmailPerson">
+        <MappingFragment StoreEntitySet="ScheduledEmailPerson">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ScheduledEmailId" ColumnName="ScheduledEmailId" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+          <ScalarProperty Name="Enabled" ColumnName="enabled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Site">
+      <EntityTypeMapping TypeName="Residency_Select_Model.Site">
+        <MappingFragment StoreEntitySet="Site">
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+          <ScalarProperty Name="FriendlyName" ColumnName="FriendlyName" />
+          <ScalarProperty Name="BrandingColor" ColumnName="BrandingColor" />
+          <ScalarProperty Name="BrandingLogo" ColumnName="BrandingLogo" />
+          <ScalarProperty Name="BrandingLogoMimeType" ColumnName="BrandingLogoMimeType" />
+          <ScalarProperty Name="BrandingBackground" ColumnName="BrandingBackground" />
+          <ScalarProperty Name="BrandingBackgroundMimeType" ColumnName="BrandingBackgroundMimeType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZCOExportMap">
+      <EntityTypeMapping TypeName="Residency_Select_Model.ZCOExportMap">
+        <MappingFragment StoreEntitySet="ZCOExportMap">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HoganColName" ColumnName="HoganColName" />
+          <ScalarProperty Name="ZCOColName" ColumnName="ZCOColName" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZCOExportTemplate">
+      <EntityTypeMapping TypeName="Residency_Select_Model.ZCOExportTemplate">
+        <MappingFragment StoreEntitySet="ZCOExportTemplate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZCOExportTemplateMap">
+      <EntityTypeMapping TypeName="Residency_Select_Model.ZCOExportTemplateMap">
+        <MappingFragment StoreEntitySet="ZCOExportTemplateMap">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ZCOExportTemplateId" ColumnName="ZCOExportTemplateId" />
+          <ScalarProperty Name="ZCOExportMapId" ColumnName="ZCOExportMapId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZCOUserMap">
+      <EntityTypeMapping TypeName="Residency_Select_Model.ZCOUserMap">
+        <MappingFragment StoreEntitySet="ZCOUserMap">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RSUser" ColumnName="RSUser" />
+          <ScalarProperty Name="ZCOUser" ColumnName="ZCOUser" />
+          <ScalarProperty Name="ZCOPwd" ColumnName="ZCOPwd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vDashboard">
+      <EntityTypeMapping TypeName="Residency_Select_Model.vDashboard">
+        <MappingFragment StoreEntitySet="vDashboard">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="HPIDate" ColumnName="HPIDate" />
+          <ScalarProperty Name="HDSDate" ColumnName="HDSDate" />
+          <ScalarProperty Name="MVPIDate" ColumnName="MVPIDate" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vPersonBySite">
+      <EntityTypeMapping TypeName="Residency_Select_Model.vPersonBySite">
+        <MappingFragment StoreEntitySet="vPersonBySite">
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="Residency_Select_Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="GetPracticeCategoryText" FunctionName="Residency_Select_Model.Store.GetPracticeCategoryText">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Residency_Select_Model.GetPracticeCategoryText_Result">
+          <ScalarProperty Name="UserScore" ColumnName="UserScore" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="HoganCategory" ColumnName="HoganCategory" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CatName" ColumnName="CatName" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="LowerBound1" ColumnName="LowerBound1" />
+          <ScalarProperty Name="UpperBound1" ColumnName="UpperBound1" />
+          <ScalarProperty Name="Color1" ColumnName="Color1" />
+          <ScalarProperty Name="LowerBound2" ColumnName="LowerBound2" />
+          <ScalarProperty Name="UpperBound2" ColumnName="UpperBound2" />
+          <ScalarProperty Name="Color2" ColumnName="Color2" />
+          <ScalarProperty Name="LowerBound3" ColumnName="LowerBound3" />
+          <ScalarProperty Name="UpperBound3" ColumnName="UpperBound3" />
+          <ScalarProperty Name="Color3" ColumnName="Color3" />
+          <ScalarProperty Name="LowerBound4" ColumnName="LowerBound4" />
+          <ScalarProperty Name="UpperBound4" ColumnName="UpperBound4" />
+          <ScalarProperty Name="Color4" ColumnName="Color4" />
+          <ScalarProperty Name="InterviewQuestion" ColumnName="InterviewQuestion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPracticeScaleParagraphText" FunctionName="Residency_Select_Model.Store.GetPracticeScaleParagraphText" />
+    <FunctionImportMapping FunctionImportName="GetPracticeScaleText" FunctionName="Residency_Select_Model.Store.GetPracticeScaleText">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Residency_Select_Model.GetPracticeScaleText_Result">
+          <ScalarProperty Name="UserScore" ColumnName="UserScore" />
+          <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+          <ScalarProperty Name="HoganFieldDefinition" ColumnName="HoganFieldDefinition" />
+          <ScalarProperty Name="HoganFieldBlurb" ColumnName="HoganFieldBlurb" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="LevelId" ColumnName="LevelId" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="SubOrder" ColumnName="SubOrder" />
+          <ScalarProperty Name="ParagraphGroup" ColumnName="ParagraphGroup" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="ProgramSites">
+      <EntityTypeMapping TypeName="Residency_Select_Model.ProgramSite">
+        <MappingFragment StoreEntitySet="ProgramSites">
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteUsers">
+      <EntityTypeMapping TypeName="Residency_Select_Model.SiteUser">
+        <MappingFragment StoreEntitySet="SiteUsers">
+          <ScalarProperty Name="AspNetUsersId" ColumnName="AspNetUsersId" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentQuestion">
+      <EntityTypeMapping TypeName="Residency_Select_Model.AssessmentQuestion">
+        <MappingFragment StoreEntitySet="AssessmentQuestion">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentQuestionOption">
+      <EntityTypeMapping TypeName="Residency_Select_Model.AssessmentQuestionOption">
+        <MappingFragment StoreEntitySet="AssessmentQuestionOption">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Option" ColumnName="Option" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentResponseQuestionOption">
+      <EntityTypeMapping TypeName="Residency_Select_Model.AssessmentResponseQuestionOption">
+        <MappingFragment StoreEntitySet="AssessmentResponseQuestionOption">
+          <ScalarProperty Name="AssessmentQuestionOptionId" ColumnName="AssessmentQuestionOptionId" />
+          <ScalarProperty Name="AssessmentQuestionId" ColumnName="AssessmentQuestionId" />
+          <ScalarProperty Name="AssessmentResponseId" ColumnName="AssessmentResponseId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SurveyType">
+      <EntityTypeMapping TypeName="Residency_Select_Model.SurveyType">
+        <MappingFragment StoreEntitySet="SurveyType">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentResponse">
+      <EntityTypeMapping TypeName="Residency_Select_Model.AssessmentResponse">
+        <MappingFragment StoreEntitySet="AssessmentResponse">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventNotBillableReason">
+      <EntityTypeMapping TypeName="Residency_Select_Model.EventNotBillableReason">
+        <MappingFragment StoreEntitySet="EventNotBillableReason">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventVGSpecialty">
+      <EntityTypeMapping TypeName="Residency_Select_Model.EventVGSpecialty">
+        <MappingFragment StoreEntitySet="EventVGSpecialty">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OESPracticeReport">
+      <EntityTypeMapping TypeName="Residency_Select_Model.OESPracticeReport">
+        <MappingFragment StoreEntitySet="OESPracticeReport">
+          <ScalarProperty Name="PracticeReportId" ColumnName="PracticeReportId" />
+          <ScalarProperty Name="OESSetupId" ColumnName="OESSetupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OESSchedule">
+      <EntityTypeMapping TypeName="Residency_Select_Model.OESSchedule">
+        <MappingFragment StoreEntitySet="OESSchedule">
+          <ScalarProperty Name="JETNeedByDate" ColumnName="JETNeedByDate" />
+          <ScalarProperty Name="CompositeNeedByDate" ColumnName="CompositeNeedByDate" />
+          <ScalarProperty Name="ReviewDate" ColumnName="ReviewDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="OESSetupId" ColumnName="OESSetupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OESSetup">
+      <EntityTypeMapping TypeName="Residency_Select_Model.OESSetup">
+        <MappingFragment StoreEntitySet="OESSetup">
+          <ScalarProperty Name="OrderStatusId" ColumnName="OrderStatusId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="SurveyTypeId" ColumnName="SurveyTypeId" />
+          <ScalarProperty Name="JETRequired" ColumnName="JETRequired" />
+          <ScalarProperty Name="CompositeRequired" ColumnName="CompositeRequired" />
+          <ScalarProperty Name="NoOfParticipants" ColumnName="NoOfParticipants" />
+          <ScalarProperty Name="VGSpecialtyId" ColumnName="VGSpecialtyId" />
+          <ScalarProperty Name="BDOpportunity" ColumnName="BDOpportunity" />
+          <ScalarProperty Name="NotBillableReasonId" ColumnName="NotBillableReasonId" />
+          <ScalarProperty Name="Billable" ColumnName="Billable" />
+          <ScalarProperty Name="DefaultEmail" ColumnName="DefaultEmail" />
+          <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Event">
+      <EntityTypeMapping TypeName="Residency_Select_Model.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="SurveyTypeId" ColumnName="SurveyTypeId" />
+          <ScalarProperty Name="ProgramSitesId" ColumnName="ProgramSitesId" />
+          <ScalarProperty Name="Billable" ColumnName="Billable" />
+          <ScalarProperty Name="Placement" ColumnName="Placement" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="EventStatusId" ColumnName="EventStatusId" />
+          <ScalarProperty Name="ReviewDate" ColumnName="ReviewDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

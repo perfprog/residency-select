@@ -1,0 +1,33 @@
+﻿@using PPI.Core.Web.Models;
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Manage Account";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>@ViewBag.Title.</h2>
+
+        <p class="text-success">@ViewBag.StatusMessage</p>
+        <div class="row">
+            <div class="col-md-12">
+                @if (ViewBag.HasLocalPassword)
+                {
+                    @Html.Partial("_ChangePasswordPartial")
+                }
+                else
+                {
+                    @Html.Partial("_SetPasswordPartial")
+                }
+
+                <section id="externalLogins">
+                    @Html.Action("RemoveAccountList")
+                    @Html.Partial("_ExternalLoginsListPartial", new { Action = "LinkLogin", ReturnUrl = ViewBag.ReturnUrl })
+                </section>
+            </div>
+        </div>
+        </div>
+    </div>
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

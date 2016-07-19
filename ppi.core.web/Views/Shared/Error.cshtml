@@ -1,0 +1,25 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h1 class="text-danger">Error.</h1>
+        <h2 class="text-danger">An error occurred while processing your request.</h2>
+    </div>
+
+@if (Model != null && (HttpContext.Current.IsDebuggingEnabled || User.IsInRole("Admin") || User.IsInRole("J3PAdmin")))        
+{        
+            @Model.Exception.Message
+            @Model.Exception.GetBaseException().Message
+
+            <div style="overflow:scroll">
+            <pre>
+            @Model.Exception.GetBaseException().StackTrace
+            </pre>
+            </div>    
+}
+    
+            </div>

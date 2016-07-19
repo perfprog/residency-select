@@ -1,0 +1,136 @@
+﻿@model PPI.Core.Web.Models.PersonLoadViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Load";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Participants Upload</h2>
+        <hr />
+        <p>
+            1.  PLEASE MAKE SURE THAT YOU ONLY USE THE TEMPLATE IN ITS EXISTING FORM WITHOUT MODIFYING IT. IF THE TEMPLATE IS NOT UPLOADED IN THE EXACT FORMAT IN A CSV FILE, YOUR UPLOAD WILL NOT COMPLETE
+            <br />
+            2.  IF A PARTICIPANT HAS BEEN ADDED TO SYSTEM BY ANOTHER PROGRAM/ORGANIZATION THE NOTIFIER WILL SHOW "UPDATED ROWS”
+            <br />
+            3.  PLEASE MAKE SURE YOU ARE UPLOADING YOUR LIST TO THE CORRECT EVENT
+        </p>
+        <p>Participant File Upload. Multiple files can be selected.</p>
+        <div class="form-horizontal ml20">
+            <form action="/Administration/People/ExecuteLoad" method="post" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <div class="col-md-1"> <h2>Event For:</h2></div>
+                    <div class="col-md-11 pt20">
+
+                        <div class="pull-left ">
+                            @Html.DropDownList("SelectedEventId", (SelectList)ViewData["EventList"])
+                        </div>
+
+                        <div class="pull-left plr20" id="divHogancodeCountlabel" style="display:none"> Availible Hogan Codes </div>
+                        <div id="hogancodeCount" class="badge badge-success pull-left" style="display:none"> </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info" id="HoganSampleFile" style="display:none">
+                    <i class="fa fa-info-circle fa-fw fa-lg"></i>
+                    <strong>Sample Upload File</strong><br /><br />
+                    <a href="~/Uploadfiles/People.csv"><label><i class="fa fa-file-excel-o fa-2x"></i></label>  View and download a sample upload file.</a>
+                </div>
+                <div class="alert alert-info" id="J3PSampleFile" style="display:none">
+                    <i class="fa fa-info-circle fa-fw fa-lg"></i>
+                    <strong>Sample Upload File</strong><br /><br />
+                    <a href="~/Uploadfiles/J3PPeople.csv"><label><i class="fa fa-file-excel-o fa-2x"></i></label>  View and download a sample upload file.</a>
+                </div>
+
+
+
+
+                <p>Browse to the file or files you want to upload and then click "Submit"</p>
+                <input type="file" name="file" id="file" multiple placeholder="select 1 or multiple files" />
+                <div class="mt20 mb20">
+                    <input type="submit" id="btnsubmit" name="submit" class="btn btn-primary btn200" value="Submit" />
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnsubmit").click(function () {
+                if (!document.getElementById('SelectedEventId').value) {
+                    alert('Please select Event.');
+                    document.getElementById('SelectedEventId').focus();
+                    return false;
+                }
+                else {
+
+                    $("#loading").fadeIn();
+                    var opts = {
+                        lines: 12, // The number of lines to draw
+                        length: 7, // The length of each line
+                        width: 4, // The line thickness
+                        radius: 10, // The radius of the inner circle
+                        color: '#000', // #rgb or #rrggbb
+                        speed: 1, // Rounds per second
+                        trail: 60, // Afterglow percentage
+                        shadow: false, // Whether to render a shadow
+                        hwaccel: false // Whether to use hardware acceleration
+                    };
+                    var target = document.getElementById('loading');
+                    var spinner = new Spinner(opts).spin(target);
+
+                }
+            });
+
+            $("#SelectedEventId").change(function () {
+                var selectedvalue = $("#SelectedEventId").val();
+
+
+                $.ajax({
+                    url: "@Url.Action("GetHoganCount")",
+                    data: { "SelectedProgramSiteEventId": selectedvalue },
+                    type: 'get',
+                    dataType: 'json',
+                    cache: false,
+                    success: function (response) {
+
+                        if (response.surveyType == "Hogan") {
+
+                            $("#divHoganId").show();
+                            $("#divHoganPwd").show();
+                            $("#divHogancodeCountlabel").show();
+                            $("#hogancodeCount").show();
+                            $("#hogancodeCount").html(response.hoganCount);
+
+                            $("#HoganSampleFile").show();
+                            $("#J3PSampleFile").hide();
+                        }
+                        else {
+
+                            $("#divHoganId").hide();
+                            $("#divHoganPwd").hide();
+                            $("#divHogancodeCountlabel").hide();
+                            $("#hogancodeCount").html("");
+                            $("#hogancodeCount").hide();
+
+                            $("#HoganSampleFile").hide();
+                            $("#J3PSampleFile").show();
+                        }
+                    },
+                    error: function (error) {
+                        //alert('Error');
+                    }
+                });
+            });
+        });
+
+
+
+
+    </script>
+}

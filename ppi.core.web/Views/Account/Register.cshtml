@@ -1,0 +1,63 @@
+﻿@model PPI.Core.Web.Models.RegisterViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Create New Account</h2>
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <hr />
+            @Html.ValidationSummary()
+            <div class="form-group">
+                @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label bold" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label bold" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label bold" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </div>
+            </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserRole, new { @class = "col-md-2 control-label bold" })
+        <div class="col-md-10">
+            @Html.DropDownList("UserRole", (SelectList)ViewData["UserRole"], "Select", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Site, new { @class = "col-md-2 control-label bold" })
+        <div class="col-md-10">
+            @Html.DropDownList("Site", (SelectList)ViewData["Site"], "Select Site for Site Cordinator Role", new { @class = "form-control", @data_val = "false" })
+        </div>
+    </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-success btn200" value="Register" />
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        <script>
+                                    
+        </script>
+
+
+
+        }

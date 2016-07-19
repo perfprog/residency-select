@@ -1,0 +1,9 @@
+﻿@model PPI.Core.Domain.Entities.PersonEmail
+
+@{
+    ViewBag.Title = "Email Preview";
+    Layout = "";
+}
+
+@Html.Raw(@Model.EmailBody)
+

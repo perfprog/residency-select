@@ -1,0 +1,80 @@
+﻿@model PPI.Core.Domain.Entities.Site
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Delete Department</h2>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt style="width:200px;">
+                    @Html.DisplayNameFor(model => model.Organization.OrganizationName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Organization.OrganizationName)
+                </dd>
+
+                <dt style="width:200px;">
+                    @Html.DisplayName("DeapartmentName")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SiteName)
+                </dd>
+
+                <dt style="width:200px;">
+                    @Html.DisplayNameFor(model => model.FriendlyName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FriendlyName)
+                </dd>
+
+                <dt style="width:200px;">
+                    @Html.DisplayNameFor(model => model.BrandingColor)
+                </dt>
+
+                <dd>
+                    <div class="profile" style="background-color:@Model.BrandingColor; width:150px; margin-left:20px;">
+                        @Html.DisplayFor(model => model.BrandingColor)
+                    </div>
+                </dd>
+
+                <dt style="width:200px;">
+                    @Html.DisplayNameFor(model => model.BrandingLogo)
+                </dt>
+
+                <dd>
+                    @if (@Model.BrandingLogo != null)
+                    {
+                        <img src="data:image;base64,@System.Convert.ToBase64String(@Model.BrandingLogo)" width="150px" title="@Html.DisplayFor(model => model.BrandingLogo)" />
+                    }
+                </dd>
+
+                <dt style="width:200px;">
+                    @Html.DisplayNameFor(model => model.BrandingBackground)
+                </dt>
+
+                <dd>
+                    @if (@Model.BrandingBackground != null)
+                    {
+                        <img src="data:image;base64,@System.Convert.ToBase64String(@Model.BrandingBackground)" width="150px" title="@Html.DisplayFor(model => model.BrandingBackground)" />
+                    }
+                </dd>
+
+            </dl>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="alert alert-block alert-danger fade in">
+                    <h4><strong>ALERT!</strong> Are you sure you want to delete this department?</h4>
+                    <div class="mt20 mb20">You will not be able to undo this action.  To delete the department click "Delete".  To cancel this action click "Cancel"</div>
+                    @Html.ActionLink("Cancel", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })  <input type="submit" value="Delete" class="btn btn-danger btn200" />
+                </div>
+            }
+        </div>
+    </div>
+</div>

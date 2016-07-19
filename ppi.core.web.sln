@@ -1,0 +1,96 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPI.Core.Web", "ppi.core.web\PPI.Core.Web.csproj", "{9D701E24-C7FD-4B0C-9D95-B5AD3770A33B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPI.Core.Web.Tests", "ppi.core.web.tests\PPI.Core.Web.Tests.csproj", "{4462A5F1-07E8-4A5F-AE8D-449D1C8C0942}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPI.Core.Domain", "ppi.core.domain\PPI.Core.Domain.csproj", "{5CC8374C-93D3-49A4-9178-34A414B24A79}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PPI.Core.Database", "PPI.Core.Database\PPI.Core.Database.sqlproj", "{DF04ADEB-B6FC-4B9A-89DC-876C31CAAD87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPI.Core", "PPI.Core\PPI.Core.csproj", "{5A5BE1D2-812F-4150-BF98-FC06D3B39AE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPI.Hogan.Service", "PPI.Hogan.Service\PPI.Hogan.Service.csproj", "{DC39E9EE-4727-4597-9521-F9CA8B87B51F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwinContrib.Security.LinkedIn", "OwinContrib.Security.LinkedIn\OwinContrib.Security.LinkedIn.csproj", "{02A64369-65EA-4821-ABCC-81947CD237FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPI.ScheduledEmailJob", "PPI.ScheduledEmailJob\PPI.ScheduledEmailJob.csproj", "{BA1B6B9A-0466-4884-B66D-09553257751B}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://performanceprograms.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = PPI.Core.Database\\PPI.Core.Database.sqlproj
+		SccProjectName1 = PPI.Core.Database
+		SccLocalPath1 = PPI.Core.Database
+		SccProjectUniqueName2 = ppi.core.domain\\PPI.Core.Domain.csproj
+		SccProjectName2 = ppi.core.domain
+		SccLocalPath2 = ppi.core.domain
+		SccProjectUniqueName3 = ppi.core.web.tests\\PPI.Core.Web.Tests.csproj
+		SccProjectName3 = ppi.core.web.tests
+		SccLocalPath3 = ppi.core.web.tests
+		SccProjectUniqueName4 = ppi.core.web\\PPI.Core.Web.csproj
+		SccProjectName4 = ppi.core.web
+		SccLocalPath4 = ppi.core.web
+		SccProjectUniqueName5 = PPI.Core\\PPI.Core.csproj
+		SccProjectName5 = PPI.Core
+		SccLocalPath5 = PPI.Core
+		SccProjectUniqueName6 = OwinContrib.Security.LinkedIn\\OwinContrib.Security.LinkedIn.csproj
+		SccProjectName6 = OwinContrib.Security.LinkedIn
+		SccLocalPath6 = OwinContrib.Security.LinkedIn
+		SccProjectUniqueName7 = PPI.Hogan.Service\\PPI.Hogan.Service.csproj
+		SccProjectName7 = PPI.Hogan.Service
+		SccLocalPath7 = PPI.Hogan.Service
+		SccProjectUniqueName8 = PPI.ScheduledEmailJob\\PPI.ScheduledEmailJob.csproj
+		SccProjectName8 = PPI.ScheduledEmailJob
+		SccLocalPath8 = PPI.ScheduledEmailJob
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D701E24-C7FD-4B0C-9D95-B5AD3770A33B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D701E24-C7FD-4B0C-9D95-B5AD3770A33B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D701E24-C7FD-4B0C-9D95-B5AD3770A33B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D701E24-C7FD-4B0C-9D95-B5AD3770A33B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4462A5F1-07E8-4A5F-AE8D-449D1C8C0942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4462A5F1-07E8-4A5F-AE8D-449D1C8C0942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4462A5F1-07E8-4A5F-AE8D-449D1C8C0942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4462A5F1-07E8-4A5F-AE8D-449D1C8C0942}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CC8374C-93D3-49A4-9178-34A414B24A79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CC8374C-93D3-49A4-9178-34A414B24A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CC8374C-93D3-49A4-9178-34A414B24A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CC8374C-93D3-49A4-9178-34A414B24A79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF04ADEB-B6FC-4B9A-89DC-876C31CAAD87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF04ADEB-B6FC-4B9A-89DC-876C31CAAD87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF04ADEB-B6FC-4B9A-89DC-876C31CAAD87}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DF04ADEB-B6FC-4B9A-89DC-876C31CAAD87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF04ADEB-B6FC-4B9A-89DC-876C31CAAD87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF04ADEB-B6FC-4B9A-89DC-876C31CAAD87}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5A5BE1D2-812F-4150-BF98-FC06D3B39AE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A5BE1D2-812F-4150-BF98-FC06D3B39AE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A5BE1D2-812F-4150-BF98-FC06D3B39AE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A5BE1D2-812F-4150-BF98-FC06D3B39AE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC39E9EE-4727-4597-9521-F9CA8B87B51F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC39E9EE-4727-4597-9521-F9CA8B87B51F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC39E9EE-4727-4597-9521-F9CA8B87B51F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC39E9EE-4727-4597-9521-F9CA8B87B51F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02A64369-65EA-4821-ABCC-81947CD237FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02A64369-65EA-4821-ABCC-81947CD237FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02A64369-65EA-4821-ABCC-81947CD237FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02A64369-65EA-4821-ABCC-81947CD237FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA1B6B9A-0466-4884-B66D-09553257751B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA1B6B9A-0466-4884-B66D-09553257751B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA1B6B9A-0466-4884-B66D-09553257751B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA1B6B9A-0466-4884-B66D-09553257751B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

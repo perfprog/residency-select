@@ -1,0 +1,112 @@
+﻿@model PPI.Core.Web.Models.EventCordinatorEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section AddToHead{
+
+    <link href="@Url.Content("~/Content/Libraries/daterangepicker.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Libraries/datepicker.css")" rel="stylesheet" type="text/css" />
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h2>Events</h2>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Event.Id)
+                @Html.HiddenFor(model => model.Event.EventStatusId)
+                @Html.HiddenFor(model => model.Event.EventTypeId)
+                @Html.HiddenFor(model => model.Event.StartDate)
+                @Html.HiddenFor(model => model.Event.EndDate)
+
+                <div class="form-group">
+                    <label class="control-label col-md-2 bold">Default Email Address</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DefaultEmail, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DefaultEmail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2 bold">Event</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Event.Name, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                        @Html.ValidationMessageFor(model => model.Event.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Event.Description, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Event.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Event.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2 bold" for="datepickerDateRange">Start and End Dates</label>
+                    <div class="input-group col-md-10">
+                        <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+                        @Html.EditorFor(model => model.datepickerDateRange, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Event.ReviewDate, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        @Html.EditorFor(model => model.Event.ReviewDate, "ShortDateTime", new { htmlAttributes = new { @class = "form-control" } })
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.ActionLink("Back to Events", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })
+                        <input type="submit" value="Save" class="btn btn-success btn200" onclick="javascript: return validate();" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        </div>
+    </div>
+
+        @section Scripts
+    {
+            <script src="~/Scripts/Plugin/daterangepicker.js"></script>
+            <script src="~/Scripts/Plugin/bootstrap-datepicker.js"></script>
+            <script src="~/Scripts/Plugin/moment.min.js"></script>
+            <script>
+                $(function ($) {
+
+                    $('#datepickerDateRange').daterangepicker();
+
+                    $('#Event_ReviewDate').datepicker({
+                        format: 'mm-dd-yyyy'
+                    });
+
+                });
+            </script>
+<script type="text/javascript">
+
+    function validate() {
+
+        if (!document.getElementById('DefaultEmail').value) {
+            alert('Please enter Default Email Address.');
+            document.getElementById('DefaultEmail').focus();
+            return false;
+        }
+    }
+
+</script>
+        }
+
+

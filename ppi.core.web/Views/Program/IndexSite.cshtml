@@ -1,0 +1,133 @@
+﻿@model PPI.Core.Web.Models.ProgramSiteViewModel
+@{
+    var metaCandidates = Model.ProgramSites.FirstOrDefault();
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="main-box clearfix">
+    <div class="main-box-body">
+
+        <div class="row" style="margin-bottom:20px">
+            <h2 class="pull-left">Departments for @Model.ProgramName Specialty</h2>
+            <div class="col-md-12 mt20 mb20 ">
+
+                <div class="col-md-1">
+
+                    @Html.Label("Organization", new { @class = "control-label " })
+
+                </div>
+
+                <div class="col-md-2">
+                    @Html.DropDownList("OrganizationId", (SelectList)ViewData["Organizations"], "Select Organization", new { @class = "form-control", @onchange = "FillDepartment()" })
+                </div>
+
+
+                @using (Html.BeginForm("AddSite", "Program"))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="col-md-1">  @Html.Label("Department", new { @class = "control-label " }) </div>
+                    <div id="departmentsDiv" class="col-md-2">
+                        @Html.Partial("_PartialSites", ViewData["Departments"])
+                    </div>
+                    @Html.Hidden("programId", Model.ProgramID)
+                    <div class=" pull-right"><input type="submit" value="Add Department To This Specialty" class="btn btn-primary" onclick="javascript: return validate();" /></div>
+                }
+
+
+
+
+            </div>
+            <div class="row" style="padding:20px;">
+                <table class="table table-responsive mt20">
+                    <tr>
+                        <th class="col-md-4">
+                            @Html.DisplayName("DeaprtmentName")
+                        </th>
+                        <th class="col-md-4">
+
+                            @Html.DisplayNameFor(model => metaCandidates.Site.Organization.OrganizationName)
+                        </th>
+                        <th class="col-md-2">
+                            @Html.DisplayNameFor(model => metaCandidates.Site.FriendlyName)
+                        </th>
+                        <th class="col-md-3"></th>
+                    </tr>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model.ProgramSites)
+                        {
+                            <tr>
+                                <td style="font-size:12px;">
+                                    @Html.DisplayFor(modelItem => item.Site.SiteName)
+                                </td>
+                                <td style="font-size:12px;">
+                                    @Html.DisplayFor(modelItem => item.Site.Organization.OrganizationName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Site.FriendlyName)
+                                </td>
+                                <td class="text-right">
+                                    @Html.ActionLink("Display", "DetailsSite", new { id = item.Id }, new { @class = "btn btn-primary btn80" })
+                                    @Html.ActionLink("Delete", "DeleteSite", new { id = item.Id }, new { @class = "btn btn-danger btn80" })
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.ActionLink("Back to Specialties", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@if (null != TempData["alertMessage"])
+{
+    <script type="text/javascript">
+        alert("@TempData["alertMessage"]");
+    </script>
+}
+
+
+
+@section Scripts {
+    <script type="text/javascript">
+
+
+        //Method to fill  Department dropdown on organization selection
+        function FillDepartment() {
+            var orgId = $('#OrganizationId').val();
+            $.ajax({
+                url: '/Program/FillDepartment',
+                type: "GET",
+                dataType: "html",
+                data: { id: orgId },
+                success: function (data) {
+                    $("#departmentsDiv").html(data);
+                },
+                error: function (xhr) { }
+            });
+        }
+
+        //Method to validate required fields
+        function validate() {
+            if (!document.getElementById('OrganizationId').value) {
+                alert('Please select Organization.');
+                document.getElementById('OrganizationId').focus();
+                return false;
+            }
+            if (!document.getElementById('SiteId').value) {
+                alert('Please select Department.');
+                document.getElementById('SiteId').focus();
+                return false;
+            }
+        }
+
+    </script>
+}

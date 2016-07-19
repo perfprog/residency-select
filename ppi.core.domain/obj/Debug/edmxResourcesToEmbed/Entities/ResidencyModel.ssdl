@@ -1,0 +1,2112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Residency_SelectModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Residency_SelectModelStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Residency_SelectModel.Store.AspNetRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Residency_SelectModel.Store.AspNetUserClaims" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Residency_SelectModel.Store.AspNetUserLogins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AspNetUsers" EntityType="Residency_SelectModel.Store.AspNetUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AssessmentOptions" EntityType="Residency_SelectModel.Store.AssessmentOptions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AssessmentQuestions" EntityType="Residency_SelectModel.Store.AssessmentQuestions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AssessmentResponses" EntityType="Residency_SelectModel.Store.AssessmentResponses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AssessmentResponseQuestionOptions" EntityType="Residency_SelectModel.Store.AssessmentResponseQuestionOptions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cultures" EntityType="Residency_SelectModel.Store.Cultures" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Emails" EntityType="Residency_SelectModel.Store.Emails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmailTypes" EntityType="Residency_SelectModel.Store.EmailTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Events" EntityType="Residency_SelectModel.Store.Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventPracticeReports" EntityType="Residency_SelectModel.Store.EventPracticeReports" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventTypes" EntityType="Residency_SelectModel.Store.EventTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HoganFields" EntityType="Residency_SelectModel.Store.HoganFields" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HoganMVPIs" EntityType="Residency_SelectModel.Store.HoganMVPIs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HoganUserInfoes" EntityType="Residency_SelectModel.Store.HoganUserInfoes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Languages" EntityType="Residency_SelectModel.Store.Languages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Manual_Hogan_Import" EntityType="Residency_SelectModel.Store.Manual_Hogan_Import" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderForms" EntityType="Residency_SelectModel.Store.OrderForms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderFormPracticeReports" EntityType="Residency_SelectModel.Store.OrderFormPracticeReports" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="People" EntityType="Residency_SelectModel.Store.People" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PersonEmails" EntityType="Residency_SelectModel.Store.PersonEmails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PersonEvents" EntityType="Residency_SelectModel.Store.PersonEvents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PersonPracticeReports" EntityType="Residency_SelectModel.Store.PersonPracticeReports" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PracticeCategories" EntityType="Residency_SelectModel.Store.PracticeCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PracticeCategoryParagraphs" EntityType="Residency_SelectModel.Store.PracticeCategoryParagraphs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PracticeCategoryScales" EntityType="Residency_SelectModel.Store.PracticeCategoryScales" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PracticeLevels" EntityType="Residency_SelectModel.Store.PracticeLevels" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PracticeParagraphs" EntityType="Residency_SelectModel.Store.PracticeParagraphs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PracticeReports" EntityType="Residency_SelectModel.Store.PracticeReports" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PracticeScales" EntityType="Residency_SelectModel.Store.PracticeScales" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PracticeScaleReports" EntityType="Residency_SelectModel.Store.PracticeScaleReports" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PracticeTexts" EntityType="Residency_SelectModel.Store.PracticeTexts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PracticeTextOptions" EntityType="Residency_SelectModel.Store.PracticeTextOptions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Programs" EntityType="Residency_SelectModel.Store.Programs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProgramPracticeReports" EntityType="Residency_SelectModel.Store.ProgramPracticeReports" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProgramSiteHoganMVPIs" EntityType="Residency_SelectModel.Store.ProgramSiteHoganMVPIs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProgramSites" EntityType="Residency_SelectModel.Store.ProgramSites" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReplacementExpressions" EntityType="Residency_SelectModel.Store.ReplacementExpressions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Resxes" EntityType="Residency_SelectModel.Store.Resxes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ResxValues" EntityType="Residency_SelectModel.Store.ResxValues" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ScheduledEmails" EntityType="Residency_SelectModel.Store.ScheduledEmails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ScheduledEmailPersons" EntityType="Residency_SelectModel.Store.ScheduledEmailPersons" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sites" EntityType="Residency_SelectModel.Store.Sites" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SiteUsers" EntityType="Residency_SelectModel.Store.SiteUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ZCOExportMaps" EntityType="Residency_SelectModel.Store.ZCOExportMaps" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ZCOExportTemplates" EntityType="Residency_SelectModel.Store.ZCOExportTemplates" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ZCOExportTemplateMaps" EntityType="Residency_SelectModel.Store.ZCOExportTemplateMaps" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ZCOUserMaps" EntityType="Residency_SelectModel.Store.ZCOUserMaps" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tempEvents" EntityType="Residency_SelectModel.Store.tempEvents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tempPersonProgramSiteEvents" EntityType="Residency_SelectModel.Store.tempPersonProgramSiteEvents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="vPersonBySites" EntityType="Residency_SelectModel.Store.vPersonBySites" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmailStatus" EntityType="Residency_SelectModel.Store.EmailStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventStatus" EntityType="Residency_SelectModel.Store.EventStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderStatus" EntityType="Residency_SelectModel.Store.OrderStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="vDashboard" EntityType="Residency_SelectModel.Store.vDashboard" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Organizations" EntityType="Residency_SelectModel.Store.Organizations" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id" Association="Residency_SelectModel.Store.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Residency_SelectModel.Store.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonPracticeReport_AspNetUsers" Association="Residency_SelectModel.Store.FK_PersonPracticeReport_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="PersonPracticeReport" EntitySet="PersonPracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiteUsers_AspNetUsers" Association="Residency_SelectModel.Store.FK_SiteUsers_AspNetUsers">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="SiteUsers" EntitySet="SiteUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssessmentResponseQuestionOption_AssessmentOption" Association="Residency_SelectModel.Store.FK_AssessmentResponseQuestionOption_AssessmentOption">
+      <End Role="AssessmentOption" EntitySet="AssessmentOptions" />
+      <End Role="AssessmentResponseQuestionOption" EntitySet="AssessmentResponseQuestionOptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssessmentResponseQuestionOption_AssessmentQuestion" Association="Residency_SelectModel.Store.FK_AssessmentResponseQuestionOption_AssessmentQuestion">
+      <End Role="AssessmentQuestion" EntitySet="AssessmentQuestions" />
+      <End Role="AssessmentResponseQuestionOption" EntitySet="AssessmentResponseQuestionOptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssessmentResponse_SiteUsers" Association="Residency_SelectModel.Store.FK_AssessmentResponse_SiteUsers">
+      <End Role="SiteUsers" EntitySet="SiteUsers" />
+      <End Role="AssessmentResponse" EntitySet="AssessmentResponses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssessmentResponseQuestionOption_AssessmentResponse" Association="Residency_SelectModel.Store.FK_AssessmentResponseQuestionOption_AssessmentResponse">
+      <End Role="AssessmentResponse" EntitySet="AssessmentResponses" />
+      <End Role="AssessmentResponseQuestionOption" EntitySet="AssessmentResponseQuestionOptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResxValue_Culture" Association="Residency_SelectModel.Store.FK_ResxValue_Culture">
+      <End Role="Culture" EntitySet="Cultures" />
+      <End Role="ResxValue" EntitySet="ResxValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Email_EmailType" Association="Residency_SelectModel.Store.FK_Email_EmailType">
+      <End Role="EmailType" EntitySet="EmailTypes" />
+      <End Role="Email" EntitySet="Emails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Email_Event" Association="Residency_SelectModel.Store.FK_Email_Event">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="Email" EntitySet="Emails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonEmail_Email" Association="Residency_SelectModel.Store.FK_PersonEmail_Email">
+      <End Role="Email" EntitySet="Emails" />
+      <End Role="PersonEmail" EntitySet="PersonEmails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScheduledEmail_Email" Association="Residency_SelectModel.Store.FK_ScheduledEmail_Email">
+      <End Role="Email" EntitySet="Emails" />
+      <End Role="ScheduledEmail" EntitySet="ScheduledEmails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmailType_Resx" Association="Residency_SelectModel.Store.FK_EmailType_Resx">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="EmailType" EntitySet="EmailTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_EventType" Association="Residency_SelectModel.Store.FK_Event_EventType">
+      <End Role="EventType" EntitySet="EventTypes" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_Program" Association="Residency_SelectModel.Store.FK_Event_Program">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_ProgramSites" Association="Residency_SelectModel.Store.FK_Event_ProgramSites">
+      <End Role="ProgramSites" EntitySet="ProgramSites" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_Site" Association="Residency_SelectModel.Store.FK_Event_Site">
+      <End Role="Site" EntitySet="Sites" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventPracticeReport_Event" Association="Residency_SelectModel.Store.FK_EventPracticeReport_Event">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="EventPracticeReport" EntitySet="EventPracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonEvent_Event" Association="Residency_SelectModel.Store.FK_PersonEvent_Event">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="PersonEvent" EntitySet="PersonEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonPracticeReport_Event" Association="Residency_SelectModel.Store.FK_PersonPracticeReport_Event">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="PersonPracticeReport" EntitySet="PersonPracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventPracticeReport_IntroductionResx" Association="Residency_SelectModel.Store.FK_EventPracticeReport_IntroductionResx">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="EventPracticeReport" EntitySet="EventPracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventPracticeReport_IntroductionThreeResx" Association="Residency_SelectModel.Store.FK_EventPracticeReport_IntroductionThreeResx">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="EventPracticeReport" EntitySet="EventPracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventPracticeReport_IntroductionTwoResx" Association="Residency_SelectModel.Store.FK_EventPracticeReport_IntroductionTwoResx">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="EventPracticeReport" EntitySet="EventPracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventPracticeReport_PracticeReport" Association="Residency_SelectModel.Store.FK_EventPracticeReport_PracticeReport">
+      <End Role="PracticeReport" EntitySet="PracticeReports" />
+      <End Role="EventPracticeReport" EntitySet="EventPracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventPracticeReport_TitleResx" Association="Residency_SelectModel.Store.FK_EventPracticeReport_TitleResx">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="EventPracticeReport" EntitySet="EventPracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventType_Resx" Association="Residency_SelectModel.Store.FK_EventType_Resx">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="EventType" EntitySet="EventTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderForm_EventType" Association="Residency_SelectModel.Store.FK_OrderForm_EventType">
+      <End Role="EventType" EntitySet="EventTypes" />
+      <End Role="OrderForm" EntitySet="OrderForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoganField_Resx" Association="Residency_SelectModel.Store.FK_HoganField_Resx">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="HoganField" EntitySet="HoganFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoganField_Resx2" Association="Residency_SelectModel.Store.FK_HoganField_Resx2">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="HoganField" EntitySet="HoganFields" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeCategoryParagraphs_HoganField" Association="Residency_SelectModel.Store.FK_PracticeCategoryParagraphs_HoganField">
+      <End Role="HoganField" EntitySet="HoganFields" />
+      <End Role="PracticeCategoryParagraphs" EntitySet="PracticeCategoryParagraphs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeCategoryScale_HoganField" Association="Residency_SelectModel.Store.FK_PracticeCategoryScale_HoganField">
+      <End Role="HoganField" EntitySet="HoganFields" />
+      <End Role="PracticeCategoryScale" EntitySet="PracticeCategoryScales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeScale_HoganField" Association="Residency_SelectModel.Store.FK_PracticeScale_HoganField">
+      <End Role="HoganField" EntitySet="HoganFields" />
+      <End Role="PracticeScale" EntitySet="PracticeScales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoganUserInfo_Program" Association="Residency_SelectModel.Store.FK_HoganUserInfo_Program">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="HoganUserInfo" EntitySet="HoganUserInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderForm_Program" Association="Residency_SelectModel.Store.FK_OrderForm_Program">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="OrderForm" EntitySet="OrderForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderFormPracticeReport_OrderForm" Association="Residency_SelectModel.Store.FK_OrderFormPracticeReport_OrderForm">
+      <End Role="OrderForm" EntitySet="OrderForms" />
+      <End Role="OrderFormPracticeReport" EntitySet="OrderFormPracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderFormPracticeReport_PracticeReport" Association="Residency_SelectModel.Store.FK_OrderFormPracticeReport_PracticeReport">
+      <End Role="PracticeReport" EntitySet="PracticeReports" />
+      <End Role="OrderFormPracticeReport" EntitySet="OrderFormPracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonEmail_Person" Association="Residency_SelectModel.Store.FK_PersonEmail_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="PersonEmail" EntitySet="PersonEmails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonEvent_Person" Association="Residency_SelectModel.Store.FK_PersonEvent_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="PersonEvent" EntitySet="PersonEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonPracticeReport_Person" Association="Residency_SelectModel.Store.FK_PersonPracticeReport_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="PersonPracticeReport" EntitySet="PersonPracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScheduledEmailPerson_Person" Association="Residency_SelectModel.Store.FK_ScheduledEmailPerson_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="ScheduledEmailPerson" EntitySet="ScheduledEmailPersons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonPracticeReport_PracticeReport" Association="Residency_SelectModel.Store.FK_PersonPracticeReport_PracticeReport">
+      <End Role="PracticeReport" EntitySet="PracticeReports" />
+      <End Role="PersonPracticeReport" EntitySet="PersonPracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeCategoryParagraphs_PracticeCategory" Association="Residency_SelectModel.Store.FK_PracticeCategoryParagraphs_PracticeCategory">
+      <End Role="PracticeCategory" EntitySet="PracticeCategories" />
+      <End Role="PracticeCategoryParagraphs" EntitySet="PracticeCategoryParagraphs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeCategoryScale_PracticeCategory" Association="Residency_SelectModel.Store.FK_PracticeCategoryScale_PracticeCategory">
+      <End Role="PracticeCategory" EntitySet="PracticeCategories" />
+      <End Role="PracticeCategoryScale" EntitySet="PracticeCategoryScales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeScale_PracticeCategory" Association="Residency_SelectModel.Store.FK_PracticeScale_PracticeCategory">
+      <End Role="PracticeCategory" EntitySet="PracticeCategories" />
+      <End Role="PracticeScale" EntitySet="PracticeScales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeCategoryScale_Program" Association="Residency_SelectModel.Store.FK_PracticeCategoryScale_Program">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="PracticeCategoryScale" EntitySet="PracticeCategoryScales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeScale_PracticeLevel" Association="Residency_SelectModel.Store.FK_PracticeScale_PracticeLevel">
+      <End Role="PracticeLevel" EntitySet="PracticeLevels" />
+      <End Role="PracticeScale" EntitySet="PracticeScales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeParagraphs_PracticeReport" Association="Residency_SelectModel.Store.FK_PracticeParagraphs_PracticeReport">
+      <End Role="PracticeReport" EntitySet="PracticeReports" />
+      <End Role="PracticeParagraphs" EntitySet="PracticeParagraphs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeReport_IntroductionResx" Association="Residency_SelectModel.Store.FK_PracticeReport_IntroductionResx">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="PracticeReport" EntitySet="PracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeReport_IntroductionThreeResx" Association="Residency_SelectModel.Store.FK_PracticeReport_IntroductionThreeResx">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="PracticeReport" EntitySet="PracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeReport_IntroductionTwoResx" Association="Residency_SelectModel.Store.FK_PracticeReport_IntroductionTwoResx">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="PracticeReport" EntitySet="PracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeReport_Resx" Association="Residency_SelectModel.Store.FK_PracticeReport_Resx">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="PracticeReport" EntitySet="PracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeScaleReport_PracticeReport" Association="Residency_SelectModel.Store.FK_PracticeScaleReport_PracticeReport">
+      <End Role="PracticeReport" EntitySet="PracticeReports" />
+      <End Role="PracticeScaleReport" EntitySet="PracticeScaleReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgramPracticeReports_PracticeReport" Association="Residency_SelectModel.Store.FK_ProgramPracticeReports_PracticeReport">
+      <End Role="PracticeReport" EntitySet="PracticeReports" />
+      <End Role="ProgramPracticeReports" EntitySet="ProgramPracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeScale_Program" Association="Residency_SelectModel.Store.FK_PracticeScale_Program">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="PracticeScale" EntitySet="PracticeScales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeScaleReport_PracticeScale" Association="Residency_SelectModel.Store.FK_PracticeScaleReport_PracticeScale">
+      <End Role="PracticeScale" EntitySet="PracticeScales" />
+      <End Role="PracticeScaleReport" EntitySet="PracticeScaleReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeScaleReport_PracticeText" Association="Residency_SelectModel.Store.FK_PracticeScaleReport_PracticeText">
+      <End Role="PracticeText" EntitySet="PracticeTexts" />
+      <End Role="PracticeScaleReport" EntitySet="PracticeScaleReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeScaleReport_PracticeText2" Association="Residency_SelectModel.Store.FK_PracticeScaleReport_PracticeText2">
+      <End Role="PracticeText" EntitySet="PracticeTexts" />
+      <End Role="PracticeScaleReport" EntitySet="PracticeScaleReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeText_PracticeText" Association="Residency_SelectModel.Store.FK_PracticeText_PracticeText">
+      <End Role="PracticeText" EntitySet="PracticeTexts" />
+      <End Role="PracticeText1" EntitySet="PracticeTexts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeText_Text" Association="Residency_SelectModel.Store.FK_PracticeText_Text">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="PracticeText" EntitySet="PracticeTexts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeTextOption_AlternativePracticeText" Association="Residency_SelectModel.Store.FK_PracticeTextOption_AlternativePracticeText">
+      <End Role="PracticeText" EntitySet="PracticeTexts" />
+      <End Role="PracticeTextOption" EntitySet="PracticeTextOptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PracticeTextOption_PracticeText" Association="Residency_SelectModel.Store.FK_PracticeTextOption_PracticeText">
+      <End Role="PracticeText" EntitySet="PracticeTexts" />
+      <End Role="PracticeTextOption" EntitySet="PracticeTextOptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgramPracticeReports_Program" Association="Residency_SelectModel.Store.FK_ProgramPracticeReports_Program">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="ProgramPracticeReports" EntitySet="ProgramPracticeReports" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResidencyProgramSitess_Program" Association="Residency_SelectModel.Store.FK_ResidencyProgramSitess_Program">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="ProgramSites" EntitySet="ProgramSites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgramSiteHoganMVPI_ResidencyProgramHospitals" Association="Residency_SelectModel.Store.FK_ProgramSiteHoganMVPI_ResidencyProgramHospitals">
+      <End Role="ProgramSites" EntitySet="ProgramSites" />
+      <End Role="ProgramSiteHoganMVPI" EntitySet="ProgramSiteHoganMVPIs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResidencyProgramSites_Site" Association="Residency_SelectModel.Store.FK_ResidencyProgramSites_Site">
+      <End Role="Site" EntitySet="Sites" />
+      <End Role="ProgramSites" EntitySet="ProgramSites" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResxValue_Resx" Association="Residency_SelectModel.Store.FK_ResxValue_Resx">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="ResxValue" EntitySet="ResxValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScheduledEmailPerson_ScheduledEmail" Association="Residency_SelectModel.Store.FK_ScheduledEmailPerson_ScheduledEmail">
+      <End Role="ScheduledEmail" EntitySet="ScheduledEmails" />
+      <End Role="ScheduledEmailPerson" EntitySet="ScheduledEmailPersons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiteUsers_Site" Association="Residency_SelectModel.Store.FK_SiteUsers_Site">
+      <End Role="Site" EntitySet="Sites" />
+      <End Role="SiteUsers" EntitySet="SiteUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZCOExportTemplateMap_ZCOExportMap" Association="Residency_SelectModel.Store.FK_ZCOExportTemplateMap_ZCOExportMap">
+      <End Role="ZCOExportMap" EntitySet="ZCOExportMaps" />
+      <End Role="ZCOExportTemplateMap" EntitySet="ZCOExportTemplateMaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZCOExportTemplateMap_ZCOExportTemplate" Association="Residency_SelectModel.Store.FK_ZCOExportTemplateMap_ZCOExportTemplate">
+      <End Role="ZCOExportTemplate" EntitySet="ZCOExportTemplates" />
+      <End Role="ZCOExportTemplateMap" EntitySet="ZCOExportTemplateMaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmailStatus_Resx" Association="Residency_SelectModel.Store.FK_EmailStatus_Resx">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="EmailStatus" EntitySet="EmailStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonEmail_EmailStatus" Association="Residency_SelectModel.Store.FK_PersonEmail_EmailStatus">
+      <End Role="EmailStatus" EntitySet="EmailStatus" />
+      <End Role="PersonEmail" EntitySet="PersonEmails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_EventStatus" Association="Residency_SelectModel.Store.FK_Event_EventStatus">
+      <End Role="EventStatus" EntitySet="EventStatus" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventStatus_Resx" Association="Residency_SelectModel.Store.FK_EventStatus_Resx">
+      <End Role="Resx" EntitySet="Resxes" />
+      <End Role="EventStatus" EntitySet="EventStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderForm_OrderStatus" Association="Residency_SelectModel.Store.FK_OrderForm_OrderStatus">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="OrderForm" EntitySet="OrderForms" />
+    </AssociationSet>
+    <AssociationSet Name="vDashboardPerson" Association="Residency_SelectModel.Store.vDashboardPerson">
+      <End Role="vDashboard" EntitySet="vDashboard" />
+      <End Role="Person" EntitySet="People" />
+    </AssociationSet>
+    <AssociationSet Name="vPersonBySitePerson" Association="Residency_SelectModel.Store.vPersonBySitePerson">
+      <End Role="vPersonBySite" EntitySet="vPersonBySites" />
+      <End Role="Person" EntitySet="People" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="LoginProvider" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="ProviderKey" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" Nullable="true" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AssessmentOptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Option" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="500" />
+    <Property Name="Order" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AssessmentQuestions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Question" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="Order" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AssessmentResponses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteUserId" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AssessmentResponseQuestionOptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssessmentResponseId" Type="int" Nullable="false" />
+    <Property Name="AssessmentQuestionId" Type="int" Nullable="false" />
+    <Property Name="AssessmentOptionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cultures">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Emails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="true" />
+    <Property Name="EmailTypeId" Type="int" Nullable="true" />
+    <Property Name="DefaultFrom" Type="nvarchar" Nullable="true" MaxLength="150" />
+    <Property Name="Subject" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="Introduction" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Closing" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="EmailTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NameResxId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="EventTypeId" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="true" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
+    <Property Name="ReviewDate" Type="datetime" Nullable="true" />
+    <Property Name="EventStatusId" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="Placement" Type="int" Nullable="true" />
+    <Property Name="Billable" Type="bit" Nullable="true" />
+    <Property Name="ProgramSitesId" Type="int" Nullable="true" />
+    <Property Name="OrganizationId" Type="int" Nullable="true" />
+    <Property Name="SiteId" Type="int" Nullable="true" />
+    <Property Name="ProgramId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="EventPracticeReports">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="PracticeReportId" Type="int" Nullable="false" />
+    <Property Name="ReportTitleResxId" Type="int" Nullable="true" />
+    <Property Name="DefaultLogo" Type="varbinary(max)" Nullable="true" />
+    <Property Name="DefaultLogoMimeType" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DefaultBackground" Type="varbinary(max)" Nullable="true" />
+    <Property Name="DefaultBackgroundMimeType" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DefaultColor" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="IntroductionResxId" Type="int" Nullable="true" />
+    <Property Name="IntroductionTwoResxId" Type="int" Nullable="true" />
+    <Property Name="IntroductionThreeResxId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="EventTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameResxId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HoganFields">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FieldName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LabelName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="StandardOrder" Type="int" Nullable="true" />
+    <Property Name="DefinitionTextResxId" Type="int" Nullable="true" />
+    <Property Name="BlurbTextResxId" Type="int" Nullable="true" />
+    <Property Name="HoganCategory" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HoganMVPIs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FieldName" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="LabelName" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HoganUserInfoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="GroupName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="ProgramId" Type="int" Nullable="false" />
+    <Property Name="UploadDate" Type="datetime" Nullable="true" />
+    <Property Name="Used" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Manual_Hogan_Import">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="ClientName" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="GroupName" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Hogan_User_ID" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="First_Name" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Last_Name" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="HPIDate" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Valid" Type="int" Nullable="true" />
+    <Property Name="Empathy" Type="int" Nullable="true" />
+    <Property Name="NotAnxious" Type="int" Nullable="true" />
+    <Property Name="NoGuilt" Type="int" Nullable="true" />
+    <Property Name="Calmness" Type="int" Nullable="true" />
+    <Property Name="EvenTempered" Type="int" Nullable="true" />
+    <Property Name="NoSomaticComplaint" Type="int" Nullable="true" />
+    <Property Name="Trusting" Type="int" Nullable="true" />
+    <Property Name="GoodAttachment" Type="int" Nullable="true" />
+    <Property Name="Competitive" Type="int" Nullable="true" />
+    <Property Name="SelfConfidence" Type="int" Nullable="true" />
+    <Property Name="NoDepression" Type="int" Nullable="true" />
+    <Property Name="Leadership" Type="int" Nullable="true" />
+    <Property Name="Identity" Type="int" Nullable="true" />
+    <Property Name="NoSocialAnxiety" Type="int" Nullable="true" />
+    <Property Name="LikesParties" Type="int" Nullable="true" />
+    <Property Name="LikesCrowds" Type="int" Nullable="true" />
+    <Property Name="ExperienceSeeking" Type="int" Nullable="true" />
+    <Property Name="Exhibitionistic" Type="int" Nullable="true" />
+    <Property Name="Entertaining" Type="int" Nullable="true" />
+    <Property Name="EasyToLiveWith" Type="int" Nullable="true" />
+    <Property Name="Sensitive" Type="int" Nullable="true" />
+    <Property Name="Caring" Type="int" Nullable="true" />
+    <Property Name="LikesPeople" Type="int" Nullable="true" />
+    <Property Name="NoHostility" Type="int" Nullable="true" />
+    <Property Name="Moralistic" Type="int" Nullable="true" />
+    <Property Name="Mastery" Type="int" Nullable="true" />
+    <Property Name="Virtuous" Type="int" Nullable="true" />
+    <Property Name="NotAutonomous" Type="int" Nullable="true" />
+    <Property Name="NotSpontaneous" Type="int" Nullable="true" />
+    <Property Name="ImpulseControl" Type="int" Nullable="true" />
+    <Property Name="AvoidsTrouble" Type="int" Nullable="true" />
+    <Property Name="ScienceAbility" Type="int" Nullable="true" />
+    <Property Name="Curiosity" Type="int" Nullable="true" />
+    <Property Name="ThrillSeeking" Type="int" Nullable="true" />
+    <Property Name="IntellectualGames" Type="int" Nullable="true" />
+    <Property Name="GeneratesIdeas" Type="int" Nullable="true" />
+    <Property Name="Culture" Type="int" Nullable="true" />
+    <Property Name="Education" Type="int" Nullable="true" />
+    <Property Name="MathAbility" Type="int" Nullable="true" />
+    <Property Name="GoodMemory" Type="int" Nullable="true" />
+    <Property Name="Reading" Type="int" Nullable="true" />
+    <Property Name="RValidity" Type="int" Nullable="true" />
+    <Property Name="RAdjustment" Type="int" Nullable="true" />
+    <Property Name="RAmbition" Type="int" Nullable="true" />
+    <Property Name="RSociability" Type="int" Nullable="true" />
+    <Property Name="RInterpersonalSensitivity" Type="int" Nullable="true" />
+    <Property Name="RPrudence" Type="int" Nullable="true" />
+    <Property Name="RInquisitive" Type="int" Nullable="true" />
+    <Property Name="RLearningApproach" Type="int" Nullable="true" />
+    <Property Name="RServiceOrientation" Type="int" Nullable="true" />
+    <Property Name="RStressTolerance" Type="int" Nullable="true" />
+    <Property Name="RReliability" Type="int" Nullable="true" />
+    <Property Name="RClericalPotential" Type="int" Nullable="true" />
+    <Property Name="RSalesPotential" Type="int" Nullable="true" />
+    <Property Name="RManagerialPotential" Type="int" Nullable="true" />
+    <Property Name="PValidity" Type="int" Nullable="true" />
+    <Property Name="PAdjustment" Type="int" Nullable="true" />
+    <Property Name="PAmbition" Type="int" Nullable="true" />
+    <Property Name="PSociability" Type="int" Nullable="true" />
+    <Property Name="PInterpersonalSensitivity" Type="int" Nullable="true" />
+    <Property Name="PPrudence" Type="int" Nullable="true" />
+    <Property Name="PInquisitive" Type="int" Nullable="true" />
+    <Property Name="PLearningApproach" Type="int" Nullable="true" />
+    <Property Name="PServiceOrientation" Type="int" Nullable="true" />
+    <Property Name="PStressTolerance" Type="int" Nullable="true" />
+    <Property Name="PReliability" Type="int" Nullable="true" />
+    <Property Name="PClericalPotential" Type="int" Nullable="true" />
+    <Property Name="PSalesPotential" Type="int" Nullable="true" />
+    <Property Name="PManagerialPotential" Type="int" Nullable="true" />
+    <Property Name="HDSDate" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="RExcitable" Type="int" Nullable="true" />
+    <Property Name="RSkeptical" Type="int" Nullable="true" />
+    <Property Name="RCautious" Type="int" Nullable="true" />
+    <Property Name="RReserved" Type="int" Nullable="true" />
+    <Property Name="RLeisurely" Type="int" Nullable="true" />
+    <Property Name="RBold" Type="int" Nullable="true" />
+    <Property Name="RMischievous" Type="int" Nullable="true" />
+    <Property Name="RColorful" Type="int" Nullable="true" />
+    <Property Name="RImaginative" Type="int" Nullable="true" />
+    <Property Name="RDiligent" Type="int" Nullable="true" />
+    <Property Name="RDutiful" Type="int" Nullable="true" />
+    <Property Name="RUnlikeness" Type="int" Nullable="true" />
+    <Property Name="PExcitable" Type="int" Nullable="true" />
+    <Property Name="PSkeptical" Type="int" Nullable="true" />
+    <Property Name="PCautious" Type="int" Nullable="true" />
+    <Property Name="PReserved" Type="int" Nullable="true" />
+    <Property Name="PLeisurely" Type="int" Nullable="true" />
+    <Property Name="PBold" Type="int" Nullable="true" />
+    <Property Name="PMischievous" Type="int" Nullable="true" />
+    <Property Name="PColorful" Type="int" Nullable="true" />
+    <Property Name="PImaginative" Type="int" Nullable="true" />
+    <Property Name="PDiligent" Type="int" Nullable="true" />
+    <Property Name="PDutiful" Type="int" Nullable="true" />
+    <Property Name="PUnlikeness" Type="int" Nullable="true" />
+    <Property Name="MVPIDate" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="RAesthetic_Lifestyles" Type="int" Nullable="true" />
+    <Property Name="RAesthetic_Beliefs" Type="int" Nullable="true" />
+    <Property Name="RAesthetic_Occupational_Prferences" Type="int" Nullable="true" />
+    <Property Name="RAesthetic_Aversions" Type="int" Nullable="true" />
+    <Property Name="RAesthetic_Preferred_Associates" Type="int" Nullable="true" />
+    <Property Name="RAffiliation_Lifestyles" Type="int" Nullable="true" />
+    <Property Name="RAffiliation_Beliefs" Type="int" Nullable="true" />
+    <Property Name="RAffiliation_Occupational_Prferences" Type="int" Nullable="true" />
+    <Property Name="RAffiliation_Aversions" Type="int" Nullable="true" />
+    <Property Name="RAffiliation_Preferred_Associates" Type="int" Nullable="true" />
+    <Property Name="RAltruistic_Lifestyles" Type="int" Nullable="true" />
+    <Property Name="RAltruistic_Beliefs" Type="int" Nullable="true" />
+    <Property Name="RAltruistic_Occupational_Prferences" Type="int" Nullable="true" />
+    <Property Name="RAltruistic_Aversions" Type="int" Nullable="true" />
+    <Property Name="RAltruistic_Preferred_Associates" Type="int" Nullable="true" />
+    <Property Name="RCommercial_Lifestyles" Type="int" Nullable="true" />
+    <Property Name="RCommercial_Beliefs" Type="int" Nullable="true" />
+    <Property Name="RCommercial_Occupational_Prferences" Type="int" Nullable="true" />
+    <Property Name="RCommercial_Aversions" Type="int" Nullable="true" />
+    <Property Name="RCommercial_Preferred_Associates" Type="int" Nullable="true" />
+    <Property Name="RHedonistic_Lifestyles" Type="int" Nullable="true" />
+    <Property Name="RHedonistic_Beliefs" Type="int" Nullable="true" />
+    <Property Name="RHedonistic_Occupational_Prferences" Type="int" Nullable="true" />
+    <Property Name="RHedonistic_Aversions" Type="int" Nullable="true" />
+    <Property Name="RHedonistic_Preferred_Associates" Type="int" Nullable="true" />
+    <Property Name="RPower_Lifestyles" Type="int" Nullable="true" />
+    <Property Name="RPower_Beliefs" Type="int" Nullable="true" />
+    <Property Name="RPower_Occupational_Prferences" Type="int" Nullable="true" />
+    <Property Name="RPower_Aversions" Type="int" Nullable="true" />
+    <Property Name="RPower_Preferred_Associates" Type="int" Nullable="true" />
+    <Property Name="RRecognition_Lifestyles" Type="int" Nullable="true" />
+    <Property Name="RRecognition_Beliefs" Type="int" Nullable="true" />
+    <Property Name="RRecognition_Occupational_Prferences" Type="int" Nullable="true" />
+    <Property Name="RRecognition_Aversions" Type="int" Nullable="true" />
+    <Property Name="RRecognition_Preferred_Associates" Type="int" Nullable="true" />
+    <Property Name="RScientific_Lifestyles" Type="int" Nullable="true" />
+    <Property Name="RScientific_Beliefs" Type="int" Nullable="true" />
+    <Property Name="RScientific_Occupational_Prferences" Type="int" Nullable="true" />
+    <Property Name="RScientific_Aversions" Type="int" Nullable="true" />
+    <Property Name="RScientific_Preferred_Associates" Type="int" Nullable="true" />
+    <Property Name="RSecurity_Lifestyles" Type="int" Nullable="true" />
+    <Property Name="RSecurity_Beliefs" Type="int" Nullable="true" />
+    <Property Name="RSecurity_Occupational_Prferences" Type="int" Nullable="true" />
+    <Property Name="RSecurity_Aversions" Type="int" Nullable="true" />
+    <Property Name="RSecurity_Preferred_Associates" Type="int" Nullable="true" />
+    <Property Name="RTradition_Lifestyles" Type="int" Nullable="true" />
+    <Property Name="RTradition_Beliefs" Type="int" Nullable="true" />
+    <Property Name="RTradition_Occupational_Prferences" Type="int" Nullable="true" />
+    <Property Name="RTradition_Aversions" Type="int" Nullable="true" />
+    <Property Name="RTradition_Preferred_Associates" Type="int" Nullable="true" />
+    <Property Name="RAesthetic" Type="int" Nullable="true" />
+    <Property Name="RAffiliation" Type="int" Nullable="true" />
+    <Property Name="RAltruistic" Type="int" Nullable="true" />
+    <Property Name="RCommercial" Type="int" Nullable="true" />
+    <Property Name="RHedonistic" Type="int" Nullable="true" />
+    <Property Name="RPower" Type="int" Nullable="true" />
+    <Property Name="RRecognition" Type="int" Nullable="true" />
+    <Property Name="RScientific" Type="int" Nullable="true" />
+    <Property Name="RSecurity" Type="int" Nullable="true" />
+    <Property Name="RTradition" Type="int" Nullable="true" />
+    <Property Name="PAesthetic" Type="int" Nullable="true" />
+    <Property Name="PAffiliation" Type="int" Nullable="true" />
+    <Property Name="PAltruistic" Type="int" Nullable="true" />
+    <Property Name="PCommercial" Type="int" Nullable="true" />
+    <Property Name="PHedonistic" Type="int" Nullable="true" />
+    <Property Name="PPower" Type="int" Nullable="true" />
+    <Property Name="PRecognition" Type="int" Nullable="true" />
+    <Property Name="PScientific" Type="int" Nullable="true" />
+    <Property Name="PSecurity" Type="int" Nullable="true" />
+    <Property Name="PTradition" Type="int" Nullable="true" />
+    <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderForms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderStatusId" Type="int" Nullable="true" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="Site" Type="nvarchar" Nullable="true" MaxLength="150" />
+    <Property Name="ProgramId" Type="int" Nullable="false" />
+    <Property Name="EventName" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="EventDescription" Type="nvarchar" Nullable="true" MaxLength="150" />
+    <Property Name="Billable" Type="bit" Nullable="true" />
+    <Property Name="SalesType" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="EventTypeId" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="true" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
+    <Property Name="ReviewDate" Type="datetime" Nullable="true" />
+    <Property Name="MatchDate" Type="datetime" Nullable="true" />
+    <Property Name="Placement" Type="int" Nullable="true" />
+    <Property Name="Info" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="OrderFormPracticeReports">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderFormId" Type="int" Nullable="false" />
+    <Property Name="PracticeReportId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Gender" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="AAMCNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PrimaryEmail" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="Hogan_Id" Type="nvarchar" Nullable="true" MaxLength="15" />
+    <Property Name="Hogan_Password" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" Nullable="true" />
+    <Property Name="vDashboardId" Type="int" Nullable="false" />
+    <Property Name="vDashboardPersonId" Type="int" Nullable="false" />
+    <Property Name="vDashboardEventId" Type="int" Nullable="false" />
+    <Property Name="vDashboardId1" Type="int" Nullable="false" />
+    <Property Name="vDashboardPersonId1" Type="int" Nullable="false" />
+    <Property Name="vDashboardEventId1" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonEmails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="EmailId" Type="int" Nullable="false" />
+    <Property Name="EmailStatusId" Type="int" Nullable="true" />
+    <Property Name="SentDate" Type="datetime" Nullable="true" />
+    <Property Name="EmailBody" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RetryCount" Type="int" Nullable="false" />
+    <Property Name="ErrorMessage" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Origin" Type="varchar" Nullable="true" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="PersonEvents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PersonPracticeReports">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="PracticeReportId" Type="int" Nullable="false" />
+    <Property Name="RunDate" Type="datetime" Nullable="true" />
+    <Property Name="AspNetUsersId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="EventId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PracticeCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="PracticeGroup" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Order" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PracticeCategoryParagraphs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoganFieldId" Type="int" Nullable="false" />
+    <Property Name="PracticeCategoryId" Type="int" Nullable="false" />
+    <Property Name="ParagraphGroup" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PracticeCategoryScales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramId" Type="int" Nullable="false" />
+    <Property Name="PracticeCategoryId" Type="int" Nullable="false" />
+    <Property Name="HoganFieldId" Type="int" Nullable="false" />
+    <Property Name="LowerBound" Type="int" Nullable="false" />
+    <Property Name="UpperBound" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PracticeLevels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PracticeParagraphs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoganFieldId" Type="int" Nullable="false" />
+    <Property Name="ParagraphGroup" Type="int" Nullable="false" />
+    <Property Name="Order" Type="int" Nullable="false" />
+    <Property Name="PracticeReportId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PracticeReports">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ReportTitle" Type="nvarchar" Nullable="true" MaxLength="75" />
+    <Property Name="ReportTitleResxId" Type="int" Nullable="true" />
+    <Property Name="PracticeGroup" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DefaultLogo" Type="varbinary(max)" Nullable="true" />
+    <Property Name="DefaultLogoMimeType" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DefaultBackground" Type="varbinary(max)" Nullable="true" />
+    <Property Name="DefaultBackgroundMimeType" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="DefaultColor" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="Introduction" Type="nvarchar" Nullable="true" MaxLength="75" />
+    <Property Name="IntroductionResxId" Type="int" Nullable="true" />
+    <Property Name="IntroductionTwo" Type="nvarchar" Nullable="true" MaxLength="75" />
+    <Property Name="IntroductionTwoResxId" Type="int" Nullable="true" />
+    <Property Name="IntroductionThree" Type="nvarchar" Nullable="true" MaxLength="75" />
+    <Property Name="IntroductionThreeResxId" Type="int" Nullable="true" />
+    <Property Name="Active" Type="bit" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PracticeScales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoganFieldId" Type="int" Nullable="false" />
+    <Property Name="PracticeCategoryId" Type="int" Nullable="false" />
+    <Property Name="PracticeLevelId" Type="int" Nullable="false" />
+    <Property Name="ProgramId" Type="int" Nullable="true" />
+    <Property Name="LowerBound" Type="int" Nullable="false" />
+    <Property Name="UpperBound" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PracticeScaleReports">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PracticeScaleId" Type="int" Nullable="false" />
+    <Property Name="PracticeReportId" Type="int" Nullable="false" />
+    <Property Name="Order" Type="int" Nullable="false" />
+    <Property Name="SubOrder" Type="int" Nullable="true" />
+    <Property Name="PracticeTextId" Type="int" Nullable="false" />
+    <Property Name="InterviewPracticeTextId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PracticeTexts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TextResxId" Type="int" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" Nullable="true" MaxLength="75" />
+    <Property Name="IsIntroduction" Type="bit" Nullable="true" />
+    <Property Name="ParentPracticeTextId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="PracticeTextOptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PracticeTextId" Type="int" Nullable="false" />
+    <Property Name="AlternativePracticeTextId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Programs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramName" Type="nvarchar" Nullable="false" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="ProgramPracticeReports">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramId" Type="int" Nullable="false" />
+    <Property Name="PracticeReportId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProgramSiteHoganMVPIs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProgramSiteId" Type="int" Nullable="false" />
+    <Property Name="HoganFieldName" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProgramSites">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+    <Property Name="ProgramId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReplacementExpressions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FindValue" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Expression" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Resxes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataColumnDescription" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="DataColumnName" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ResxValues">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResxId" Type="int" Nullable="false" />
+    <Property Name="CultureId" Type="int" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScheduledEmails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ScheduleDate" Type="datetime" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="true" />
+    <Property Name="CompletedDate" Type="datetime" Nullable="true" />
+    <Property Name="EmailId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ScheduledEmailPersons">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ScheduledEmailId" Type="int" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="CompletedDate" Type="datetime" Nullable="true" />
+    <Property Name="Enabled" Type="bit" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Sites">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteName" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="FriendlyName" Type="nvarchar" Nullable="true" MaxLength="250" />
+    <Property Name="BrandingColor" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="BrandingLogo" Type="varbinary(max)" Nullable="true" />
+    <Property Name="BrandingLogoMimeType" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="BrandingBackground" Type="varbinary(max)" Nullable="true" />
+    <Property Name="BrandingBackgroundMimeType" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="OrganizationId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SiteUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+    <Property Name="AspNetUsersId" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="ZCOExportMaps">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoganColName" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="ZCOColName" Type="varchar" Nullable="false" MaxLength="500" />
+    <Property Name="Position" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ZCOExportTemplates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TemplateName" Type="nvarchar" Nullable="false" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="ZCOExportTemplateMaps">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ZCOExportTemplateId" Type="int" Nullable="false" />
+    <Property Name="ZCOExportMapId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ZCOUserMaps">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RSUser" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="ZCOUser" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="ZCOPwd" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tempEvents">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="EventTypeId" />
+      <PropertyRef Name="EventStatusId" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="EventTypeId" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="true" />
+    <Property Name="EndDate" Type="datetime" Nullable="true" />
+    <Property Name="ReviewDate" Type="datetime" Nullable="true" />
+    <Property Name="EventStatusId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tempPersonProgramSiteEvents">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="PersonId" />
+      <PropertyRef Name="ProgramSiteEventsId" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="ProgramSiteEventsId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vPersonBySites">
+    <Key>
+      <PropertyRef Name="PersonId" />
+      <PropertyRef Name="SiteId" />
+    </Key>
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmailStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameResxId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameResxId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="vDashboard">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="PersonId" />
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="HPIDate" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="HDSDate" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="MVPIDate" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="LastUpdated" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Organizations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrganizationName" Type="nvarchar" Nullable="false" MaxLength="150" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_User_Id">
+    <End Role="AspNetUsers" Type="Residency_SelectModel.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Residency_SelectModel.Store.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Residency_SelectModel.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Residency_SelectModel.Store.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonPracticeReport_AspNetUsers">
+    <End Role="AspNetUsers" Type="Residency_SelectModel.Store.AspNetUsers" Multiplicity="1" />
+    <End Role="PersonPracticeReport" Type="Residency_SelectModel.Store.PersonPracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonPracticeReport">
+        <PropertyRef Name="AspNetUsersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiteUsers_AspNetUsers">
+    <End Role="AspNetUsers" Type="Residency_SelectModel.Store.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SiteUsers" Type="Residency_SelectModel.Store.SiteUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SiteUsers">
+        <PropertyRef Name="AspNetUsersId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssessmentResponseQuestionOption_AssessmentOption">
+    <End Role="AssessmentOption" Type="Residency_SelectModel.Store.AssessmentOptions" Multiplicity="1" />
+    <End Role="AssessmentResponseQuestionOption" Type="Residency_SelectModel.Store.AssessmentResponseQuestionOptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssessmentOption">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssessmentResponseQuestionOption">
+        <PropertyRef Name="AssessmentOptionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssessmentResponseQuestionOption_AssessmentQuestion">
+    <End Role="AssessmentQuestion" Type="Residency_SelectModel.Store.AssessmentQuestions" Multiplicity="1" />
+    <End Role="AssessmentResponseQuestionOption" Type="Residency_SelectModel.Store.AssessmentResponseQuestionOptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssessmentQuestion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssessmentResponseQuestionOption">
+        <PropertyRef Name="AssessmentQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssessmentResponse_SiteUsers">
+    <End Role="SiteUsers" Type="Residency_SelectModel.Store.SiteUsers" Multiplicity="1" />
+    <End Role="AssessmentResponse" Type="Residency_SelectModel.Store.AssessmentResponses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SiteUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssessmentResponse">
+        <PropertyRef Name="SiteUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssessmentResponseQuestionOption_AssessmentResponse">
+    <End Role="AssessmentResponse" Type="Residency_SelectModel.Store.AssessmentResponses" Multiplicity="1" />
+    <End Role="AssessmentResponseQuestionOption" Type="Residency_SelectModel.Store.AssessmentResponseQuestionOptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssessmentResponse">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssessmentResponseQuestionOption">
+        <PropertyRef Name="AssessmentResponseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResxValue_Culture">
+    <End Role="Culture" Type="Residency_SelectModel.Store.Cultures" Multiplicity="1" />
+    <End Role="ResxValue" Type="Residency_SelectModel.Store.ResxValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Culture">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResxValue">
+        <PropertyRef Name="CultureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Email_EmailType">
+    <End Role="EmailType" Type="Residency_SelectModel.Store.EmailTypes" Multiplicity="0..1" />
+    <End Role="Email" Type="Residency_SelectModel.Store.Emails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmailType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Email">
+        <PropertyRef Name="EmailTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Email_Event">
+    <End Role="Event" Type="Residency_SelectModel.Store.Events" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Email" Type="Residency_SelectModel.Store.Emails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Email">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonEmail_Email">
+    <End Role="Email" Type="Residency_SelectModel.Store.Emails" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PersonEmail" Type="Residency_SelectModel.Store.PersonEmails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Email">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonEmail">
+        <PropertyRef Name="EmailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScheduledEmail_Email">
+    <End Role="Email" Type="Residency_SelectModel.Store.Emails" Multiplicity="0..1" />
+    <End Role="ScheduledEmail" Type="Residency_SelectModel.Store.ScheduledEmails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Email">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ScheduledEmail">
+        <PropertyRef Name="EmailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmailType_Resx">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="1" />
+    <End Role="EmailType" Type="Residency_SelectModel.Store.EmailTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmailType">
+        <PropertyRef Name="NameResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_EventType">
+    <End Role="EventType" Type="Residency_SelectModel.Store.EventTypes" Multiplicity="1" />
+    <End Role="Event" Type="Residency_SelectModel.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="EventTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_Program">
+    <End Role="Program" Type="Residency_SelectModel.Store.Programs" Multiplicity="0..1" />
+    <End Role="Event" Type="Residency_SelectModel.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_ProgramSites">
+    <End Role="ProgramSites" Type="Residency_SelectModel.Store.ProgramSites" Multiplicity="0..1" />
+    <End Role="Event" Type="Residency_SelectModel.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgramSites">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="ProgramSitesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_Site">
+    <End Role="Site" Type="Residency_SelectModel.Store.Sites" Multiplicity="0..1" />
+    <End Role="Event" Type="Residency_SelectModel.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventPracticeReport_Event">
+    <End Role="Event" Type="Residency_SelectModel.Store.Events" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EventPracticeReport" Type="Residency_SelectModel.Store.EventPracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventPracticeReport">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonEvent_Event">
+    <End Role="Event" Type="Residency_SelectModel.Store.Events" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PersonEvent" Type="Residency_SelectModel.Store.PersonEvents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonEvent">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonPracticeReport_Event">
+    <End Role="Event" Type="Residency_SelectModel.Store.Events" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PersonPracticeReport" Type="Residency_SelectModel.Store.PersonPracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonPracticeReport">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventPracticeReport_IntroductionResx">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="0..1" />
+    <End Role="EventPracticeReport" Type="Residency_SelectModel.Store.EventPracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventPracticeReport">
+        <PropertyRef Name="IntroductionResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventPracticeReport_IntroductionThreeResx">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="0..1" />
+    <End Role="EventPracticeReport" Type="Residency_SelectModel.Store.EventPracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventPracticeReport">
+        <PropertyRef Name="IntroductionThreeResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventPracticeReport_IntroductionTwoResx">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="0..1" />
+    <End Role="EventPracticeReport" Type="Residency_SelectModel.Store.EventPracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventPracticeReport">
+        <PropertyRef Name="IntroductionTwoResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventPracticeReport_PracticeReport">
+    <End Role="PracticeReport" Type="Residency_SelectModel.Store.PracticeReports" Multiplicity="1" />
+    <End Role="EventPracticeReport" Type="Residency_SelectModel.Store.EventPracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeReport">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventPracticeReport">
+        <PropertyRef Name="PracticeReportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventPracticeReport_TitleResx">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="0..1" />
+    <End Role="EventPracticeReport" Type="Residency_SelectModel.Store.EventPracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventPracticeReport">
+        <PropertyRef Name="ReportTitleResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventType_Resx">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="1" />
+    <End Role="EventType" Type="Residency_SelectModel.Store.EventTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventType">
+        <PropertyRef Name="NameResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderForm_EventType">
+    <End Role="EventType" Type="Residency_SelectModel.Store.EventTypes" Multiplicity="1" />
+    <End Role="OrderForm" Type="Residency_SelectModel.Store.OrderForms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderForm">
+        <PropertyRef Name="EventTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoganField_Resx">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="0..1" />
+    <End Role="HoganField" Type="Residency_SelectModel.Store.HoganFields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HoganField">
+        <PropertyRef Name="DefinitionTextResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoganField_Resx2">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="0..1" />
+    <End Role="HoganField" Type="Residency_SelectModel.Store.HoganFields" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HoganField">
+        <PropertyRef Name="BlurbTextResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeCategoryParagraphs_HoganField">
+    <End Role="HoganField" Type="Residency_SelectModel.Store.HoganFields" Multiplicity="1" />
+    <End Role="PracticeCategoryParagraphs" Type="Residency_SelectModel.Store.PracticeCategoryParagraphs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoganField">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeCategoryParagraphs">
+        <PropertyRef Name="HoganFieldId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeCategoryScale_HoganField">
+    <End Role="HoganField" Type="Residency_SelectModel.Store.HoganFields" Multiplicity="1" />
+    <End Role="PracticeCategoryScale" Type="Residency_SelectModel.Store.PracticeCategoryScales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoganField">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeCategoryScale">
+        <PropertyRef Name="HoganFieldId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeScale_HoganField">
+    <End Role="HoganField" Type="Residency_SelectModel.Store.HoganFields" Multiplicity="1" />
+    <End Role="PracticeScale" Type="Residency_SelectModel.Store.PracticeScales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoganField">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeScale">
+        <PropertyRef Name="HoganFieldId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoganUserInfo_Program">
+    <End Role="Program" Type="Residency_SelectModel.Store.Programs" Multiplicity="1" />
+    <End Role="HoganUserInfo" Type="Residency_SelectModel.Store.HoganUserInfoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HoganUserInfo">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderForm_Program">
+    <End Role="Program" Type="Residency_SelectModel.Store.Programs" Multiplicity="1" />
+    <End Role="OrderForm" Type="Residency_SelectModel.Store.OrderForms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderForm">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderFormPracticeReport_OrderForm">
+    <End Role="OrderForm" Type="Residency_SelectModel.Store.OrderForms" Multiplicity="1" />
+    <End Role="OrderFormPracticeReport" Type="Residency_SelectModel.Store.OrderFormPracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderForm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderFormPracticeReport">
+        <PropertyRef Name="OrderFormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderFormPracticeReport_PracticeReport">
+    <End Role="PracticeReport" Type="Residency_SelectModel.Store.PracticeReports" Multiplicity="1" />
+    <End Role="OrderFormPracticeReport" Type="Residency_SelectModel.Store.OrderFormPracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeReport">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderFormPracticeReport">
+        <PropertyRef Name="PracticeReportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonEmail_Person">
+    <End Role="Person" Type="Residency_SelectModel.Store.People" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PersonEmail" Type="Residency_SelectModel.Store.PersonEmails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonEmail">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonEvent_Person">
+    <End Role="Person" Type="Residency_SelectModel.Store.People" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PersonEvent" Type="Residency_SelectModel.Store.PersonEvents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonEvent">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonPracticeReport_Person">
+    <End Role="Person" Type="Residency_SelectModel.Store.People" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PersonPracticeReport" Type="Residency_SelectModel.Store.PersonPracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonPracticeReport">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScheduledEmailPerson_Person">
+    <End Role="Person" Type="Residency_SelectModel.Store.People" Multiplicity="1" />
+    <End Role="ScheduledEmailPerson" Type="Residency_SelectModel.Store.ScheduledEmailPersons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ScheduledEmailPerson">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonPracticeReport_PracticeReport">
+    <End Role="PracticeReport" Type="Residency_SelectModel.Store.PracticeReports" Multiplicity="1" />
+    <End Role="PersonPracticeReport" Type="Residency_SelectModel.Store.PersonPracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeReport">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonPracticeReport">
+        <PropertyRef Name="PracticeReportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeCategoryParagraphs_PracticeCategory">
+    <End Role="PracticeCategory" Type="Residency_SelectModel.Store.PracticeCategories" Multiplicity="1" />
+    <End Role="PracticeCategoryParagraphs" Type="Residency_SelectModel.Store.PracticeCategoryParagraphs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeCategoryParagraphs">
+        <PropertyRef Name="PracticeCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeCategoryScale_PracticeCategory">
+    <End Role="PracticeCategory" Type="Residency_SelectModel.Store.PracticeCategories" Multiplicity="1" />
+    <End Role="PracticeCategoryScale" Type="Residency_SelectModel.Store.PracticeCategoryScales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeCategoryScale">
+        <PropertyRef Name="PracticeCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeScale_PracticeCategory">
+    <End Role="PracticeCategory" Type="Residency_SelectModel.Store.PracticeCategories" Multiplicity="1" />
+    <End Role="PracticeScale" Type="Residency_SelectModel.Store.PracticeScales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeScale">
+        <PropertyRef Name="PracticeCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeCategoryScale_Program">
+    <End Role="Program" Type="Residency_SelectModel.Store.Programs" Multiplicity="1" />
+    <End Role="PracticeCategoryScale" Type="Residency_SelectModel.Store.PracticeCategoryScales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeCategoryScale">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeScale_PracticeLevel">
+    <End Role="PracticeLevel" Type="Residency_SelectModel.Store.PracticeLevels" Multiplicity="1" />
+    <End Role="PracticeScale" Type="Residency_SelectModel.Store.PracticeScales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeLevel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeScale">
+        <PropertyRef Name="PracticeLevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeParagraphs_PracticeReport">
+    <End Role="PracticeReport" Type="Residency_SelectModel.Store.PracticeReports" Multiplicity="1" />
+    <End Role="PracticeParagraphs" Type="Residency_SelectModel.Store.PracticeParagraphs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeReport">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeParagraphs">
+        <PropertyRef Name="PracticeReportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeReport_IntroductionResx">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="0..1" />
+    <End Role="PracticeReport" Type="Residency_SelectModel.Store.PracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeReport">
+        <PropertyRef Name="IntroductionResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeReport_IntroductionThreeResx">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="0..1" />
+    <End Role="PracticeReport" Type="Residency_SelectModel.Store.PracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeReport">
+        <PropertyRef Name="IntroductionThreeResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeReport_IntroductionTwoResx">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="0..1" />
+    <End Role="PracticeReport" Type="Residency_SelectModel.Store.PracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeReport">
+        <PropertyRef Name="IntroductionTwoResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeReport_Resx">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="0..1" />
+    <End Role="PracticeReport" Type="Residency_SelectModel.Store.PracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeReport">
+        <PropertyRef Name="ReportTitleResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeScaleReport_PracticeReport">
+    <End Role="PracticeReport" Type="Residency_SelectModel.Store.PracticeReports" Multiplicity="1" />
+    <End Role="PracticeScaleReport" Type="Residency_SelectModel.Store.PracticeScaleReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeReport">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeScaleReport">
+        <PropertyRef Name="PracticeReportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgramPracticeReports_PracticeReport">
+    <End Role="PracticeReport" Type="Residency_SelectModel.Store.PracticeReports" Multiplicity="1" />
+    <End Role="ProgramPracticeReports" Type="Residency_SelectModel.Store.ProgramPracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeReport">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProgramPracticeReports">
+        <PropertyRef Name="PracticeReportId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeScale_Program">
+    <End Role="Program" Type="Residency_SelectModel.Store.Programs" Multiplicity="0..1" />
+    <End Role="PracticeScale" Type="Residency_SelectModel.Store.PracticeScales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeScale">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeScaleReport_PracticeScale">
+    <End Role="PracticeScale" Type="Residency_SelectModel.Store.PracticeScales" Multiplicity="1" />
+    <End Role="PracticeScaleReport" Type="Residency_SelectModel.Store.PracticeScaleReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeScale">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeScaleReport">
+        <PropertyRef Name="PracticeScaleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeScaleReport_PracticeText">
+    <End Role="PracticeText" Type="Residency_SelectModel.Store.PracticeTexts" Multiplicity="1" />
+    <End Role="PracticeScaleReport" Type="Residency_SelectModel.Store.PracticeScaleReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeText">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeScaleReport">
+        <PropertyRef Name="PracticeTextId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeScaleReport_PracticeText2">
+    <End Role="PracticeText" Type="Residency_SelectModel.Store.PracticeTexts" Multiplicity="0..1" />
+    <End Role="PracticeScaleReport" Type="Residency_SelectModel.Store.PracticeScaleReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeText">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeScaleReport">
+        <PropertyRef Name="InterviewPracticeTextId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeText_PracticeText">
+    <End Role="PracticeText" Type="Residency_SelectModel.Store.PracticeTexts" Multiplicity="0..1" />
+    <End Role="PracticeText1" Type="Residency_SelectModel.Store.PracticeTexts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeText">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeText1">
+        <PropertyRef Name="ParentPracticeTextId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeText_Text">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="1" />
+    <End Role="PracticeText" Type="Residency_SelectModel.Store.PracticeTexts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeText">
+        <PropertyRef Name="TextResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeTextOption_AlternativePracticeText">
+    <End Role="PracticeText" Type="Residency_SelectModel.Store.PracticeTexts" Multiplicity="0..1" />
+    <End Role="PracticeTextOption" Type="Residency_SelectModel.Store.PracticeTextOptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeText">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeTextOption">
+        <PropertyRef Name="AlternativePracticeTextId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PracticeTextOption_PracticeText">
+    <End Role="PracticeText" Type="Residency_SelectModel.Store.PracticeTexts" Multiplicity="1" />
+    <End Role="PracticeTextOption" Type="Residency_SelectModel.Store.PracticeTextOptions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PracticeText">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PracticeTextOption">
+        <PropertyRef Name="PracticeTextId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgramPracticeReports_Program">
+    <End Role="Program" Type="Residency_SelectModel.Store.Programs" Multiplicity="1" />
+    <End Role="ProgramPracticeReports" Type="Residency_SelectModel.Store.ProgramPracticeReports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProgramPracticeReports">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResidencyProgramSitess_Program">
+    <End Role="Program" Type="Residency_SelectModel.Store.Programs" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProgramSites" Type="Residency_SelectModel.Store.ProgramSites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProgramSites">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgramSiteHoganMVPI_ResidencyProgramHospitals">
+    <End Role="ProgramSites" Type="Residency_SelectModel.Store.ProgramSites" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProgramSiteHoganMVPI" Type="Residency_SelectModel.Store.ProgramSiteHoganMVPIs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgramSites">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProgramSiteHoganMVPI">
+        <PropertyRef Name="ProgramSiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResidencyProgramSites_Site">
+    <End Role="Site" Type="Residency_SelectModel.Store.Sites" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ProgramSites" Type="Residency_SelectModel.Store.ProgramSites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProgramSites">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResxValue_Resx">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ResxValue" Type="Residency_SelectModel.Store.ResxValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResxValue">
+        <PropertyRef Name="ResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScheduledEmailPerson_ScheduledEmail">
+    <End Role="ScheduledEmail" Type="Residency_SelectModel.Store.ScheduledEmails" Multiplicity="1" />
+    <End Role="ScheduledEmailPerson" Type="Residency_SelectModel.Store.ScheduledEmailPersons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ScheduledEmail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ScheduledEmailPerson">
+        <PropertyRef Name="ScheduledEmailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiteUsers_Site">
+    <End Role="Site" Type="Residency_SelectModel.Store.Sites" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SiteUsers" Type="Residency_SelectModel.Store.SiteUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SiteUsers">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZCOExportTemplateMap_ZCOExportMap">
+    <End Role="ZCOExportMap" Type="Residency_SelectModel.Store.ZCOExportMaps" Multiplicity="1" />
+    <End Role="ZCOExportTemplateMap" Type="Residency_SelectModel.Store.ZCOExportTemplateMaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZCOExportMap">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ZCOExportTemplateMap">
+        <PropertyRef Name="ZCOExportMapId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZCOExportTemplateMap_ZCOExportTemplate">
+    <End Role="ZCOExportTemplate" Type="Residency_SelectModel.Store.ZCOExportTemplates" Multiplicity="1" />
+    <End Role="ZCOExportTemplateMap" Type="Residency_SelectModel.Store.ZCOExportTemplateMaps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZCOExportTemplate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ZCOExportTemplateMap">
+        <PropertyRef Name="ZCOExportTemplateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmailStatus_Resx">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="1" />
+    <End Role="EmailStatus" Type="Residency_SelectModel.Store.EmailStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmailStatus">
+        <PropertyRef Name="NameResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonEmail_EmailStatus">
+    <End Role="EmailStatus" Type="Residency_SelectModel.Store.EmailStatus" Multiplicity="0..1" />
+    <End Role="PersonEmail" Type="Residency_SelectModel.Store.PersonEmails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmailStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonEmail">
+        <PropertyRef Name="EmailStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_EventStatus">
+    <End Role="EventStatus" Type="Residency_SelectModel.Store.EventStatus" Multiplicity="1" />
+    <End Role="Event" Type="Residency_SelectModel.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="EventStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventStatus_Resx">
+    <End Role="Resx" Type="Residency_SelectModel.Store.Resxes" Multiplicity="1" />
+    <End Role="EventStatus" Type="Residency_SelectModel.Store.EventStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resx">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventStatus">
+        <PropertyRef Name="NameResxId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderForm_OrderStatus">
+    <End Role="OrderStatus" Type="Residency_SelectModel.Store.OrderStatus" Multiplicity="0..1" />
+    <End Role="OrderForm" Type="Residency_SelectModel.Store.OrderForms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderForm">
+        <PropertyRef Name="OrderStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="vDashboardPerson">
+    <End Role="vDashboard" Type="Residency_SelectModel.Store.vDashboard" Multiplicity="*" />
+    <End Role="Person" Type="Residency_SelectModel.Store.People" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="vDashboard">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="vPersonBySitePerson">
+    <End Role="vPersonBySite" Type="Residency_SelectModel.Store.vPersonBySites" Multiplicity="*" />
+    <End Role="Person" Type="Residency_SelectModel.Store.People" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="vPersonBySite">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

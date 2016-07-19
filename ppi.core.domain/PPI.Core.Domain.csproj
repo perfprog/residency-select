@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5CC8374C-93D3-49A4-9178-34A414B24A79}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PPI.Core.Domain</RootNamespace>
+    <AssemblyName>PPI.Core.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <DontImportPostSharp>True</DontImportPostSharp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SkipPostSharp>True</SkipPostSharp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SkipPostSharp>True</SkipPostSharp>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PostSharp, Version=4.0.39.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\PostSharp.4.0.39\lib\net35-client\PostSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IGenericRepository.cs" />
+    <Compile Include="Abstract\ISpecialRepository.cs" />
+    <Compile Include="Abstract\IUnitofWork.cs" />
+    <Compile Include="Concrete\EfSpecialRepository.cs" />
+    <Compile Include="Concrete\EfGenericRepository.cs" />
+    <Compile Include="Concrete\EfUnitOfWork.cs" />
+    <Compile Include="Concrete\EventTypeExtention.cs" />
+    <Compile Include="Concrete\GenericRepositoryExtention.cs" />
+    <Compile Include="Entities\AspNetRole.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspNetUser.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspNetUserClaim.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspNetUserLogin.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AssessmentQuestion.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AssessmentQuestionOption.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AssessmentResponse.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AssessmentResponseQuestionOption.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Culture.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Email.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmailStatus.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EmailType.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Event.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EventNotBillableReason.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EventPracticeReport.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EventStatus.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EventType.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EventVGSpecialty.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GetPracticeCategoryText_Result.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\GetPracticeScaleText_Result.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\HoganField.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\HoganMVPI.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\HoganUserInfo.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Language.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Manual_Hogan_Import.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\OESPracticeReport.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\OESSchedule.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\OESSetup.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\OrderForm.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\OrderFormPracticeReport.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\OrderStatus.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Organization.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PartialEmail.cs" />
+    <Compile Include="Entities\PartialPerson.cs" />
+    <Compile Include="Concrete\UserPracticeCategoryTextExtention.cs" />
+    <Compile Include="Concrete\UserPracticeTextExtention.cs" />
+    <Compile Include="Entities\PartialPracticeReport.cs" />
+    <Compile Include="Entities\Person.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PersonAssessment.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PersonEmail.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PersonEvent.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PersonPracticeReport.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PracticeCategory.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PracticeCategoryParagraphs.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PracticeCategoryScale.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PracticeLevel.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PracticeParagraphs.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PracticeReport.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PracticeScale.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PracticeScaleReport.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PracticeText.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\PracticeTextOption.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Program.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProgramPracticeReports.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProgramSite.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProgramSiteHoganMVPI.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ReplacementExpression.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ResidencySelectModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResidencySelectModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ResidencySelectModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ResidencySelectModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResidencySelectModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Resx.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ResxValue.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ScheduledEmail.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ScheduledEmailPerson.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Site.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SiteUser.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SurveyType.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UserPracticeText.cs" />
+    <Compile Include="Entities\vDashboard.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\vPersonBySite.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ZCOExportMap.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ZCOExportTemplate.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ZCOExportTemplateMap.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ZCOUserMap.cs">
+      <DependentUpon>ResidencySelectModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\UserPracticeCategoryText.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Entities\ResidencySelectModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ResidencySelectModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\ResidencySelectModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ResidencySelectModel.edmx</DependentUpon>
+      <LastGenOutput>ResidencySelectModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Entities\ResidencySelectModel.edmx.diagram">
+      <DependentUpon>ResidencySelectModel.edmx</DependentUpon>
+    </None>
+    <None Include="Entities\ResidencySelectModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ResidencySelectModel.edmx</DependentUpon>
+      <LastGenOutput>ResidencySelectModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PPI.Core\PPI.Core.csproj">
+      <Project>{5a5be1d2-812f-4150-bf98-fc06d3b39ae9}</Project>
+      <Name>PPI.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\PostSharp.4.0.39\tools\PostSharp.targets" Condition="Exists('..\packages\PostSharp.4.0.39\tools\PostSharp.targets')" />
+  <Target Name="EnsurePostSharpImported" BeforeTargets="BeforeBuild" Condition="'$(PostSharp30Imported)' == ''">
+    <Error Condition="!Exists('..\packages\PostSharp.4.0.39\tools\PostSharp.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://www.postsharp.net/links/nuget-restore." />
+    <Error Condition="Exists('..\packages\PostSharp.4.0.39\tools\PostSharp.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://www.postsharp.net/links/nuget-restore." />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

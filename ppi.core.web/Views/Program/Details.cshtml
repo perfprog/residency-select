@@ -1,0 +1,33 @@
+﻿@model PPI.Core.Domain.Entities.Program
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Specialty Details</h2>
+
+        <div class="row">
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayName("SpecialtyName")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProgramName)
+                </dd>
+
+            </dl>
+            <div class="form-group">
+                <div class="col-md-offset-1 col-md-12">
+                @Html.ActionLink("Back to List", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn200" })
+                @Html.ActionLink("Manage Departments", "IndexSite", new { @programid = Model.Id }, new { @class = "btn btn-primary btn200" })
+                </div>
+            </div>
+        </div>
+
+</div>
+</div>

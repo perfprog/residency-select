@@ -1,0 +1,20 @@
+﻿@model PPI.Core.Domain.Entities.ResxValue
+
+@using (@Html.BeginForm("UpdateText", "Reports", FormMethod.Post, new  {@id= "form-" + @Model.Id }))
+{
+
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.ResxId)
+    @Html.HiddenFor(m => m.CultureId)    
+    <div class="col-md-4">        
+        @Html.TextAreaFor(m => m.Value, new { @class = "form-control", rows=6, cols=60 })
+
+    </div>
+    <div class="col-md-1">
+        <button type="submit" data-loading-text="Updating..." class="btn btn-primary btn200" id="btn-loading-demo">
+            Update
+        </button>            
+    </div>
+}
+

@@ -1,0 +1,65 @@
+﻿@model PPI.Core.Web.Models.PersonSiteProgramViewModel
+@{
+    var metaSite = Model.Sites.FirstOrDefault();
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h3>Approved Intrested Sites</h3>
+        @using (Html.BeginForm("AddProgramSite", "People"))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Partial("_PartialSites", ViewData["Sites"])
+            @Html.Hidden("personId", Model.PersonId)
+            @Html.Hidden("programId", Model.ProgramId)
+            <input type="submit" value="Add Site" class="btn-primary btn-sm" />
+        }
+
+        <table class="table table-responsive">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => metaSite.SiteName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => metaSite.FriendlyName)
+                </th>
+                <th>
+
+                </th>
+                <th>Fit</th>
+            </tr>
+            @if (Model != null)
+            {
+                foreach (var item in Model.Sites)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SiteName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FriendlyName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "DeleteSite", new { id = item.Id, PersonId = Model.PersonId, ProgramId = Model.ProgramId }, new { @class = "btn btn-danger btn-sm" })
+                        </td>
+                        <td>
+                            @if (Model.HasFitReport)
+                            {
+                                @Html.ActionLink("Match", "PreviewMatchReport", "Reports", new { @hoganId = Model.Hogan_Id, @language = 1, @report = 7, @programSiteId = item.Id }, new { @class = "btn btn-info btn-sm" })
+                                @Html.ActionLink("Custom Match", "PreviewMatchReport", "Reports", new { @hoganId = Model.Hogan_Id, @language = 1, @report = 8, @programSiteId = item.Id }, new { @class = "btn btn-info btn-sm" })
+                                @Html.ActionLink("Profession To Practice", "PreviewProfessionReport", "Reports", new { @hoganId = Model.Hogan_Id, @language = 1, @report = 1, @programSiteId = item.Id }, new { @class = "btn btn-info btn-sm" })
+                                @Html.ActionLink("Transistion To Practice", "PreviewProfessionReport", "Reports", new { @hoganId = Model.Hogan_Id, @language = 1, @report = 2, @programSiteId = item.Id }, new { @class = "btn btn-info btn-sm" })
+                                @Html.ActionLink("Manage", "PreviewProfessionReport", "Reports", new { @hoganId = Model.Hogan_Id, @language = 1, @report = 3, @programSiteId = item.Id }, new { @class = "btn btn-info btn-sm" })
+                            }
+                            else
+                            {
+                                <span class="glyphicon glyphicon-asterisk"></span>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+
+        </table>
+        </div>
+    </div>

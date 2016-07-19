@@ -1,0 +1,168 @@
+﻿@model PPI.Core.Web.Models.GetReportViewModel
+@using PPI.Core.Web.HtmlHelpers;
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Reports";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <header class="main-box-header clearfix">
+            
+                @using (Html.BeginForm("ReportEventSwitch", "Reports"))
+                {
+
+                    <div class="row">
+                        <h2 class="pull-left">Get Reports</h2>
+                        <div class="form-group pull-right mt20">
+                        <label for="eventFilter" class="col-md-2 control-label bold text-right">Events</label>
+                        <div class="col-md-10">
+                            @Html.DropDownList("EventId", null, new { @class = "form-control pull-right", onchange = "this.form.submit();" })
+                        </div>
+                    </div>
+                </div>
+                    <div class="pull-right">
+                    <ul class="list-inline">
+                            Results Per Page
+                            @Html.PageSizeList(new List<string> { "10", "20", "50", "ALL" }, x => Url.Action("SetPageSize", new { pageSize = x, redirectTo = "GetReports" }))
+                        </ul>
+                    </div>
+
+                }
+        </header>        
+        @using (Html.BeginForm())
+        {           
+            @Html.HiddenFor(m => m.EventId)                   
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>                                                        
+                            <div class="checkbox-nice">
+                                <input id="checkbox-UsersSelectAll" name="checkbox" type="checkbox" onclick="AllReports(this)" />      
+                                <label for="checkbox-UsersSelectAll"></label>
+                            </div>                                                            
+                        </th>
+                        <th>
+                            First Name
+                        </th>
+                        <th>
+                            Last Name
+
+                        </th>
+                        <th>
+                            Email Address
+                        </th>
+                        @foreach (var Reportitem in Model.Reports)
+                        {
+                            <th>                                 
+                                <div class="checkbox-nice">                                                                                              
+                                    <label for="checkbox_@Reportitem.PracticeReport.Id.ToString()" style="margin-top:-5px;padding-left:1.5em;font-size:12px; font-weight:bold;text-indent:-1.3em;"><input id="checkbox_@Reportitem.PracticeReport.Id.ToString()" class="ReportSelectAll_@Reportitem.PracticeReport.ReportTitleResxId" name="checkbox_Users" type="checkbox" onclick="CheckAllReports(this)" /> @Reportitem.PracticeReport.ReportTitleResx.ResxValues.FirstOrDefault(m => m.CultureId == ViewBag.CultureId).Value</label>
+                                </div>                                                           
+                            </th>
+                        }                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Participants)
+                    {
+                        <tr>
+                            <td>
+                                
+                                @Html.HiddenFor(m => item.Id, new { @class = "selectedUser" })
+                                @Html.Hidden("SingleEmail", false)                                
+                                
+                                <div class="checkbox-nice">
+                                    <input id="checkbox-User_@item.Id.ToString()" name="SelectedUserReports" class="UsersReportsCheckBox" type="checkbox" value="@item.Id" onclick="CheckUserAllReports(this)" />
+                                    <label for="checkbox-User_@item.Id.ToString()"></label>
+                                </div>     
+                                    
+                            </td>
+                            <td>@item.FirstName </td>
+                            <td>@item.LastName</td>
+                            <td>@item.PrimaryEmail</td>
+                            @foreach (var Reportitem in Model.Reports)
+                            {
+                                
+                                <td>
+                                    <div class="checkbox-nice">                                                                                 
+                                        <input @(Model.PeopleAvailibleReports.AsQueryable().FirstOrDefault(m => m.PersonId == item.Id).ReportDataAvailible.Contains(Reportitem.PracticeReportId) ? "" : "disabled") id="@("checkbox_" + @Reportitem.PracticeReport.Id.ToString() + "_" + @item.Id.ToString())" name="SelectedReports" class="ReportSelectAll_@Reportitem.PracticeReport.ReportTitleResxId" type="checkbox" value="@(Reportitem.PracticeReport.Id.ToString() + "_" + @item.Id.ToString())" />
+                                        <label for="@("checkbox_" + @Reportitem.PracticeReport.Id.ToString() + "_" + @item.Id.ToString())" title="@(Model.PeopleAvailibleReports.AsQueryable().FirstOrDefault(m => m.PersonId == item.Id).ReportDataAvailible.Contains(Reportitem.PracticeReportId) ? "" : "Data Not Available")"></label>
+                                    </div>                                                           
+                                </td>
+                            }                               
+                        </tr>
+                    }                            
+                </tbody>              
+            </table>
+            
+            <div>
+                <input id="FormSubmit" type="button" value="Download" class="btn btn-primary btn200 pull-right" />
+                <div id="spinme">
+                    
+                </div>
+            </div>
+    
+        }
+        <footer>
+            <div class="pagination">
+                @Html.PageLinks(Model.PagingInfo, x => Url.Action("GetReports", new { page = x, eventId = Model.EventId }))
+            </div>
+            
+            
+                
+            
+            
+        </footer>
+    </div>
+</div>
+
+@section scripts{
+ <script>
+        $(function ($) {
+         $("#checkbox-UsersSelectAll").click(function () {             
+             $(".UsersCheckBox").prop('checked', $(this).prop('checked'));
+         });
+              
+         $("#FormSubmit").click(function () {             
+             //$("#spinme").html("<span><i class='fa fa-spinner fa-spin'></i></span>");
+
+             var checkboxes = [];
+             var i = 0;
+             // Loop though all rows.
+             // If checkbox checked, set respective field.
+             $('input[type=checkbox]').not('#checkbox-UsersSelectAll').each(function (index, value) {
+                 if (this.checked) {
+                     i++;
+                 }
+             });
+             // Alert if no checkboxes checked
+             if (i == 0) {
+                 alert("You must select at least one report to download.");
+             } else {
+                 var txt;
+                 var r = confirm("Depending on the number of reports to be generated, this process could take a few minutes.  To continue click 'OK' and to cancel click 'Cancel'.");
+                 if (r == true) {
+                     $(this).closest('form').submit();
+                 }                  
+             }
+         })
+        
+     });
+
+     function CheckUserAllReports(checkbox) {
+         var chechboxRow = $(checkbox).closest('tr');         
+         //$(this).prop('checked'         
+         $(checkbox).closest('tr').find(':checkbox:enabled').prop('checked', $(checkbox).prop('checked'));
+     };
+
+     function CheckAllReports(checkbox) {
+         var chechboxClass = $(checkbox).prop('class');         
+            $("." + chechboxClass + ':enabled').prop('checked', $(checkbox).prop('checked'));
+     };
+
+     function AllReports(checkbox) {
+         var chechboxClass = $(':checkbox:enabled');
+         $(chechboxClass).prop('checked', $(checkbox).prop('checked'));
+     };
+
+    </script>
+}

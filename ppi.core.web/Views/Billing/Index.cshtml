@@ -1,0 +1,208 @@
+﻿@model  PPI.Core.Web.Models.BillingViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section AddToHead{
+
+    <link href="@Url.Content("~/Content/Libraries/daterangepicker.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Libraries/datepicker.css")" rel="stylesheet" type="text/css" />
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Billing</h2>
+        <hr />        
+         <div class="row ">
+         <div class="tabs-wrapper" style="border:4px solid #d0d8de;">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab-event" data-toggle="tab">Events</a></li>
+                <li><a href="#tab-reports" data-toggle="tab">Reports</a></li>
+            </ul>
+            @using (Html.BeginForm("Review", "Billing"))
+            {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-1" for="datepickerDateRange">Billing Range</label>
+                <div class="input-group col-md-11">
+                    <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+                    @Html.Editor("datepickerDateRange", new { htmlAttributes = new { @class = "" } })
+                </div>
+            </div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade active in" id="tab-event">                    
+                        
+                        <div class="table-condensed">
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        Event Name
+                                    </th>
+                                    <th>
+                                        Description
+                                    </th>
+                                    <th>
+                                        Start Date
+                                    </th>
+                                    <th>
+                                        End Date
+                                    </th>
+                                    <th>
+                                        Type
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                    <th>
+                                        Matched
+                                    </th>
+                                    <th></th>
+                                </tr>
+                                @foreach (var item in Model.Events)
+                                {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(m => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(m => item.Description)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(m => item.StartDate, "ShortDateTime")
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(m => item.EndDate, "ShortDateTime")
+                                    </td>
+                                    <td>
+                                        @item.EventType.NameResx.ResxValues.FirstOrDefault(m => m.CultureId == ViewBag.CultureId).Value
+                                    </td>
+                                    <td>
+                                        @item.EventStatus.NameResx.ResxValues.FirstOrDefault(m => m.CultureId == ViewBag.CultureId).Value
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(m => item.Placement)
+                                    </td>
+                                    <td>
+                                        <a href="#" onclick="ParticipantsPopup(@item.Id)" class="table-link success" id="Participants">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x "></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                        <a href="#" onclick="ReportsPopup(@item.Id)" class="table-link success" id="Participants">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-square fa-stack-2x "></i>
+                                                <i class="fa fa-bank fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                }
+                            </table>
+                        </div>
+                    
+                </div>
+                <div class="tab-pane fade" id="tab-reports">                                                                    
+                    <div class="table-condensed">
+                        <div class="table-condensed">
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        Report
+                                    </th>
+                                    <th>
+                                        Full Name
+                                    </th>
+                                    <th>
+                                        Hogan ID
+                                    </th>
+                                    <th>
+                                        Run Date
+                                    </th>                                   
+                                    <th>
+                                        Run By
+                                    </th>                                   
+                                </tr>
+                                @foreach(var item in Model.PracticeReports)
+                                {
+                                <tr>
+                                    <td>@item.PracticeReport.ReportTitleResx.ResxValues.FirstOrDefault(n => n.CultureId == ViewBag.CultureId).Value</td>
+                                    <td>@Html.DisplayFor(m => item.Person.FirstName) @Html.DisplayFor(m => item.Person.LastName)</td>
+                                    <td>@Html.DisplayFor(m => item.Person.Hogan_Id)</td>                                    
+                                    <td>
+                                    @Html.DisplayFor(m => item.RunDate, "ShortDateTime")                                    
+                                    <td>@Html.DisplayFor(m => item.AspNetUser.UserName)</td>               
+                                </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>                
+                 </div>            
+            </div>
+            }
+        </div>
+        </div>
+    </div>
+</div>                
+
+<!--PopUP-->
+<div tabindex="-1" class="modal fade" id="openpreview" role="dialog" aria-hidden="true" aria-labelledby="openpreviewLabel" style="display: none;">
+    <div class="modal-dialog">
+
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="replaceme" class="main-box-body clearfix">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end PopUp -->
+@section Scripts
+    {
+    <script src="~/Scripts/Plugin/daterangepicker.js"></script>
+    <script src="~/Scripts/Plugin/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/Plugin/moment.min.js"></script>
+    <script>
+        $(function ($) {
+            //$('#datepickerDateRange').daterangepicker();
+            $('#datepickerDateRange').daterangepicker(
+               {}
+               , function (start, end, label) { $('form').submit(); }
+               );
+        });
+
+        function ParticipantsPopup(eventId) {
+            $.ajax({
+                url: "/Billing/Participants?eventId=" + eventId,
+                type: 'get',
+                data: null,
+                success: function (response) {
+                    $('#replaceme').html(response);
+                    $('#openpreview').modal('show');
+                }
+            });
+        }
+
+        function ReportsPopup(eventId) {
+            $.ajax({
+                url: "/Billing/Reports?eventId=" + eventId,
+                type: 'get',
+                data: null,
+                success: function (response) {
+                    $('#replaceme').html(response);
+                    $('#openpreview').modal('show');
+                }
+            });
+        }
+
+    </script>
+
+
+
+}

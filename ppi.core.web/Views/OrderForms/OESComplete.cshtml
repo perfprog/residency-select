@@ -1,0 +1,55 @@
+﻿@model PPI.Core.Domain.Entities.OESSetup
+@{
+    ViewBag.Title = "Complete";
+    Layout = "~/Views/Shared/_LayoutAdminOESSetup.cshtml";
+}
+
+<b></b>
+
+<div class="main-box clearfix">
+   
+    
+    
+    <div class="main-box-body">
+       @if(User.IsInRole("Admin"))
+       { 
+           <div class="alert alert-success alert-white rounded">
+            <div class="icon"><i class="fa fa-check"></i></div>
+            <strong>Success!</strong> The event has been successfully created!.
+        </div>
+       }
+        else
+           {
+               if (@Model.Billable.HasValue && @Model.Billable.Value==true)
+               {
+                 <div class="alert alert-success alert-white rounded">
+                <div class="icon"><i class="fa fa-check"></i></div>
+                <strong>Success!</strong> The event has been successfully created!.
+                </div>
+               }
+               else if (@Model.Billable.HasValue && @Model.Billable.Value==false && @Model.EventNotBillableReason.Name.ToUpper() == "VALIDITY GENERALIZATION")
+               {
+                 <div class="alert alert-success alert-white rounded">
+                <div class="icon"><i class="fa fa-check"></i></div>
+                <strong>Success!</strong> The event has been successfully created!.
+            </div>
+               }
+               else
+               { 
+                <div class="alert alert-success alert-white rounded">
+                 <div class="icon"><i class="fa fa-check"></i></div>
+             <strong>Success!</strong> The event has been successfully saved! The System Admin will now review and upload any necessary information to complete the setup of this event. Once verified, the event will become available to use.
+                </div>
+                }
+       }
+        </div>
+   
+    </div>
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        $("#setupProjectli").addClass("complete");
+        $("#scheduleProjectli").addClass("complete");
+        $("#reviewProjectli").addClass("complete");
+        $("#completeProjectli").addClass("active");
+    });
+</script>

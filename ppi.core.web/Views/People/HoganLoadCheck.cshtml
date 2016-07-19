@@ -1,0 +1,22 @@
+﻿@model PPI.Core.Web.Models.HoganLoadCheckViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Pre-Check";
+}
+
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Participants Pre-Check</h2>
+        <hr />
+        
+        <div class="form-horizontal ml20">
+            @foreach (var item in Model.Files)
+            {
+                @item.recordcount    @item.File.FullName;
+            }        
+        </div>
+
+    </div>
+</div>
+

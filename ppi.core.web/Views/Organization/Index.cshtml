@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PPI.Core.Domain.Entities.Organization>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <div class="row">
+            <h2 class="pull-left">Organizations</h2>
+            <div class="form-group pull-right">
+                <a href="@Url.Action("Create", "Organization")" class="btn btn-primary btn200 pull-right mt20"><i class="fa fa-plus-circle fa-lg"></i> Add Organization</a>
+            </div>
+        </div>
+        <table class="table table-responsive">
+            <tr>
+                <th class="col-md-10">
+                    @Html.DisplayNameFor(model => model.OrganizationName)
+                </th>
+                <th class="col-md-2"></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="font-size:12px;">
+                        @Html.DisplayFor(modelItem => item.OrganizationName)
+                    </td>
+                    <td>
+                        <div class="groupbtn pull-right">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-default btn-sm btn60" })
+                          </div>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

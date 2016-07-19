@@ -1,0 +1,10 @@
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\bin\Debug\PPI.Core.Database.dacpac
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\bin\Debug\PPI.Core.Database.dll
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\bin\Debug\PPI.Core.Database.pdb
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\bin\Debug\master.dacpac
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\obj\Debug\Model.xml
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\obj\Debug\refactor.xml
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\obj\Debug\postdeploy.sql
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\obj\Debug\predeploy.sql
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\obj\Debug\PPI.Core.Database.dll
+E:\Residency\Source\ppi.core.web.11122015\PPI.Core.Database\obj\Debug\PPI.Core.Database.pdb

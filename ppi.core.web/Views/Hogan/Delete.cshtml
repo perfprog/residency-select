@@ -1,0 +1,78 @@
+﻿@model PPI.Core.Domain.Entities.Manual_Hogan_Import
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Delete";
+}
+
+<div class="main-box clearfix">
+<div class="main-box-body">
+    <div class="row">
+    <h2>Delete Hogan Data</h2>
+	<hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Hogan_User_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hogan_User_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.First_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Last_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HPIDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HPIDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HDSDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HDSDate)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MVPIDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MVPIDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="alert alert-block alert-danger fade in">
+        <h4><strong>ALERT!</strong> Are you sure you want to delete this Hogan data?</h4>
+        <div class="mt20 mb20">You will not be able to undo this action.  To delete the data click "Delete".  To cancel this action click "Back to Data"</div>
+        @Html.ActionLink("Back to Data", "Index", new { area = "" }, new { @class = "btn btn-default btn200" }) <input type="submit" value="Delete" class="btn btn-danger btn200" />
+        </div>
+
+    }
+    </div>
+</div>
+</div>

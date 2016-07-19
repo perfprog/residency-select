@@ -1,0 +1,188 @@
+﻿@model PPI.Core.Domain.Entities.Person
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    bool SiteC = User.IsInRole("SiteCordinator");
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Edit Participant</h2>
+        <hr />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.J3P_Id)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FirstName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LastName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Gender, new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Gender")
+                        @Html.ValidationMessageFor(model => model.Gender)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2 bold" for="AAMCNumber">ID Number/AAMC Number</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.AAMCNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AAMCNumber)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PrimaryEmail, new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PrimaryEmail, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PrimaryEmail)
+                    </div>
+                </div>
+
+                @if (string.IsNullOrEmpty(Model.J3P_Id))
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Hogan_Id, new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @if (SiteC)
+                            {
+                                @Html.EditorFor(model => model.Hogan_Id, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                            }
+                            else
+                            {
+                                @Html.EditorFor(model => model.Hogan_Id, new { htmlAttributes = new { @class = "form-control" } })
+                            }
+
+                            @Html.ValidationMessageFor(model => model.Hogan_Id)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Hogan_Password, new { @class = "control-label col-md-2 bold" })
+                        <div class="col-md-10">
+                            @if (SiteC)
+                            {
+                                @Html.EditorFor(model => model.Hogan_Password, new { htmlAttributes = new { @class = "form-control", @readonly = "True" } })
+                            }
+                            else
+                            {
+                                @Html.EditorFor(model => model.Hogan_Password, new { htmlAttributes = new { @class = "form-control" } })
+                            }
+
+                            @Html.ValidationMessageFor(model => model.Hogan_Password)
+                        </div>
+                    </div>
+                }
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.ActionLink("Back to Participants", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })
+                        <input type="submit" value="Save" class="btn btn-success btn200" onclick="javascript: return validate();" />
+                    </div>
+                </div>
+
+            </div>
+        }
+
+    </div>
+</div>
+@section Scripts
+{
+    <script type="text/javascript">
+        var opts = {
+            lines: 12, // The number of lines to draw
+            length: 7, // The length of each line
+            width: 4, // The line thickness
+            radius: 10, // The radius of the inner circle
+            color: '#000', // #rgb or #rrggbb
+            speed: 1, // Rounds per second
+            trail: 60, // Afterglow percentage
+            shadow: false, // Whether to render a shadow
+            hwaccel: false // Whether to use hardware acceleration
+        };
+
+        //$('input[type="submit"]').click(function () {
+        //$("#loading").fadeIn();
+        //var target = document.getElementById('loading');
+        //var spinner = new Spinner(opts).spin(target);
+        //$(target).data('spinner', spinner);
+        //});
+
+    </script>
+
+    <script type="text/javascript">
+
+        function validate() {
+
+            if (!document.getElementById('FirstName').value) {
+                alert('Please enter First Name.');
+                document.getElementById('FirstName').focus();
+                return false;
+            }
+
+            if (!document.getElementById('LastName').value) {
+                alert('Please enter Last Name.');
+                document.getElementById('LastName').focus();
+                return false;
+            }
+
+            if (!document.getElementById('Title').value) {
+                alert('Please enter Title.');
+                document.getElementById('Title').focus();
+                return false;
+            }
+
+            if (!document.getElementById('Gender').value) {
+                alert('Please select Gender.');
+                document.getElementById('Gender').focus();
+                return false;
+            }
+
+            //Zco
+            //if (!document.getElementById('AAMCNumber').value) {
+            //    alert('Please enter AAMC Number.');
+            //    document.getElementById('AAMCNumber').focus();
+            //    return false;
+            //}
+
+            if (!document.getElementById('PrimaryEmail').value) {
+                alert('Please enter Primary Email Address.');
+                document.getElementById('PrimaryEmail').focus();
+                return false;
+            }
+
+
+        }
+
+
+
+    </script>
+}
+

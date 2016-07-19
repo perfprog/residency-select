@@ -1,0 +1,1416 @@
+﻿@model PPI.Core.Domain.Entities.Manual_Hogan_Import
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Details";
+}
+
+<div class="main-box clearfix">
+    <div class="main-box-body">
+    <div class="row">
+    <h2>Hogan Data Details</h2>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClientName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClientName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hogan_User_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hogan_User_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.First_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.First_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Last_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HPIDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HPIDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empathy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empathy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotAnxious)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotAnxious)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoGuilt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoGuilt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calmness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calmness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EvenTempered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EvenTempered)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoSomaticComplaint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoSomaticComplaint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trusting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trusting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoodAttachment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoodAttachment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Competitive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Competitive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SelfConfidence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SelfConfidence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoDepression)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoDepression)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Leadership)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Leadership)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Identity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Identity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoSocialAnxiety)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoSocialAnxiety)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LikesParties)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LikesParties)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LikesCrowds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LikesCrowds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExperienceSeeking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExperienceSeeking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exhibitionistic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exhibitionistic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Entertaining)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entertaining)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EasyToLiveWith)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EasyToLiveWith)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sensitive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sensitive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Caring)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Caring)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LikesPeople)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LikesPeople)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoHostility)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoHostility)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Moralistic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Moralistic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mastery)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mastery)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Virtuous)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Virtuous)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotAutonomous)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotAutonomous)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotSpontaneous)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotSpontaneous)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImpulseControl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImpulseControl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvoidsTrouble)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvoidsTrouble)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScienceAbility)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScienceAbility)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Curiosity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Curiosity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThrillSeeking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThrillSeeking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IntellectualGames)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IntellectualGames)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GeneratesIdeas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GeneratesIdeas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Culture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Culture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Education)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Education)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MathAbility)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MathAbility)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoodMemory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoodMemory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RValidity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RValidity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAdjustment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAdjustment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAmbition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAmbition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RSociability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RSociability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RInterpersonalSensitivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RInterpersonalSensitivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RPrudence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RPrudence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RInquisitive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RInquisitive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RLearningApproach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RLearningApproach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RServiceOrientation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RServiceOrientation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RStressTolerance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RStressTolerance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RReliability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RReliability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RClericalPotential)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RClericalPotential)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RSalesPotential)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RSalesPotential)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RManagerialPotential)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RManagerialPotential)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PValidity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PValidity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PAdjustment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAdjustment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PAmbition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAmbition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PSociability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PSociability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PInterpersonalSensitivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PInterpersonalSensitivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PPrudence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PPrudence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PInquisitive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PInquisitive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PLearningApproach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PLearningApproach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PServiceOrientation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PServiceOrientation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PStressTolerance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PStressTolerance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PReliability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PReliability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PClericalPotential)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PClericalPotential)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PSalesPotential)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PSalesPotential)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PManagerialPotential)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PManagerialPotential)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HDSDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HDSDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RExcitable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RExcitable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RSkeptical)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RSkeptical)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RCautious)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RCautious)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RReserved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RReserved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RLeisurely)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RLeisurely)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RBold)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RBold)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RMischievous)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RMischievous)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RColorful)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RColorful)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RImaginative)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RImaginative)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RDiligent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RDiligent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RDutiful)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RDutiful)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RUnlikeness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RUnlikeness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PExcitable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PExcitable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PSkeptical)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PSkeptical)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PCautious)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PCautious)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PReserved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PReserved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PLeisurely)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PLeisurely)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PBold)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PBold)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PMischievous)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PMischievous)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PColorful)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PColorful)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PImaginative)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PImaginative)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PDiligent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PDiligent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PDutiful)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PDutiful)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PUnlikeness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PUnlikeness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MVPIDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MVPIDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAesthetic_Lifestyles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAesthetic_Lifestyles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAesthetic_Beliefs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAesthetic_Beliefs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAesthetic_Occupational_Prferences)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAesthetic_Occupational_Prferences)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAesthetic_Aversions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAesthetic_Aversions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAesthetic_Preferred_Associates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAesthetic_Preferred_Associates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAffiliation_Lifestyles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAffiliation_Lifestyles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAffiliation_Beliefs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAffiliation_Beliefs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAffiliation_Occupational_Prferences)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAffiliation_Occupational_Prferences)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAffiliation_Aversions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAffiliation_Aversions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAffiliation_Preferred_Associates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAffiliation_Preferred_Associates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAltruistic_Lifestyles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAltruistic_Lifestyles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAltruistic_Beliefs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAltruistic_Beliefs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAltruistic_Occupational_Prferences)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAltruistic_Occupational_Prferences)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAltruistic_Aversions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAltruistic_Aversions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAltruistic_Preferred_Associates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAltruistic_Preferred_Associates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RCommercial_Lifestyles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RCommercial_Lifestyles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RCommercial_Beliefs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RCommercial_Beliefs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RCommercial_Occupational_Prferences)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RCommercial_Occupational_Prferences)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RCommercial_Aversions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RCommercial_Aversions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RCommercial_Preferred_Associates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RCommercial_Preferred_Associates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RHedonistic_Lifestyles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RHedonistic_Lifestyles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RHedonistic_Beliefs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RHedonistic_Beliefs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RHedonistic_Occupational_Prferences)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RHedonistic_Occupational_Prferences)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RHedonistic_Aversions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RHedonistic_Aversions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RHedonistic_Preferred_Associates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RHedonistic_Preferred_Associates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RPower_Lifestyles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RPower_Lifestyles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RPower_Beliefs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RPower_Beliefs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RPower_Occupational_Prferences)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RPower_Occupational_Prferences)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RPower_Aversions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RPower_Aversions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RPower_Preferred_Associates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RPower_Preferred_Associates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RRecognition_Lifestyles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RRecognition_Lifestyles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RRecognition_Beliefs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RRecognition_Beliefs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RRecognition_Occupational_Prferences)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RRecognition_Occupational_Prferences)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RRecognition_Aversions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RRecognition_Aversions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RRecognition_Preferred_Associates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RRecognition_Preferred_Associates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RScientific_Lifestyles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RScientific_Lifestyles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RScientific_Beliefs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RScientific_Beliefs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RScientific_Occupational_Prferences)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RScientific_Occupational_Prferences)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RScientific_Aversions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RScientific_Aversions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RScientific_Preferred_Associates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RScientific_Preferred_Associates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RSecurity_Lifestyles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RSecurity_Lifestyles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RSecurity_Beliefs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RSecurity_Beliefs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RSecurity_Occupational_Prferences)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RSecurity_Occupational_Prferences)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RSecurity_Aversions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RSecurity_Aversions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RSecurity_Preferred_Associates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RSecurity_Preferred_Associates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RTradition_Lifestyles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTradition_Lifestyles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RTradition_Beliefs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTradition_Beliefs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RTradition_Occupational_Prferences)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTradition_Occupational_Prferences)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RTradition_Aversions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTradition_Aversions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RTradition_Preferred_Associates)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTradition_Preferred_Associates)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAesthetic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAesthetic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAffiliation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAffiliation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAltruistic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAltruistic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RCommercial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RCommercial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RHedonistic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RHedonistic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RPower)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RPower)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RRecognition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RRecognition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RScientific)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RScientific)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RSecurity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RSecurity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RTradition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RTradition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PAesthetic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAesthetic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PAffiliation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAffiliation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PAltruistic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAltruistic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PCommercial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PCommercial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PHedonistic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHedonistic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PPower)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PPower)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRecognition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRecognition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PScientific)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PScientific)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PSecurity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PSecurity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PTradition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PTradition)
+        </dd>
+
+    </dl>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.ActionLink("Back to List", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })
+            @Html.ActionLink("Edit Data", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn200" })
+        </div>
+    </div>
+    </div>
+</div>
+</div>

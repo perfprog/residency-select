@@ -1,0 +1,114 @@
+﻿@model PPI.Core.Web.Models.SiteMVPIViewModel
+
+@{
+    ViewBag.Title = "DetailsDepartment";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <div class="row">
+            <h2>Specialty Department Details</h2>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayName("DepartmentName")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Site.SiteName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Site.Organization.OrganizationName)
+
+                </dt>
+
+                <dd>
+
+                    @Html.DisplayFor(model => model.Site.Organization.OrganizationName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Site.FriendlyName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Site.FriendlyName)
+                </dd>
+
+            </dl>
+        </div>
+
+        <div class="form-group">
+            @if (Model.HoganMVPI != null)
+            {
+                using (Html.BeginForm("EditMVPI", "Program", new { @id = Model.ProgramSiteId }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div style="margin-top:-20px; margin-left:25px;">
+                        <label class="control-label col-md-1 bold text-right" for="ProgramName">Scale Name</label>
+                        <div class="col-md-11" style="padding-left:25px;">
+                            @Html.Partial("_PartialHoganMVPI", ViewData["MVPISelect"])
+                        </div>
+                    </div>
+                    <div class="col-md-10" style="padding-top:20px; padding-bottom:20px;">
+                        @Html.Hidden("id", Model.ProgramSiteId)
+                        <input type="submit" value="Update MVPI" class="btn-primary btn200" />
+                    </div>
+                }
+                <input type="submit" onclick="AjaxSubmit();" value="Delete MVPI" class="btn btn-danger btn200" />
+            }
+            else
+            {
+                using (Html.BeginForm("AddMVPI", "Program"))
+                {
+                    @Html.AntiForgeryToken()
+                    <div style="margin-top:-20px; margin-left:25px;">
+                        <label class="control-label col-md-1 bold text-right" for="ProgramName">Scale Name</label>
+                        <div class="col-md-11" style="padding-left:25px;">
+                            @Html.Partial("_PartialHoganMVPI", ViewData["MVPISelect"])
+                        </div>
+                    </div>
+                    <div class="col-md-10" style="padding-top:20px; padding-bottom:20px;">
+                        @Html.Hidden("id", Model.ProgramSiteId)
+                        <button type="button" class="btn btn-default btn200" onclick="javascript:window.history.back()">Back to Departments</button>
+                        <input type="submit" value="Add MVPI" class="btn btn-primary btn200" onclick="javascript: return validate();" />
+                    </div>
+                }
+
+            }
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    @if (Model.HoganMVPI != null)
+    {
+        <script type="text/javascript">
+            function AjaxSubmit() {
+                var securityToken = $('input[name=__RequestVerificationToken]').val();
+                $.ajax({
+                    url: '@Url.Action("DeleteMVPI")',
+                    method: 'POST',
+                    data: { "id": "@Model.HoganMVPI.Id", "__RequestVerificationToken": securityToken, "ProgramSiteid": "@Model.ProgramSiteId" },
+                    dataType: "json",
+                    success: function (data) { alert('Success'); },
+                    error: function (xhr) { alert('Error'); }
+                }
+            );
+                location.reload(true);
+            }
+        </script>
+
+    }
+
+
+    <script type="text/javascript">
+        //Method to validate required fields
+        function validate() {
+            if (!document.getElementById('hoganMVPIId').value) {
+                alert('Please select Scale.');
+                document.getElementById('hoganMVPIId').focus();
+                return false;
+            }
+        }
+    </script>
+}

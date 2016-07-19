@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PPI.Core.Web.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UploadFilesFolderName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Uploadfiles</Value>
+    </Setting>
+    <Setting Name="SMTPSSL" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SMTPUseDefaultCreditals" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="InValidEmailAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">surveys@perfprog.com</Value>
+    </Setting>
+    <Setting Name="SMTPURI" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp.emailsrvr.comXXX</Value>
+    </Setting>
+    <Setting Name="SMTPPORT" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="SMTPUSER" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ppisendXXX</Value>
+    </Setting>
+    <Setting Name="SMTPUseDefaultSubject" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Residency Select Message</Value>
+    </Setting>
+    <Setting Name="PersonUploadCols" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="SMTPPASSWORD" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">vcw4t24$DXXX</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

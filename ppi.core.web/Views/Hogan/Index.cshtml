@@ -1,0 +1,95 @@
+﻿@model IEnumerable<PPI.Core.Domain.Entities.Manual_Hogan_Import>
+@using PPI.Core.Web.HtmlHelpers
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Hogan Data";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <div class="row">
+            <h2 class="pull-left">Manage Hogan Data</h2> 
+            <div class="form-group pull-right mt20">
+                <a class="btn btn-default btn200 pull-right" href="~/Administration/Reports">Back to Manage Hogan Data</a>
+            </div>
+        </div>
+        <div>
+            <table class="table table-responsive">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Hogan_User_ID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.First_Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Last_Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HPIDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HDSDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MVPIDate)
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="font-size:12px;">
+                            @Html.DisplayFor(modelItem => item.Hogan_User_ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.First_Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Last_Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HPIDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HDSDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MVPIDate)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-sm btn60" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm btn60" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        </div>
+    </div>
+        @section Scripts
+    {
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("a[href]").not("a[href*=Delete]").click(function () {
+                        $("#loading").fadeIn();
+                        var opts = {
+                            lines: 12, // The number of lines to draw
+                            length: 7, // The length of each line
+                            width: 4, // The line thickness
+                            radius: 10, // The radius of the inner circle
+                            color: '#000', // #rgb or #rrggbb
+                            speed: 1, // Rounds per second
+                            trail: 60, // Afterglow percentage
+                            shadow: false, // Whether to render a shadow
+                            hwaccel: false // Whether to use hardware acceleration
+                        };
+                        var target = document.getElementById('loading');
+                        var spinner = new Spinner(opts).spin(target);
+                    });
+                });
+            </script>
+        }

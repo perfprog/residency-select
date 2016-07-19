@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Program]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [ProgramName] NVARCHAR(150) NOT NULL
+)

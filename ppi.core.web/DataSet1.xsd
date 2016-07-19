@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-PPI.Core.Web.mdf;Initial Catalog=aspnet-PPI.Core.Web;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" IsAppSettingsProperty="false" Modifier="Public" Name="CoreContainer (PPI.Core.Web)" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vFitReportTableAdapter" GeneratorDataComponentClassName="vFitReportTableAdapter" Name="vFitReport" UserDataComponentName="vFitReportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CoreContainer (PPI.Core.Web)" DbObjectName="dbo.vFitReport" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT FirstName, LastName, SchoolName, HoganUserID, ClientID, Valid, PAdjustment, PAmbition, PSociability, PInterpersonalSensitivity, PPrudence, PInquisitive, PLearningApproach, PExcitable, PSkeptical, PCautious, PReserved, PLeisurely, PBold, PMischievous, PColorful, PImaginative, PDiligent, PDutiful, PAesthetic, PAffiliation, PAltruistic, PCommercial, PHedonistic, PPower, PRecognition, PScientific, PSecurity, PTradition, HPIDate, MVPIDate, HDSDate FROM dbo.vFitReport</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FirstName" DataSetColumn="FirstName" />
+              <Mapping SourceColumn="LastName" DataSetColumn="LastName" />
+              <Mapping SourceColumn="SchoolName" DataSetColumn="SchoolName" />
+              <Mapping SourceColumn="HoganUserID" DataSetColumn="HoganUserID" />
+              <Mapping SourceColumn="ClientID" DataSetColumn="ClientID" />
+              <Mapping SourceColumn="Valid" DataSetColumn="Valid" />
+              <Mapping SourceColumn="PAdjustment" DataSetColumn="PAdjustment" />
+              <Mapping SourceColumn="PAmbition" DataSetColumn="PAmbition" />
+              <Mapping SourceColumn="PSociability" DataSetColumn="PSociability" />
+              <Mapping SourceColumn="PInterpersonalSensitivity" DataSetColumn="PInterpersonalSensitivity" />
+              <Mapping SourceColumn="PPrudence" DataSetColumn="PPrudence" />
+              <Mapping SourceColumn="PInquisitive" DataSetColumn="PInquisitive" />
+              <Mapping SourceColumn="PLearningApproach" DataSetColumn="PLearningApproach" />
+              <Mapping SourceColumn="PExcitable" DataSetColumn="PExcitable" />
+              <Mapping SourceColumn="PSkeptical" DataSetColumn="PSkeptical" />
+              <Mapping SourceColumn="PCautious" DataSetColumn="PCautious" />
+              <Mapping SourceColumn="PReserved" DataSetColumn="PReserved" />
+              <Mapping SourceColumn="PLeisurely" DataSetColumn="PLeisurely" />
+              <Mapping SourceColumn="PBold" DataSetColumn="PBold" />
+              <Mapping SourceColumn="PMischievous" DataSetColumn="PMischievous" />
+              <Mapping SourceColumn="PColorful" DataSetColumn="PColorful" />
+              <Mapping SourceColumn="PImaginative" DataSetColumn="PImaginative" />
+              <Mapping SourceColumn="PDiligent" DataSetColumn="PDiligent" />
+              <Mapping SourceColumn="PDutiful" DataSetColumn="PDutiful" />
+              <Mapping SourceColumn="PAesthetic" DataSetColumn="PAesthetic" />
+              <Mapping SourceColumn="PAffiliation" DataSetColumn="PAffiliation" />
+              <Mapping SourceColumn="PAltruistic" DataSetColumn="PAltruistic" />
+              <Mapping SourceColumn="PCommercial" DataSetColumn="PCommercial" />
+              <Mapping SourceColumn="PHedonistic" DataSetColumn="PHedonistic" />
+              <Mapping SourceColumn="PPower" DataSetColumn="PPower" />
+              <Mapping SourceColumn="PRecognition" DataSetColumn="PRecognition" />
+              <Mapping SourceColumn="PScientific" DataSetColumn="PScientific" />
+              <Mapping SourceColumn="PSecurity" DataSetColumn="PSecurity" />
+              <Mapping SourceColumn="PTradition" DataSetColumn="PTradition" />
+              <Mapping SourceColumn="HPIDate" DataSetColumn="HPIDate" />
+              <Mapping SourceColumn="MVPIDate" DataSetColumn="MVPIDate" />
+              <Mapping SourceColumn="HDSDate" DataSetColumn="HDSDate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vFitReport" msprop:Generator_TableClassName="vFitReportDataTable" msprop:Generator_TableVarName="tablevFitReport" msprop:Generator_RowChangedName="vFitReportRowChanged" msprop:Generator_TablePropName="vFitReport" msprop:Generator_RowDeletingName="vFitReportRowDeleting" msprop:Generator_RowChangingName="vFitReportRowChanging" msprop:Generator_RowEvHandlerName="vFitReportRowChangeEventHandler" msprop:Generator_RowDeletedName="vFitReportRowDeleted" msprop:Generator_RowClassName="vFitReportRow" msprop:Generator_UserTableName="vFitReport" msprop:Generator_RowEvArgName="vFitReportRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_UserColumnName="LastName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SchoolName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSchoolName" msprop:Generator_ColumnPropNameInRow="SchoolName" msprop:Generator_ColumnPropNameInTable="SchoolNameColumn" msprop:Generator_UserColumnName="SchoolName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HoganUserID" msprop:Generator_ColumnVarNameInTable="columnHoganUserID" msprop:Generator_ColumnPropNameInRow="HoganUserID" msprop:Generator_ColumnPropNameInTable="HoganUserIDColumn" msprop:Generator_UserColumnName="HoganUserID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ClientID" msprop:Generator_ColumnVarNameInTable="columnClientID" msprop:Generator_ColumnPropNameInRow="ClientID" msprop:Generator_ColumnPropNameInTable="ClientIDColumn" msprop:Generator_UserColumnName="ClientID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Valid" msprop:Generator_ColumnVarNameInTable="columnValid" msprop:Generator_ColumnPropNameInRow="Valid" msprop:Generator_ColumnPropNameInTable="ValidColumn" msprop:Generator_UserColumnName="Valid" type="xs:int" minOccurs="0" />
+              <xs:element name="PAdjustment" msprop:Generator_ColumnVarNameInTable="columnPAdjustment" msprop:Generator_ColumnPropNameInRow="PAdjustment" msprop:Generator_ColumnPropNameInTable="PAdjustmentColumn" msprop:Generator_UserColumnName="PAdjustment" type="xs:int" minOccurs="0" />
+              <xs:element name="PAmbition" msprop:Generator_ColumnVarNameInTable="columnPAmbition" msprop:Generator_ColumnPropNameInRow="PAmbition" msprop:Generator_ColumnPropNameInTable="PAmbitionColumn" msprop:Generator_UserColumnName="PAmbition" type="xs:int" minOccurs="0" />
+              <xs:element name="PSociability" msprop:Generator_ColumnVarNameInTable="columnPSociability" msprop:Generator_ColumnPropNameInRow="PSociability" msprop:Generator_ColumnPropNameInTable="PSociabilityColumn" msprop:Generator_UserColumnName="PSociability" type="xs:int" minOccurs="0" />
+              <xs:element name="PInterpersonalSensitivity" msprop:Generator_ColumnVarNameInTable="columnPInterpersonalSensitivity" msprop:Generator_ColumnPropNameInRow="PInterpersonalSensitivity" msprop:Generator_ColumnPropNameInTable="PInterpersonalSensitivityColumn" msprop:Generator_UserColumnName="PInterpersonalSensitivity" type="xs:int" minOccurs="0" />
+              <xs:element name="PPrudence" msprop:Generator_ColumnVarNameInTable="columnPPrudence" msprop:Generator_ColumnPropNameInRow="PPrudence" msprop:Generator_ColumnPropNameInTable="PPrudenceColumn" msprop:Generator_UserColumnName="PPrudence" type="xs:int" minOccurs="0" />
+              <xs:element name="PInquisitive" msprop:Generator_ColumnVarNameInTable="columnPInquisitive" msprop:Generator_ColumnPropNameInRow="PInquisitive" msprop:Generator_ColumnPropNameInTable="PInquisitiveColumn" msprop:Generator_UserColumnName="PInquisitive" type="xs:int" minOccurs="0" />
+              <xs:element name="PLearningApproach" msprop:Generator_ColumnVarNameInTable="columnPLearningApproach" msprop:Generator_ColumnPropNameInRow="PLearningApproach" msprop:Generator_ColumnPropNameInTable="PLearningApproachColumn" msprop:Generator_UserColumnName="PLearningApproach" type="xs:int" minOccurs="0" />
+              <xs:element name="PExcitable" msprop:Generator_ColumnVarNameInTable="columnPExcitable" msprop:Generator_ColumnPropNameInRow="PExcitable" msprop:Generator_ColumnPropNameInTable="PExcitableColumn" msprop:Generator_UserColumnName="PExcitable" type="xs:int" minOccurs="0" />
+              <xs:element name="PSkeptical" msprop:Generator_ColumnVarNameInTable="columnPSkeptical" msprop:Generator_ColumnPropNameInRow="PSkeptical" msprop:Generator_ColumnPropNameInTable="PSkepticalColumn" msprop:Generator_UserColumnName="PSkeptical" type="xs:int" minOccurs="0" />
+              <xs:element name="PCautious" msprop:Generator_ColumnVarNameInTable="columnPCautious" msprop:Generator_ColumnPropNameInRow="PCautious" msprop:Generator_ColumnPropNameInTable="PCautiousColumn" msprop:Generator_UserColumnName="PCautious" type="xs:int" minOccurs="0" />
+              <xs:element name="PReserved" msprop:Generator_ColumnVarNameInTable="columnPReserved" msprop:Generator_ColumnPropNameInRow="PReserved" msprop:Generator_ColumnPropNameInTable="PReservedColumn" msprop:Generator_UserColumnName="PReserved" type="xs:int" minOccurs="0" />
+              <xs:element name="PLeisurely" msprop:Generator_ColumnVarNameInTable="columnPLeisurely" msprop:Generator_ColumnPropNameInRow="PLeisurely" msprop:Generator_ColumnPropNameInTable="PLeisurelyColumn" msprop:Generator_UserColumnName="PLeisurely" type="xs:int" minOccurs="0" />
+              <xs:element name="PBold" msprop:Generator_ColumnVarNameInTable="columnPBold" msprop:Generator_ColumnPropNameInRow="PBold" msprop:Generator_ColumnPropNameInTable="PBoldColumn" msprop:Generator_UserColumnName="PBold" type="xs:int" minOccurs="0" />
+              <xs:element name="PMischievous" msprop:Generator_ColumnVarNameInTable="columnPMischievous" msprop:Generator_ColumnPropNameInRow="PMischievous" msprop:Generator_ColumnPropNameInTable="PMischievousColumn" msprop:Generator_UserColumnName="PMischievous" type="xs:int" minOccurs="0" />
+              <xs:element name="PColorful" msprop:Generator_ColumnVarNameInTable="columnPColorful" msprop:Generator_ColumnPropNameInRow="PColorful" msprop:Generator_ColumnPropNameInTable="PColorfulColumn" msprop:Generator_UserColumnName="PColorful" type="xs:int" minOccurs="0" />
+              <xs:element name="PImaginative" msprop:Generator_ColumnVarNameInTable="columnPImaginative" msprop:Generator_ColumnPropNameInRow="PImaginative" msprop:Generator_ColumnPropNameInTable="PImaginativeColumn" msprop:Generator_UserColumnName="PImaginative" type="xs:int" minOccurs="0" />
+              <xs:element name="PDiligent" msprop:Generator_ColumnVarNameInTable="columnPDiligent" msprop:Generator_ColumnPropNameInRow="PDiligent" msprop:Generator_ColumnPropNameInTable="PDiligentColumn" msprop:Generator_UserColumnName="PDiligent" type="xs:int" minOccurs="0" />
+              <xs:element name="PDutiful" msprop:Generator_ColumnVarNameInTable="columnPDutiful" msprop:Generator_ColumnPropNameInRow="PDutiful" msprop:Generator_ColumnPropNameInTable="PDutifulColumn" msprop:Generator_UserColumnName="PDutiful" type="xs:int" minOccurs="0" />
+              <xs:element name="PAesthetic" msprop:Generator_ColumnVarNameInTable="columnPAesthetic" msprop:Generator_ColumnPropNameInRow="PAesthetic" msprop:Generator_ColumnPropNameInTable="PAestheticColumn" msprop:Generator_UserColumnName="PAesthetic" type="xs:int" minOccurs="0" />
+              <xs:element name="PAffiliation" msprop:Generator_ColumnVarNameInTable="columnPAffiliation" msprop:Generator_ColumnPropNameInRow="PAffiliation" msprop:Generator_ColumnPropNameInTable="PAffiliationColumn" msprop:Generator_UserColumnName="PAffiliation" type="xs:int" minOccurs="0" />
+              <xs:element name="PAltruistic" msprop:Generator_ColumnVarNameInTable="columnPAltruistic" msprop:Generator_ColumnPropNameInRow="PAltruistic" msprop:Generator_ColumnPropNameInTable="PAltruisticColumn" msprop:Generator_UserColumnName="PAltruistic" type="xs:int" minOccurs="0" />
+              <xs:element name="PCommercial" msprop:Generator_ColumnVarNameInTable="columnPCommercial" msprop:Generator_ColumnPropNameInRow="PCommercial" msprop:Generator_ColumnPropNameInTable="PCommercialColumn" msprop:Generator_UserColumnName="PCommercial" type="xs:int" minOccurs="0" />
+              <xs:element name="PHedonistic" msprop:Generator_ColumnVarNameInTable="columnPHedonistic" msprop:Generator_ColumnPropNameInRow="PHedonistic" msprop:Generator_ColumnPropNameInTable="PHedonisticColumn" msprop:Generator_UserColumnName="PHedonistic" type="xs:int" minOccurs="0" />
+              <xs:element name="PPower" msprop:Generator_ColumnVarNameInTable="columnPPower" msprop:Generator_ColumnPropNameInRow="PPower" msprop:Generator_ColumnPropNameInTable="PPowerColumn" msprop:Generator_UserColumnName="PPower" type="xs:int" minOccurs="0" />
+              <xs:element name="PRecognition" msprop:Generator_ColumnVarNameInTable="columnPRecognition" msprop:Generator_ColumnPropNameInRow="PRecognition" msprop:Generator_ColumnPropNameInTable="PRecognitionColumn" msprop:Generator_UserColumnName="PRecognition" type="xs:int" minOccurs="0" />
+              <xs:element name="PScientific" msprop:Generator_ColumnVarNameInTable="columnPScientific" msprop:Generator_ColumnPropNameInRow="PScientific" msprop:Generator_ColumnPropNameInTable="PScientificColumn" msprop:Generator_UserColumnName="PScientific" type="xs:int" minOccurs="0" />
+              <xs:element name="PSecurity" msprop:Generator_ColumnVarNameInTable="columnPSecurity" msprop:Generator_ColumnPropNameInRow="PSecurity" msprop:Generator_ColumnPropNameInTable="PSecurityColumn" msprop:Generator_UserColumnName="PSecurity" type="xs:int" minOccurs="0" />
+              <xs:element name="PTradition" msprop:Generator_ColumnVarNameInTable="columnPTradition" msprop:Generator_ColumnPropNameInRow="PTradition" msprop:Generator_ColumnPropNameInTable="PTraditionColumn" msprop:Generator_UserColumnName="PTradition" type="xs:int" minOccurs="0" />
+              <xs:element name="HPIDate" msprop:Generator_ColumnVarNameInTable="columnHPIDate" msprop:Generator_ColumnPropNameInRow="HPIDate" msprop:Generator_ColumnPropNameInTable="HPIDateColumn" msprop:Generator_UserColumnName="HPIDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MVPIDate" msprop:Generator_ColumnVarNameInTable="columnMVPIDate" msprop:Generator_ColumnPropNameInRow="MVPIDate" msprop:Generator_ColumnPropNameInTable="MVPIDateColumn" msprop:Generator_UserColumnName="MVPIDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HDSDate" msprop:Generator_ColumnVarNameInTable="columnHDSDate" msprop:Generator_ColumnPropNameInRow="HDSDate" msprop:Generator_ColumnPropNameInTable="HDSDateColumn" msprop:Generator_UserColumnName="HDSDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

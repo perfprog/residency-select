@@ -1,0 +1,131 @@
+﻿@model PPI.Core.Domain.Entities.Site
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@if (null != TempData["alertMessage"])
+{
+    <script type="text/javascript">
+        alert("@TempData["alertMessage"]");
+    </script>
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Create New Department</h2>
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("OrganizationName", htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-4">
+                        @Html.DropDownListFor(model => model.OrganizationId, (SelectList)ViewBag.SiteOrganizations, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.OrganizationId, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("DeapartmentName", htmlAttributes: new { @class = "control-label col-md-2 bold" })
+
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.SiteName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SiteName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FriendlyName, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-4">
+                        @Html.EditorFor(model => model.FriendlyName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FriendlyName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BrandingColor, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-4">
+                          @Html.EditorFor(model => model.BrandingColor, new { htmlAttributes = new { @class = "form-control demo", @Value = "#009DDC" } })
+                        @Html.ValidationMessageFor(model => model.BrandingColor, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.ActionLink("Back to Departments", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })
+                        <input type="submit" value="Create" class="btn btn-success btn200" onclick="javascript: return validate();" />
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript" src="~/Scripts/jquery.minicolors.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+            $('.demo').each(function () {
+                //
+                // Dear reader, it's actually very easy to initialize MiniColors. For example:
+                //
+                //  $(selector).minicolors();
+                //
+                // The way I've done it below is just for the demo, so don't get confused
+                // by it. Also, data- attributes aren't supported at this time...they're
+                // only used for this demo.
+                //
+                $(this).minicolors({
+                    control: $(this).attr('data-control') || 'hue',
+                    defaultValue: $(this).attr('data-defaultValue') || '',
+                    format: $(this).attr('data-format') || 'hex',
+                    keywords: $(this).attr('data-keywords') || '',
+                    inline: $(this).attr('data-inline') === 'true',
+                    letterCase: $(this).attr('data-letterCase') || 'lowercase',
+                    opacity: $(this).attr('data-opacity'),
+                    position: $(this).attr('data-position') || 'bottom left',
+                    change: function (value, opacity) {
+                        if (!value) return;
+                        if (opacity) value += ', ' + opacity;
+                        if (typeof console === 'object') {
+                            console.log(value);
+                        }
+                    },
+                    theme: 'bootstrap'
+                });
+
+            });
+
+        });
+
+        //Method to validate required fields
+        function validate() {
+
+            if (!document.getElementById('OrganizationId').value) {
+                alert('Please select Organization.');
+                document.getElementById('OrganizationId').focus();
+                return false;
+            }
+            if (!document.getElementById('SiteName').value) {
+                alert('Please enter Department Name.');
+                document.getElementById('SiteName').focus();
+                return false;
+            }
+            if (!document.getElementById('FriendlyName').value) {
+                alert('Please enter Friendly Name.');
+                document.getElementById('FriendlyName').focus();
+                return false;
+            }
+        }
+
+    </script>
+}

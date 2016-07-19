@@ -1,0 +1,53 @@
+﻿@model PPI.Core.Web.Models.LoginViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()                    
+                    @Html.ValidationSummary(true)
+                    
+                        <form role="form" action="index.html">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "User Name" })
+                                @Html.ValidationMessageFor(m => m.UserName)                                                        
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder="Password" })
+                                @Html.ValidationMessageFor(m => m.Password)
+                            </div>
+                            <div id="remember-me-wrapper">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                    <!-- remove for now
+                                            <div class="checkbox-nice">                                            
+                                            <input type="checkbox" id="checkbox-RememberMe" name="checkbox-RememberMe" />                                            
+                                            <label for="checkbox-RememberMe">Remember Me? </label>                                            
+                                        </div>    
+                                    -->
+                                    </div>
+                                    <!--<a href="#" id="login-forget-link" class="col-xs-6">
+                                        Forgot password?
+                                    </a>-->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <button type="submit" class="btn btn-success col-xs-12">Login</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    
+                                </div>
+                            </div>                                                    
+                        </form>                    
+                    @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+                }
+
+    

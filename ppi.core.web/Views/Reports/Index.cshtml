@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Reports";
+}
+
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Upload Hogan Data</h2>
+                <br />
+                <p>New Hogan Data for Reports</p>
+                <div class="alert alert-info">
+                    <i class="fa fa-info-circle fa-fw fa-lg"></i>
+                    <strong>Sample Upload File</strong><br /><br />
+                    <a href="~/Uploadfiles/ExampleRun.csv"><label><i class="fa fa-file-excel-o fa-2x"></i></label>  View and download a sample upload file.</a>
+                </div>
+                <br />
+                <p>Browse to the file you want to upload and then click "Submit"</p>
+                <form action="/Administration/Reports/UploadFiles" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" id="file" multiple placeholder="select 1 or multiple files" />
+                    <div class="mt20 mb20">
+                        <input type="submit" name="submit" class="btn btn-primary btn200" value="Submit" />
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-md-4">
+                <h2>Manage Hogan Data</h2>
+                <br />
+                <p>View and manage Hogan Data</p>
+                @Html.ActionLink("Manage Hogan Data", "Index", "Hogan", null, new { @class = "btn btn-primary btn200" })
+            </div>
+            <div class="col-md-4">
+                <h2>Delete Hogan Data</h2>
+                <br />
+                <form action="/Administration/Reports/DeleteAll" method="post">
+                    <div class="alert alert-block alert-danger fade in">
+                    <h4><strong>ALERT!</strong> Delete All existing Hogan Data for Reports</h4>
+                    <div class="mt20 mb20">
+                    <ul>
+                        <li>This will remove all the data associated to reports from the system.</li>
+                        <li>This is unrecoverable after deleted.
+                        <li>To delete tall Hogan Data click "Delete All".</li>
+                    </ul>
+                    </div>
+                    <input type="submit" class="btn btn-danger btn200" name="Delete" value="Delete All" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
+        @section Scripts
+{
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("input[type='submit']").click(function () {
+                        $("#loading").fadeIn();
+                        var opts = {
+                            lines: 12, // The number of lines to draw
+                            length: 7, // The length of each line
+                            width: 4, // The line thickness
+                            radius: 10, // The radius of the inner circle
+                            color: '#000', // #rgb or #rrggbb
+                            speed: 1, // Rounds per second
+                            trail: 60, // Afterglow percentage
+                            shadow: false, // Whether to render a shadow
+                            hwaccel: false // Whether to use hardware acceleration
+                        };
+                        var target = document.getElementById('loading');
+                        var spinner = new Spinner(opts).spin(target);
+                    });
+                });
+            </script>
+        }
+
+

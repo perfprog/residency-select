@@ -1,0 +1,74 @@
+﻿@model PPI.Core.Domain.Entities.Site
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Department Details</h2>
+
+        <div class="row">
+            <hr />
+            <dl class="dl-horizontal">
+
+                <dt style="width:200px;">
+                    @Html.DisplayNameFor(model => model.Organization.OrganizationName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Organization.OrganizationName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayName("DepartmentName")
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SiteName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FriendlyName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FriendlyName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.BrandingColor)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BrandingColor)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.BrandingLogo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BrandingLogo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.BrandingBackground)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BrandingBackground)
+                </dd>
+
+            </dl>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.ActionLink("Back to Departments", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn200" })
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

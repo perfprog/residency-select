@@ -1,0 +1,642 @@
+﻿@model PPI.Core.Web.Models.OESSetupViewModel
+@using PPI.Core.Web.HtmlHelpers
+
+@{
+    ViewBag.Title = "Setup";
+    Layout = "~/Views/Shared/_LayoutAdminOESSetup.cshtml";
+}
+
+<div>
+    <!--Add Organization PopUP-->
+
+
+    <div class="modal fade" id="uploadAddOrganizationPopup" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header clearfix">
+                    <button class="close" aria-hidden="true" type="button" data-dismiss="modal">&times;</button>
+
+                    <h4 class="modal-title">
+                        Add Organization
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <div class="row">
+                            @Html.Label("OrganizationName", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.TextBox("OrganizationNameTextbox", null, new { @maxlength = "100", @class = "form-control", @type = "name" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" id="addOrganizationCloseBtn" value="Cancel" class="btn btn-default" onclick="javascript: HideOrganizationPopup();" />
+                    <input type="button" id="addOrganizationBtn" value="Save" class="btn btn-success" onclick="javascript:  SaveOrganization();" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--end PopUp -->
+    <!--Add Department PopUP-->
+    <div class="modal fade" id="Add_Deaprtment" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header clearfix">
+                    <button type="button" id="closeAddDeaprtment" class="close colorwhite" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        Add Department
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div id="partialAddDepartmentDiv">
+                        @*@Html.Partial("/OrderForms/LoadAddDepartmentView/")*@
+                        @Html.Partial("_PratialOesAddDepartment", (PPI.Core.Domain.Entities.Site)Model.Site ?? new PPI.Core.Domain.Entities.Site())
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" id="uploadDepartmentCloseBtn" value="Cancel" class="btn btn-default" onclick="javascript: HideDepartmentPopup();" />
+                    <input type="button" value="Save" class="btn btn-success" id="btnsubmit" onclick="validate();" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end PopUp -->
+    <!--Add Speciality Popup-->
+    <div tabindex="-1" class="modal fade" id="uploadSpeciality123Dlg" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header clearfix">
+                    <button type="button" id="closeAddDeaprtment" class="close colorwhite" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        Manage Department
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div id="adddeptdiv">
+                        @Html.Partial("_PartialAddSpeciality", new PPI.Core.Web.Models.ProgramSiteViewModel())
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        @*<div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                        <h4></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="adddeptdiv">
+                            @Html.Partial("_PartialAddSpeciality", new PPI.Core.Web.Models.ProgramSiteViewModel())
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+    </div>
+    <!--End Popup-->
+
+</div>
+
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Setup</h2>
+        <hr />
+        @using (Html.BeginForm("OESSetup", "OrderForms", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.Setup.Id)
+            @Html.ValidationSummary(true)
+
+            <div class="col-lg-12">
+                <div class="col-md-6">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            @Html.Label("Event Name", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.Setup.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                <p class="text-danger">
+                                    @Html.ValidationMessage("EventNameMessage")
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Setup.OrganizationId, "Organization", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.DropDownListFor(model => model.Setup.OrganizationId, (SelectList)ViewBag.OrganizationId, " - Select - ", new { @class = "form-control", @id = "EventOrganizationId", @onchange = "GetDepartment()" })
+                                <p class="text-danger">
+                                    @Html.ValidationMessage("OrganizationMessage")
+                                </p>
+                                <button type="button" class="btn btn-primary btn200 pull-left md-trigger mobile_full_width_btn" title="Add Organization" onclick="javascript: ShowOrganizationPopup();">Add Organization</button>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Setup.SiteId, "Department", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.DropDownListFor(m => m.Setup.SiteId, (SelectList)ViewBag.SiteId, " - Select - ", new { @class = "form-control", @id = "EventDepartmentId", @onchange = "AssignDepartment()" })
+                                <p class="text-danger">
+                                    @Html.ValidationMessage("DepartmentMessage")
+                                </p>
+                                <a href="javascript: return false;" data-toggle="modal" data-target="#Add_Deaprtment" id="loadPopup" style="display: none;"></a>
+                                <button type="button" class="btn btn-primary btn200 pull-left md-trigger mobile_full_width_btn" title="Add Department" onclick="javascript: ShowDepartmentPopup();">Add Department</button>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Setup.ProgramId, "Speciality", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.DropDownListFor(m => m.Setup.ProgramId, (SelectList)ViewBag.ProgramId, " - Select - ", new { @class = "form-control" })
+                                <p class="text-danger">
+                                    @Html.ValidationMessage("SpecialityMessage")
+                                </p>
+                                <button type="button" class="btn btn-primary btn200 pull-left md-trigger mobile_full_width_btn" title="Manage Departments" onclick="javascript: ShowSpecialityPopup();">Manage Departments</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="placement">
+                            @Html.LabelFor(model => model.Setup.Description, "Event Description", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.Setup.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                <p class="text-danger">
+                                    @Html.ValidationMessage("EventDescriptionMessage")
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.UserName, "Order By", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Setup.DefaultEmail, "Default Email Address", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.Setup.DefaultEmail, new { htmlAttributes = new { @class = "form-control" } })
+                                <p class="text-danger">
+                                    @Html.ValidationMessage("EmailAddressMessage")
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Setup.Billable, "Billable Event", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.DropDownListFor(m => m.Setup.Billable, (SelectList)ViewBag.Billable, " - Select - ", new { @class = "form-control", @id = "ddlBillableEvent", @onchange = "javascript:DisplayReason();" })
+                                <p class="text-danger">
+                                    @Html.ValidationMessage("BillableEventMessage")
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="display:none;" id="divReason">
+                            @Html.LabelFor(model => model.Setup.NotBillableReasonId, "Reason", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.DropDownListFor(m => m.Setup.NotBillableReasonId, (SelectList)ViewBag.NotBillableReasonId, " - Select - ", new { @class = "form-control", @id = "ddlNotBillableReason", @onchange = "javascript:DisplayVGSpeciality();" })
+                                <p class="text-danger">
+                                    @Html.ValidationMessage("ReasonMessage")
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="display:none;" id="divOppertunity">
+                            @Html.LabelFor(model => model.Setup.BDOpportunity, "Opportunity", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.Setup.BDOpportunity, new { htmlAttributes = new { @class = "form-control" } })
+                                <p class="text-danger">
+                                    By Selecting Business Development,this Event will require system setup.
+                                    @Html.ValidationMessage("BDOpportunityMessage")
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="display:none;" id="divVGSpeciality">
+                            @Html.LabelFor(model => model.Setup.VGSpecialtyId, "VG Speciality", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.DropDownListFor(m => m.Setup.VGSpecialtyId, (SelectList)ViewBag.VGSpecialtyId, " - Select - ", new { @class = "form-control" })
+                                <p class="text-danger">
+                                    @Html.ValidationMessage("VGSpecialityMessage")
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Setup.EventTypeId, "Event Type", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.DropDownListFor(m => m.Setup.EventTypeId, (SelectList)ViewBag.EventTypeId, " - Select - ", new { @class = "form-control" })
+                                <p class="text-danger">
+                                    @Html.ValidationMessage("EventTypeMessage")
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Setup.SurveyTypeId, "Survey Type", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.DropDownListFor(m => m.Setup.SurveyTypeId, (SelectList)ViewBag.SurveyTypeId, " - Select - ", new { @class = "form-control", @onchange = "javascript:DisplayHoganReports();" })
+                                <p class="text-danger">
+                                    @Html.ValidationMessage("SurveyTypeMessage")
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Setup.CompositeRequired, "Composite Required?", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.DropDownListFor(m => m.Setup.CompositeRequired, (SelectList)ViewBag.CompositeRequired, " - Select - ", new { @class = "form-control" })
+                                <p class="text-danger">
+                                    @Html.ValidationMessage("CompositeRequiredMessage")
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Setup.JETRequired, "JET Required?", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.DropDownListFor(m => m.Setup.JETRequired, (SelectList)ViewBag.JETRequired, " - Select - ", new { @class = "form-control" })
+                                <p class="text-danger">
+                                    @Html.ValidationMessage("JETREquiredMessage")
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Setup.NoOfParticipants, "Total Number of Participants", htmlAttributes: new { @class = "control-label col-md-5 bold" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(m => m.Setup.NoOfParticipants, new { htmlAttributes = new { @class = "form-control",min=0 } })
+                                <p class="text-danger">
+                                    @Html.ValidationMessage("NoofParticipantsMessage")
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10" style="text-align:center;">                               
+                                @Html.ActionLink("Back to Events", "Index","Events", new { area = "" }, new { @class = "btn btn-default btn200" })
+                                <input type="submit" value="Next" class="btn btn-success btn200" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-5 col-md-offset-1" id="reports" style="display:;">
+                    <div class="form-horizontal">
+                        <h2 class="m-t-0 p-t-0">Options</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        <p>Select Reports for the Event</p>
+                        <br />
+                        <div class="col-md-10">
+                            @Html.CheckBoxListFor("PracticeReportsIds", @Model.AvailibleReports)
+                            <p class="text-danger">
+                                @Html.ValidationMessage("ReportsMessage")
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+        <div class="clearfix"></div>
+    </div>
+</div>
+@section Scripts
+{
+    <script type="text/javascript" src="~/Scripts/jscolor/jscolor.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.minicolors.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            GetDepartment();// To bind department dropdown on previous button click
+            $("#setupProjectli").addClass("active");
+
+            $('.demo').each(function () {
+                //
+                // Dear reader, it's actually very easy to initialize MiniColors. For example:
+                //
+                //  $(selector).minicolors();
+                //
+                // The way I've done it below is just for the demo, so don't get confused
+                // by it. Also, data- attributes aren't supported at this time...they're
+                // only used for this demo.
+                //
+                $(this).minicolors({
+                    control: $(this).attr('data-control') || 'hue',
+                    defaultValue: $(this).attr('data-defaultValue') || '',
+                    format: $(this).attr('data-format') || 'hex',
+                    keywords: $(this).attr('data-keywords') || '',
+                    inline: $(this).attr('data-inline') === 'true',
+                    letterCase: $(this).attr('data-letterCase') || 'lowercase',
+                    opacity: $(this).attr('data-opacity'),
+                    position: $(this).attr('data-position') || 'bottom left',
+                    change: function (value, opacity) {
+                        if (!value) return;
+                        if (opacity) value += ', ' + opacity;
+                        if (typeof console === 'object') {
+                            console.log(value);
+                        }
+                    },
+                    theme: 'bootstrap'
+                });
+
+            });
+
+        });
+
+
+        DisplayReason();
+        DisplayVGSpeciality();
+        DisplayHoganReports();
+
+        function DisplayReason() {
+            var BillableEvent = $('#ddlBillableEvent').val();
+            if (BillableEvent == "false") {
+                document.getElementById("divReason").style.display = '';
+            }
+            else {
+                document.getElementById("divReason").style.display = 'none';
+                document.getElementById("divVGSpeciality").style.display = 'none';
+                document.getElementById("divOppertunity").style.display = 'none';
+            }
+        }
+
+        function DisplayVGSpeciality() {
+            var Reason = $("#ddlNotBillableReason option:selected").text();
+            if (Reason == "Validity Generalization") {
+                document.getElementById("divVGSpeciality").style.display = '';
+                document.getElementById("divOppertunity").style.display = 'none';
+            }
+            else if (Reason == "Business Development") {
+                document.getElementById("divOppertunity").style.display = '';
+                document.getElementById("divVGSpeciality").style.display = 'none';
+            }
+            else {
+                document.getElementById("divOppertunity").style.display = 'none';
+                document.getElementById("divVGSpeciality").style.display = 'none';
+            }
+        }
+
+        function DisplayHoganReports() {
+            var SurveyTypeSelected = $("#Setup_SurveyTypeId option:selected").text();
+            if (SurveyTypeSelected == "J3P") {
+                document.getElementById("reports").style.display = 'none';
+            }
+            else {
+                document.getElementById("reports").style.display = '';
+            }
+        }
+
+
+        //ADD Organization Popup and Department Popup - START
+        function SaveOrganization() {
+            var orgName = $('#OrganizationNameTextbox').val();
+
+            if (orgName != "") {
+                $.ajax({
+                    url: '/OrderForms/AddOrganization/',
+                    type: "POST",
+                    dataType: "json",
+                    data: { OrganizationName: orgName },
+                    success: function (data) {
+                        if (data.successFlag == "true") {
+                            $('#EventOrganizationId').append('<option value="' + data.organizationId + '" selected = "true" >' + data.organizationName + '</option>');
+                            HideOrganizationPopup();
+                        }
+                        else {
+                            alert("Organization already exists. Please try with other name.");
+                        }
+                    },
+                    error: function (xhr) { }
+                });
+            }
+            else {
+                alert('Please enter Organization Name.');
+            }
+        }
+
+        function GetDepartment() {
+            var orgId = $('#EventOrganizationId').val();
+            if (orgId != "") {
+                $.ajax({
+                    url: '/OrderForms/GetDepartments/',
+                    type: "POST",
+                    dataType: "json",
+                    data: { organizationId: orgId },
+                    success: function (result) {
+
+                        $('#EventDepartmentId').empty();
+                        $('#EventDepartmentId').append('<option >' + " - Select - " + '</option>');
+                        $.each(result, function (i, result) {
+                            $('#EventDepartmentId').append('<option value="' + result.Value + '">' + result.Text + '</option>');
+
+                            if ($('#EventOrganizationId').val() != "" && $('#EventOrganizationId').val() != null) {
+                                $('#evntOrganizationId').val($('#EventOrganizationId').val());
+                                $('#EventDepartmentId').val(@Model.Setup.SiteId);
+                            }
+                        });
+                    },
+                    error: function (xhr) { }
+                });
+            }
+        }
+
+
+
+        function ShowOrganizationPopup() {
+            if ($('#uploadAddOrganizationPopup').length > 0) {
+                $('#uploadAddOrganizationPopup').modal('show');
+                $('#OrganizationNameTextbox').val('');
+            }
+        }
+
+
+        function HideOrganizationPopup() {
+            $('#uploadAddOrganizationPopup').modal('hide');
+            return false;
+        }
+
+        function ShowDepartmentPopup() {
+
+            if ($('#EventOrganizationId').val() != "") {
+
+                $('#SiteName').val("");
+                $('#DepartmentName').val("");
+                $('#FriendlyName').val("");
+                $('#BrandingColor').val("#009DDC");
+
+                $(".minicolors-swatch-color").css('background-color', '#009DDC');
+
+
+                $("#DepartmentOrganizationId").val("");
+                $("#file1").val("");
+                $("#file2").val("");
+
+
+                $("#loadPopup").click();
+
+                $("#DeptOrgnizationName").val($("#EventOrganizationId option:selected").text());
+                $("#DepartmentOrganizationId").val($('#EventOrganizationId').val());
+
+                //$.ajax({
+                //    url: '/OrderForms/LoadAddDepartmentView/',
+                //    type: "GET",
+                //    dataType: "html",
+
+                //    success: function (data) {
+                //        //alert(data);
+                //        $("#partialAddDepartmentDiv1").html(data);
+                //        $("#DeptOrgnizationName").val($("#EventOrganizationId option:selected").text());
+                //        $("#DepartmentOrganizationId").val($('#EventOrganizationId').val());
+                //    },
+                //    error: function (xhr) { }
+                //});
+
+            }
+            else {
+
+                alert('Please select Organization.');
+                return false;
+            }
+        }
+
+
+        function HideDepartmentPopup() {
+            $("#closeAddDeaprtment").click();
+
+
+        }
+
+        function OnSuccessAddDepartment(data) {
+
+            if (data.successFlag == "true") {
+                $('#EventDepartmentId').append('<option value="' + data.departmentId + '" selected = "true" >' + data.departmentName + '</option>');
+                HideDepartmentPopup();
+            }
+            else {
+                ShowDepartmentPopup();
+                alert("Department already exists. Please try with other name.");
+            }
+        }
+
+        function OnFailedAddDepartment() {
+            alert('Unexpected error occured.');
+        }
+
+
+
+        function validate() {
+            if (!document.getElementById('SiteName').value) {
+                alert('Please enter Department Name.');
+                document.getElementById('SiteName').focus();
+                return false;
+            }
+            if (!document.getElementById('FriendlyName').value) {
+                alert('Please enter Friendly Name.');
+                document.getElementById('FriendlyName').focus();
+                return false;
+            }
+            if (!document.getElementById('BrandingColor').value) {
+                alert('Please select Title Color.');
+                document.getElementById('BrandingColor').focus();
+                return false;
+            }
+
+
+            if (document.getElementById('file1').value) {
+                var file1Name = document.getElementById('file1').value;
+                var file1Extension = file1Name.substr((file1Name.lastIndexOf('.') + 1));
+
+                if (file1Extension != "jpg" && file1Extension != "JPG" && file1Extension != "png" && file1Extension != "PNG") {
+                    alert('Please select BrandingLogo image with JPG or PNG extension.');
+                    document.getElementById('file1').focus();
+                    return false;
+                }
+            }
+
+            if (document.getElementById('file2').value) {
+                var file2Name = document.getElementById('file2').value;
+                var file2Extension = file2Name.substr((file2Name.lastIndexOf('.') + 1));
+
+                if (file2Extension != "jpg" && file2Extension != "JPG" && file2Extension != "png" && file2Extension != "PNG") {
+                    alert('Please select BrandingBackground image with JPG or PNG extension.');
+                    document.getElementById('file2').focus();
+                    return false;
+                }
+            }
+
+
+            var formdata = new FormData();
+            var fileInput1 = document.getElementById("file1");
+            var fileInput2 = document.getElementById("file2");
+
+
+
+            if (fileInput1.files.length > 0) {
+                formdata.append("BrandingLogo", fileInput1.files[0]);
+            }
+            if (fileInput2.files.length > 0) {
+                formdata.append("BrandingBackground", fileInput2.files[0]);
+            }
+
+            formdata.append('SiteName', $('#SiteName').val());
+            formdata.append('DepartmentName', $('#DepartmentName').val());
+            formdata.append('FriendlyName', $('#FriendlyName').val());
+            formdata.append('BrandingColor', $('#BrandingColor').val());
+            formdata.append('DepartmentOrganizationId', $("#DepartmentOrganizationId").val());
+
+            $.ajax({
+                type: "POST",
+                url: '/OrderForms/EventAddDepartment/',
+                dataType: 'json',
+                data: formdata,
+                contentType: false,
+                processData: false,
+
+                success: function (data) {
+
+                    if (data.successFlag == "true") {
+
+                        $('#EventDepartmentId').append('<option value="' + data.departmentId + '" selected = "true" >' + data.departmentName + '</option>');
+                        HideDepartmentPopup();
+                    }
+                    else {
+                        //ShowDepartmentPopup();
+                        alert("Department already exists. Please try with other name.");
+                    }
+                },
+                error: function (data) {
+                    alert('Unexpected error occured.');
+                }
+            });
+
+
+        }
+
+        //ADD Organization Popup and Department Popup - END
+        function AssignDepartment() {
+            if ($('#EventDepartmentId').val() != "" && $('#EventDepartmentId').val() != null) {
+                $('#evntDepartmentId').val($('#EventDepartmentId').val());
+
+            }
+        }
+    </script>
+}

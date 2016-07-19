@@ -1,0 +1,76 @@
+﻿@model PPI.Core.Domain.Entities.PracticeScale
+
+@{
+    ViewBag.Title = "Edit";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Edit</h2>
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>PracticeScale</h4>
+                <hr />
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.HoganFieldId, "HoganFieldId", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("HoganFieldId", String.Empty)
+                        @Html.ValidationMessageFor(model => model.HoganFieldId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PracticeCategoryId, "PracticeCategoryId", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("PracticeCategoryId", String.Empty)
+                        @Html.ValidationMessageFor(model => model.PracticeCategoryId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PracticeLevelId, "PracticeLevelId", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("PracticeLevelId", String.Empty)
+                        @Html.ValidationMessageFor(model => model.PracticeLevelId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LowerBound, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LowerBound)
+                        @Html.ValidationMessageFor(model => model.LowerBound)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UpperBound, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UpperBound)
+                        @Html.ValidationMessageFor(model => model.UpperBound)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-success btn200" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+        </div>
+    </div>
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

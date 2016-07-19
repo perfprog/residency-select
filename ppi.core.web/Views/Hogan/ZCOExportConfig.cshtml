@@ -1,0 +1,176 @@
+﻿@model PPI.Core.Web.Models.ZCOExportConfigViewModel
+
+@using PPI.Core.Web.HtmlHelpers;
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "ZCO Export Config";
+}
+
+@if (Model.NumPersonsExported != null)
+ {
+<div>
+    <!--CSV Export Empty PopUP-->
+    <div tabindex="-1" class="modal fade" id="noZCOExportPopup" role="dialog" aria-hidden="true" aria-labelledby="noZCOExportPopupLabel" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content modal-sm" style=" width:350px">
+                <div class="modal-header">
+                    <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                    <h4>ZCO Export</h4>
+                </div>
+                <div class="modal-body">
+                    <table style="width:90%">
+                        <tr>
+                            <td>
+                                There are no records to export.
+                            </td>                            
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end PopUp -->
+</div>
+}
+
+<div class="main-box clearfix">
+    <div class="main-box-body">
+                
+            <div style="margin-top:25px">
+            <table>
+            <tr>
+            <td style="width:90px">
+            Event:
+            </td>
+            <td>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.DropDownList("EventList", null, new { @class = "form-control" })
+            }
+            </td>
+            </tr>
+            </table>
+            </div>
+
+        <div style="margin-top:20px">
+            @using (Html.BeginForm("ExportTemplateSwitch", "Hogan"))
+            {
+                @Html.AntiForgeryToken()
+                <table>
+                    <tr>
+                        <td style="width:90px">
+                            Column Group:
+                        </td>
+                        <td>
+                            @Html.DropDownList("TemplateId", null, new { @class = "form-control", onchange = "this.form.submit();" })
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
+
+
+        <div style="margin-top:20px">
+            @using (@Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div>
+                    @*class="checkbox-nice">*@
+                    Select All
+                    <input id="selectAll" name="selectAll" type="checkbox" />                    
+                </div>
+            }
+        </div>
+
+        <div style="margin-top:20px;width:90%">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                int colCount = 0;
+                
+                    foreach (var col in Model.ExportCols)
+                    {
+                        <div style="float:left;width:250px">
+                            <input type="checkbox"
+                                   name="SelectedExportCols"
+                                   value="@col.Value" id="@col.Value"
+                                   @if (col.Selected) { <text>
+                                    checked='checked'
+                                    </text>
+                                }                                
+                                   />
+
+                                <label for="@col.Value">@col.Name</label>
+                        </div>
+
+                        colCount++;
+                    }                
+            }
+        </div>
+                
+            
+        <div style="clear:both"></div>
+        @using (@Html.BeginForm("ZcoExport", "Hogan", FormMethod.Post))
+        {
+            <div style="margin-top:25px">
+                <a href='#' onclick='goToExport();' class="btn btn-success btn-lg">
+                    Export
+                </a>
+                <div id="spinme">
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section scripts{
+ <script>
+
+    function goToExport()
+    {        
+        location.href = '@Url.Action("ZCOExport", "Hogan")' + '?eventId=' + $("#EventList").val() + '&selectedColIds=' + gatherSelectedColIds();
+    }
+
+     $(document).ready(function () {
+         $('input[type="submit"]').click(function () {
+             $("#loading").fadeIn();
+             var target = document.getElementById('loading');
+             var spinner = new Spinner(opts).spin(target);
+             $(target).data('spinner', spinner);
+         });
+
+         if ($('#noZCOExportPopup').length > 0) {
+             $('#noZCOExportPopup').modal('show');
+         }
+     });
+
+     function gatherSelectedColIds() {
+         var colList = '';
+         var chkCount = 0;
+         $('input[type=checkbox]:not("#selectAll")').each(function () {
+             if (this.checked)
+             {
+                 if (chkCount > 0) {
+                     colList = colList.concat(",");
+                 }
+
+                 colList = colList.concat(this.value);
+                 chkCount++;
+             }
+         });
+
+         return (colList);
+     }
+
+     function selectAllCols(flag) {
+         $('input[type=checkbox]:not("#selectAll")').each(function () {
+             this.checked = flag;
+         });
+     }
+
+     $("#selectAll").click(function () {
+         selectAllCols($("#selectAll").prop('checked'));
+     });     
+</script>    
+}

@@ -1,0 +1,61 @@
+﻿@model PPI.Core.Domain.Entities.PracticeScale
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Details</h2>
+
+        <div>
+            <h4>PracticeScale</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.LowerBound)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LowerBound)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UpperBound)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UpperBound)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.HoganField.FieldName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.HoganField.FieldName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PracticeCategory.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PracticeCategory.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PracticeLevel.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PracticeLevel.Name)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+</div>
+</div>

@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>PPI.Core.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{df04adeb-b6fc-4b9a-89dc-876c31caad87}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>PPI.Core.Database</RootNamespace>
+    <AssemblyName>PPI.Core.Database</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <AnsiNulls>False</AnsiNulls>
+    <QuotedIdentifier>False</QuotedIdentifier>
+    <Containment>None</Containment>
+    <IsNestedTriggersOn>True</IsNestedTriggersOn>
+    <IsTransformNoiseWordsOn>False</IsTransformNoiseWordsOn>
+    <TwoDigitYearCutoff>2049</TwoDigitYearCutoff>
+    <NonTransactedFileStreamAccess>OFF</NonTransactedFileStreamAccess>
+    <TargetRecoveryTimePeriod>0</TargetRecoveryTimePeriod>
+    <TargetRecoveryTimeUnit>SECONDS</TargetRecoveryTimeUnit>
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+    <Trustworthy>False</Trustworthy>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <PageVerify>CHECKSUM</PageVerify>
+    <ServiceBrokerOption>EnableBroker</ServiceBrokerOption>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <Parameterization>SIMPLE</Parameterization>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <ReadCommittedSnapshot>True</ReadCommittedSnapshot>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <CompatibilityMode>110</CompatibilityMode>
+    <AnsiNullDefault>False</AnsiNullDefault>
+    <AnsiPadding>False</AnsiPadding>
+    <AnsiWarnings>False</AnsiWarnings>
+    <ArithAbort>False</ArithAbort>
+    <ConcatNullYieldsNull>False</ConcatNullYieldsNull>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DatabaseState>ONLINE</DatabaseState>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <DefaultCursor>GLOBAL</DefaultCursor>
+    <AutoClose>True</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <TornPageDetection>False</TornPageDetection>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <Recovery>SIMPLE</Recovery>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <DacApplicationName>ppi_core_domain</DacApplicationName>
+    <DacVersion>1.0.0.1</DacVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Default to the v10.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="Snapshots" />
+    <Folder Include="dbo\Functions" />
+    <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="Data" />
+    <Folder Include="dbo\Security" />
+    <Folder Include="PreDeployment" />
+    <Folder Include="PostDeployment" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\AspNetRoles.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\AspNetUsers.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\AspNetUserClaims.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\AspNetUserLogins.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\AspNetUserRoles.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\__MigrationHistory.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\Manual_Hogan_Import.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\Person.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Tables\Program.sql" />
+    <Build Include="dbo\Tables\Site.sql" />
+    <Build Include="dbo\Tables\ProgramSites.sql" />
+    <Build Include="dbo\Tables\SiteUsers.sql" />
+    <Build Include="dbo\Tables\ProgramSiteHoganMVPI.sql" />
+    <Build Include="dbo\Tables\HoganMVPI.sql" />
+    <Build Include="dbo\Tables\HoganField.sql" />
+    <Build Include="dbo\Tables\PracticeCategory.sql" />
+    <Build Include="dbo\Tables\PracticeLevel.sql" />
+    <Build Include="dbo\Tables\Language.sql" />
+    <Build Include="dbo\Tables\PracticeScale.sql" />
+    <Build Include="dbo\Tables\PracticeText.sql" />
+    <Build Include="dbo\Tables\PracticeReport.sql" />
+    <Build Include="dbo\Tables\PracticeScaleReport.sql" />
+    <Build Include="dbo\Tables\PracticeCategoryParagraphs.sql" />
+    <Build Include="dbo\Tables\Resx.sql" />
+    <Build Include="dbo\Tables\ResxValue.sql" />
+    <Build Include="dbo\Tables\Culture.sql" />
+    <Build Include="dbo\Functions\GetResxValue.sql" />
+    <Build Include="dbo\Stored Procedures\GetPracticeScaleParagraphText.sql" />
+    <Build Include="dbo\Stored Procedures\GetPracticeScaleText.sql" />
+    <Build Include="dbo\Stored Procedures\CreateResx.sql" />
+    <Build Include="dbo\Functions\GetResxValueEX.sql" />
+    <Build Include="dbo\Tables\PracticeParagraphs.sql" />
+    <Build Include="dbo\Stored Procedures\CreatePracticeReportData.sql" />
+    <Build Include="dbo\Tables\PracticeTextOption.sql" />
+    <Build Include="dbo\Stored Procedures\CreateAlternativePracticeText.sql" />
+    <Build Include="dbo\Stored Procedures\CreatePracticeTextIntroSentence.sql" />
+    <Build Include="dbo\Stored Procedures\GetPracticeTextIntroRandom.sql" />
+    <Build Include="dbo\Stored Procedures\GetPracticeTextRandom.sql" />
+    <Build Include="dbo\Tables\PracticeCategoryScale.sql" />
+    <Build Include="dbo\Stored Procedures\GetPracticeCategoryText.sql" />
+    <Build Include="dbo\Tables\ReplacementExpression.sql" />
+    <Build Include="dbo\Views\vReportTextExcel.sql" />
+    <Build Include="dbo\Tables\ProgramPracticeReports.sql" />
+    <Build Include="dbo\Security\PPI.CORE.WEB.sql" />
+    <Build Include="dbo\Tables\Event.sql" />
+    <Build Include="dbo\Tables\EventType.sql" />
+    <Build Include="dbo\Tables\EventStatus.sql" />
+    <Build Include="dbo\Views\vPersonBySite.sql" />
+    <Build Include="dbo\Tables\Email.sql" />
+    <Build Include="dbo\Tables\EmailType.sql" />
+    <Build Include="dbo\Tables\PersonEmail.sql" />
+    <Build Include="dbo\Tables\EmailStatus.sql" />
+    <Build Include="dbo\Tables\HoganUserInfo.sql" />
+    <Build Include="dbo\Views\vDashboard.sql" />
+    <Build Include="dbo\Stored Procedures\LoadInterViewQuestions.sql" />
+    <Build Include="dbo\Views\vBillingExport.sql" />
+    <Build Include="dbo\Tables\PersonPracticeReport.sql" />
+    <Build Include="dbo\Tables\PersonEvent.sql" />
+    <Build Include="dbo\Tables\EventPracticeReport.sql" />
+    <Build Include="dbo\Tables\OrderForm.sql" />
+    <Build Include="dbo\Tables\OrderFormPracticeReport.sql" />
+    <Build Include="dbo\Tables\OrderStatus.sql" />
+    <Build Include="dbo\Tables\ScheduledEmail.sql" />
+    <Build Include="dbo\Tables\ScheduledEmailPerson.sql" />
+    <Build Include="dbo\Stored Procedures\CreatePracticeScale.sql" />
+    <Build Include="dbo\Stored Procedures\CreatePracticeCategoryScale.sql" />
+    <None Include="PostDeployment\DataReport_Migrations.sql" />
+    <Build Include="dbo\Tables\ZCOExportMap.sql" />
+    <Build Include="dbo\Tables\ZCOUserMap.sql" />
+    <Build Include="dbo\Tables\ZCOExportTemplateMap.sql" />
+    <Build Include="dbo\Tables\ZCOExportTemplate.sql" />
+    <Build Include="dbo\Stored Procedures\ClonePracticeScaleReport.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PPI.Core.Database.publish_Local.publish.xml" />
+    <None Include="PPI.Core.Database.publish_PPI_DEV.publish.publish.xml" />
+    <None Include="PPI.Core.Database.publish_STAGE_INTERNAL.publish.xml" />
+    <None Include="Data\dbo.Culture.data.sql" />
+    <None Include="Data\dbo.HoganField.data.sql" />
+    <None Include="Data\dbo.HoganMVPI.data.sql" />
+    <None Include="Data\dbo.Site.data.sql" />
+    <None Include="Data\dbo.PracticeCategory.data.sql" />
+    <None Include="Data\dbo.PracticeCategoryParagraphs.data.sql" />
+    <None Include="Data\dbo.PracticeCategoryScale.data.sql" />
+    <None Include="Data\dbo.PracticeLevel.data.sql" />
+    <None Include="Data\dbo.PracticeParagraphs.data.sql" />
+    <None Include="Data\dbo.PracticeReport.data.sql" />
+    <None Include="Data\dbo.PracticeScale.data.sql" />
+    <None Include="Data\dbo.PracticeScaleReport.data.sql" />
+    <None Include="Data\dbo.PracticeText.data.sql" />
+    <None Include="Data\dbo.PracticeTextOption.data.sql" />
+    <None Include="Data\dbo.Program.data.sql" />
+    <None Include="Data\dbo.ProgramSiteHoganMVPI.data.sql" />
+    <None Include="Data\dbo.ProgramSites.data.sql" />
+    <None Include="Data\dbo.ReplacementExpression.data.sql" />
+    <None Include="Data\dbo.Resx.data.sql" />
+    <None Include="Data\dbo.ResxValue.data.sql" />
+    <None Include="Snapshots\PPI.Core.Database_20140722_09-23-30.dacpac" />
+    <None Include="Data\dbo.AspNetRoles.data.sql" />
+    <None Include="Data\dbo.AspNetUserRoles.data.sql" />
+    <None Include="Data\dbo.AspNetUsers.data.sql" />
+    <None Include="Data\dbo.ProgramPracticeReports.data.sql" />
+    <None Include="Data\dbo.EventStatus.data.sql" />
+    <None Include="Data\dbo.EventType.data.sql" />
+    <None Include="Data\dbo.EmailType.data.sql" />
+    <None Include="Data\dbo.EmailStatus.data.sql" />
+    <None Include="PPI.Core.Database.publish_Production.publish.xml" />
+    <None Include="Snapshots\PPI.Core.Database_20141007_17-08-35.dacpac" />
+    <None Include="Data\dbo.InterviewQuestion_OneTime.data.sql" />
+    <None Include="PreDeployment\EventMigration.sql" />
+    <None Include="PostDeployment\EventMigration_Post.sql" />
+    <None Include="Data\dbo.OrderStatus.data.sql" />
+    <None Include="PostDeployment\Item14_Release.sql" />
+    <None Include="Data\dbo.ZCOExportTemplateMap.data.sql" />
+    <None Include="Data\dbo.ZCOExportTemplate.data.sql" />
+    <None Include="Data\dbo.ZCOExportMap.data.sql" />
+    <None Include="Data\dbo.ZCOUserMap.data.sql" />
+    <None Include="PostDeployment\ReportDataFixes.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="PPI.Core.Database.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Script.PreDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\110\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\110\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+  </ItemGroup>
+</Project>

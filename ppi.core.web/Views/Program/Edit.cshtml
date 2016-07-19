@@ -1,0 +1,41 @@
+﻿@model PPI.Core.Domain.Entities.Program
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Edit Specialty</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    @Html.Label("SpecialtyName", new { @class = "control-label col-md-2 bold" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ProgramName)
+                        @Html.ValidationMessageFor(model => model.ProgramName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @Html.ActionLink("Back to Specialties", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })
+                        <input type="submit" value="Save" class="btn btn-success btn200" />
+                    </div>
+                </div>
+
+            </div>
+        }
+
+
+
+</div>
+</div>

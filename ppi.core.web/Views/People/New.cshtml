@@ -1,0 +1,219 @@
+﻿@model PPI.Core.Web.Models.PersonNewViewModel
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Create Participant</h2>
+        <hr />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            if ((int)ViewData["EventCount"] > 0)
+            {
+                <div class="form-horizontal">
+                    @Html.ValidationSummary(true)
+
+                    <div class="col-md-12">
+                        <div class="col-md-1"><h2>Event For:</h2></div>
+                        <div class="col-md-11 pt20 ">
+                            <div class="pull-left "> @Html.DropDownList("SelectedEventId", (SelectList)ViewData["EventList"])</div>
+                            <div class="pull-left plr20" id="divHogancodeCountlabel" style="display:none"> Availible Hogan Codes </div>
+                            <div id="hogancodeCount" class="badge badge-success pull-left" style="display:none"> </div>
+                        </div>
+                    </div>
+
+                    <br clear="all"/><br clear="all" />
+                    <div class="form-group pt20">
+                        @Html.LabelFor(model => model.Person.FirstName, new { @class = "control-label col-md-2 " })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Person.FirstName)
+                            @Html.ValidationMessageFor(model => model.Person.FirstName)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Person.LastName, new { @class = "control-label col-md-2 " })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Person.LastName)
+                            @Html.ValidationMessageFor(model => model.Person.LastName)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Person.Title, new { @class = "control-label col-md-2 " })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Person.Title)
+                            @Html.ValidationMessageFor(model => model.Person.Title)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Person.Gender, new { @class = "control-label col-md-2 " })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.Person.Gender, (SelectList)ViewData["Gender"])
+                            @Html.ValidationMessageFor(model => model.Person.Gender)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="control-label col-md-2 ">ID Number/AAMC Number</div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Person.AAMCNumber)
+                            @Html.ValidationMessageFor(model => model.Person.AAMCNumber)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Person.PrimaryEmail, new { @class = "control-label col-md-2 " })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Person.PrimaryEmail)
+                            @Html.ValidationMessageFor(model => model.Person.PrimaryEmail)
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="divHoganId" style="display:none">
+                        @Html.LabelFor(model => model.Person.Hogan_Id, new { @class = "control-label col-md-2 " })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Person.Hogan_Id)
+                            @Html.ValidationMessageFor(model => model.Person.Hogan_Id)
+                            <i class="fa fa-info-circle fa-fw fa-lg red"></i> <strong class="red">Note</strong> <span class="red">Leave Blank to Auto Assign New Hogan Code</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="divHoganPwd" style="display:none">
+                        @Html.LabelFor(model => model.Person.Hogan_Password, new { @class = "control-label col-md-2 " })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Person.Hogan_Password)
+                            @Html.ValidationMessageFor(model => model.Person.Hogan_Password)
+                            <i class="fa fa-info-circle fa-fw fa-lg red"></i> <strong class="red">NOTE</strong> <span class="red">Leave Blank to Auto Assign New Hogan Password</span>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            @Html.ActionLink("Back to Participants", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })
+                            <input type="submit" value="Create" class="btn btn-success btn200" onclick="javascript: return validate();" />
+                        </div>
+                    </div>
+
+                </div>
+            }
+            else
+            {
+                <div>
+                    <h2>No Events</h2>
+                </div>
+            }
+        }
+        <h2>@ViewBag.Message</h2>
+
+    </div>
+</div>
+@section Scripts
+{
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+
+            $("#SelectedEventId").change(function () {
+
+                var selectedvalue = $("#SelectedEventId").val();
+               
+
+                $.ajax({
+                    url: "@Url.Action("GetHoganCount")",
+                    data: { "SelectedProgramSiteEventId": selectedvalue },
+                    type: 'get',
+                    dataType: 'json',
+                    cache: false,
+                    success: function (response) {
+                      
+                        if (response.surveyType == "Hogan") {
+
+                            $("#divHoganId").show();
+                            $("#divHoganPwd").show();
+                            $("#divHogancodeCountlabel").show();
+                            $("#hogancodeCount").show();
+                            $("#hogancodeCount").html(response.hoganCount);
+                        }
+                        else {
+
+                            $("#divHoganId").hide();
+                            $("#divHoganPwd").hide();
+                            $("#divHogancodeCountlabel").hide();
+                            $("#hogancodeCount").html("");
+                            $("#hogancodeCount").hide();
+
+                        }
+                    },
+                    error: function (error) {
+                        //alert('Error');
+                    }
+
+                });
+            });
+        });
+
+
+
+
+
+        function validate() {
+
+            //Zco
+            if (document.getElementById("SelectedEventId").selectedIndex <= 0) {
+                alert('Please select Event.');
+                document.getElementById('SelectedEventId').focus();
+                return false;
+            }
+
+            if (!document.getElementById('Person_FirstName').value) {
+                alert('Please enter First Name.');
+                document.getElementById('Person_FirstName').focus();
+                return false;
+            }
+
+            if (!document.getElementById('Person_LastName').value) {
+                alert('Please enter Last Name.');
+                document.getElementById('Person_LastName').focus();
+                return false;
+            }
+
+            if (!document.getElementById('Person_Title').value) {
+                alert('Please enter Title.');
+                document.getElementById('Person_Title').focus();
+                return false;
+            }
+
+            if (!document.getElementById('Person_Gender').value) {
+                alert('Please select Gender.');
+                document.getElementById('Person_Gender').focus();
+                return false;
+            }
+
+            //Zco
+            //if (!document.getElementById('Person_AAMCNumber').value) {
+            //    alert('Please enter AAMC Number.');
+            //    document.getElementById('Person_AAMCNumber').focus();
+            //    return false;
+            // }
+
+            if (!document.getElementById('Person_PrimaryEmail').value) {
+                alert('Please select Primary Email Address.');
+                document.getElementById('Person_PrimaryEmail').focus();
+                return false;
+            }
+
+           
+
+        }
+
+    </script>
+}

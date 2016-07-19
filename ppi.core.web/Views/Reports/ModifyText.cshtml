@@ -1,0 +1,142 @@
+﻿@model PPI.Core.Web.Models.ManageTextViewModel
+@section AddToHead{
+    <link href="@Url.Content("~/Content/Libraries/select2.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Libraries/jquery.nouislider.css")" rel="stylesheet" type="text/css" />
+}
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+
+        <div class="tabs-wrapper profile-tabs">
+            <div class="row text-right">
+                <h2 class="pull-left">Manage Text</h2>
+                <div class="form-group pull-right">
+                    @Html.ActionLink("Back", "ManageText", new { area = "" }, new { @class = "btn btn-default btn200 mt20" })                       
+                </div>
+            </div>
+            <div class="tab-content">
+                @foreach (var item in Model.ReportText.GroupBy(m => m.ReportScale.PracticeScale.PracticeLevel.Name).Select(group => new { Name = group.Key }))
+                {
+                    <div class="tab-pane fade in active" id="tab-item.Name">
+                        @foreach (var itemHogan in Model.ReportText.GroupBy(m => m.ReportScale.PracticeScale.HoganField.LabelName).Select(group => new { Name = group.Key }))
+                        {
+                            <div class="row mb10">
+                                <div class="col-md-2"><h2>@itemHogan.Name</h2></div>
+                                <div class="col-md-4"><h2>English Version</h2></div>
+                                <div class="col-md-4"><h2>Update Version</h2></div>
+                                <div class="col-md-1"></div>
+                            </div>
+                            foreach (var rowitem in Model.ReportText.Where(w => w.ReportScale.PracticeScale.PracticeLevel.Name == item.Name).OrderBy(m => m.Category.Order))
+                            {
+                                <div class="row mb10">
+                                    <div class="col-md-2">@rowitem.Category.Name -  @rowitem.ReportScale.PracticeScale.LowerBound - @rowitem.ReportScale.PracticeScale.UpperBound</div>
+                                    <div class="col-md-4 alert-info textoriginal">@rowitem.Text.EnglishText</div>
+                                    @if (rowitem.Text.Text.IsIntroduction.GetValueOrDefault(false))
+                                    {
+                                        <i class="fa fa-info-circle fa-lg pull-right red"></i>
+                                    }
+                                    @Html.Partial("_PartialManageResxValue", @rowitem.Text.Text.TextResx.ResxValues.FirstOrDefault(m => m.CultureId == Model.CultureId))
+
+                                </div>
+                                if (rowitem.Text.Text.IsIntroduction.GetValueOrDefault(false))
+                                {
+                                    <div class="row mb10">
+                                        <div class="col-md-2"><i class="fa fa-random pull-left"></i>Random Select</div>
+                                    </div>
+                                }
+                                foreach (var Childitem in rowitem.Text.ChildText)
+                                {
+                                    <div class="row mb10">
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-4 alert-info textoriginal">@Childitem.EnglishText</div>
+                                        @Html.Partial("_PartialManageResxValue", @Childitem.Text.TextResx.ResxValues.FirstOrDefault(m => m.CultureId == Model.CultureId))
+                                        
+                                    </div>
+                                }
+                                if (rowitem.AlternativeText != null)
+                                {
+                                    foreach (var altrowitem in rowitem.AlternativeText)
+                                    {
+                                        <div class="row mb10">
+                                            <div class="col-md-2">@rowitem.Category.Name - @rowitem.ReportScale.PracticeScale.LowerBound - @rowitem.ReportScale.PracticeScale.UpperBound</div>
+                                            <div class="col-md-4 alert-info textoriginal">@altrowitem.EnglishText</div>
+                                            @if (altrowitem.Text.IsIntroduction.GetValueOrDefault(false))
+                                            {
+                                                <i class="fa fa-info-circle fa-lg pull-right red"></i>
+                                            }
+                                            @Html.Partial("_PartialManageResxValue", @altrowitem.Text.TextResx.ResxValues.FirstOrDefault(m => m.CultureId == Model.CultureId))
+                                            
+                                        </div>
+                                        if (altrowitem.Text.IsIntroduction.GetValueOrDefault(false))
+                                        {
+                                            <div class="row mb10">
+                                                <div class="col-md-2"><i class="fa fa-random pull-left"></i>Random Select</div>
+                                            </div>
+                                        }
+                                        foreach (var Childitem2 in altrowitem.ChildText)
+                                        {
+                                            <div class="row mb10">
+                                                <div class="col-md-2"></div>
+                                                <div class="col-md-4 alert-info textoriginal">@Childitem2.EnglishText</div>
+                                                @Html.Partial("_PartialManageResxValue", @Childitem2.Text.TextResx.ResxValues.FirstOrDefault(m => m.CultureId == Model.CultureId))
+                                            </div>
+                                        }
+                                    }
+                                }
+                            }
+                            <hr />
+                        }
+                    </div>
+
+                }
+
+            </div>
+
+
+        </div>
+        </div>
+    </div>
+        @section Scripts
+{
+            <script>
+
+                $(document).ready($('form').submit(function () {
+                    $.ajax({
+                        url: $(this).attr('action'),
+                        type: 'post',
+                        data: $(this).serialize(),
+                        success: function (response) {
+                            $(this).html(response);
+                            $('#loading').data('spinner').stop();
+                            $('#loading').fadeOut();
+
+
+                        }
+                    });
+                    return false;
+                }));
+
+                $(document).ready(function () {
+                    $("button").click(function () {
+                        $("#loading").fadeIn();
+                        var opts = {
+                            lines: 12, // The number of lines to draw
+                            length: 7, // The length of each line
+                            width: 4, // The line thickness
+                            radius: 10, // The radius of the inner circle
+                            color: '#000', // #rgb or #rrggbb
+                            speed: 1, // Rounds per second
+                            trail: 60, // Afterglow percentage
+                            shadow: false, // Whether to render a shadow
+                            hwaccel: false // Whether to use hardware acceleration
+                        };
+                        var target = document.getElementById('loading');
+                        var spinner = new Spinner(opts).spin(target);
+                        $(target).data('spinner', spinner);
+                    });
+                });
+
+            </script>
+        }

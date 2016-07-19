@@ -1,0 +1,33 @@
+﻿@model PPI.Core.Web.Models.BillingReportViewModel
+
+@foreach (var item in Model.ReportsSelected)
+{
+    <div class="row">
+        <div><h2>@item.Report.ReportTitleResx.ResxValues.FirstOrDefault(m => m.CultureId == 1).Value</h2></div>
+        <div class="pull-right">Total Processes : @item.Participants.Count()</div>
+    </div>
+    <div class="table-condensed">
+        <table class="table">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Hogan Id</th>
+            </tr>
+            @foreach (var person in item.Participants)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => person.FirstName) </td>
+                    <td>@Html.DisplayFor(m => person.LastName) </td>
+                    <td>@Html.DisplayFor(m => person.PrimaryEmail) </td>
+                    <td>@Html.DisplayFor(m => person.Hogan_Id) </td>
+                </tr>
+
+            }
+
+        </table>
+
+    </div>
+    
+
+}

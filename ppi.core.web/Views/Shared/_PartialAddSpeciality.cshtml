@@ -1,0 +1,205 @@
+﻿@model PPI.Core.Web.Models.ProgramSiteViewModel
+
+@{
+    PPI.Core.Domain.Entities.ProgramSite metaCandidates = new PPI.Core.Domain.Entities.ProgramSite(); ;
+    if (Model != null)
+    {
+        if (Model.ProgramSites != null)
+        {
+            metaCandidates = Model.ProgramSites.FirstOrDefault();
+        }
+    }
+}
+@using (Ajax.BeginForm("AddSpeciality", "OrderForms", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "adddeptdiv", OnSuccess = "AddSpecialitySuccess" }, new { id = "AddSpecialityForm" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <div class="main-box clearfix">
+            <div class="main-box-body">
+                <div class="form-horizontal">
+                    <h2 class="m-t-0 p-t-0">Departments for @Model.ProgramName Specialty</h2>
+                    <div class="col-md-12 mt20 m b20 ">
+                        <div class="col-md-3">
+                            @Html.Label("Organization", new { @class = "control-label " })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.DropDownList("OrganizationId", (SelectList)ViewData["Organizations"], " - Select - ", new { @class = "form-control", @onchange = "FillDepartment()" })
+                        </div>
+
+                        <div class="col-md-3">  @Html.Label("Department", new { @class = "control-label " }) </div>
+                        <div id="departmentsDiv" class="col-md-3">
+                            @Html.DropDownList("SiteId", (SelectList)ViewData["SiteIds"], new { @class = "form-control" })
+                        </div>
+                        @Html.Hidden("programId", Model.ProgramID)
+                        @Html.Hidden("evntOrganizationId", Model.SelectedOrganisationID)
+                        @Html.Hidden("evntDepartmentId", Model.SelectedDepartmentID)
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="modal-button-wrap"><input type="submit" value="Add Department To This Specialty" class="btn btn-primary" onclick="javascript: return validateSpeciality();" /></div>
+
+                    <div class="clearfix"></div>
+                    <div class="table-responsive">
+                        <table class="table mt20">
+                            <tr>
+                                <th class="col-md-4">
+                                    @Html.DisplayName("DeaprtmentName")
+                                </th>
+                                <th class="col-md-4">
+
+                                    @Html.DisplayNameFor(model => metaCandidates.Site.Organization.OrganizationName)
+                                </th>
+                                <th class="col-md-2">
+                                    @Html.DisplayNameFor(model => metaCandidates.Site.FriendlyName)
+                                </th>
+                                <th class="col-md-3"></th>
+                            </tr>
+                            @if (Model != null)
+                            {
+                                if (Model.ProgramSites != null)
+                                {
+                                    foreach (var item in Model.ProgramSites)
+                                    {
+                                        <tr id="site@(item.Id)Tr">
+                                            <td style="font-size:12px;">
+                                                @Html.DisplayFor(modelItem => item.Site.SiteName)
+                                            </td>
+                                            <td style="font-size:12px;">
+                                                @Html.DisplayFor(modelItem => item.Site.Organization.OrganizationName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Site.FriendlyName)
+                                            </td>
+                                            <td class="text-right">
+                                                <input type="button" value="Delete" class="btn btn-danger btn80" onclick="javascript:DeleteSpeciality(@item.Id)">
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+@if (null != TempData["alertMessage"])
+{
+    // Displat alert message
+    <script type="text/javascript">
+        alert("@TempData["alertMessage"]");
+    </script>
+}
+
+<script type="text/javascript">
+
+    //Fill department dropdown
+    function FillDepartment() {
+        var orgId = $('#OrganizationId').val();
+        var url = '/Program/FillDepartmentAjax/';
+        $.ajax({
+            async: false,
+            cache: false,
+            type: 'POST',
+            url: url,
+            dataType: 'json',
+            data: { id: orgId },
+            success: function (result) {
+                if ($('#OrganizationId').val() != "" && $('#OrganizationId').val() != null) {
+                    $('#evntOrganizationId').val($('#OrganizationId').val());
+                }
+                $('#SiteId').empty();
+                $('#SiteId').append('<option value="0"> - Select - </option>');
+                $.each(result, function (i, result) {
+                    $('#SiteId').append('<option value="' + result.Value + '">' + result.Text + '</option>');
+                });
+            },
+            error: function (ex) {
+            }
+        });
+    }
+
+    //Shows Speciality Popup
+    function ShowSpecialityPopup() {
+
+        if ($('#Setup_ProgramId').val() != "" && $('#Setup_ProgramId').val() != null) {
+            $('#programId').val($('#Setup_ProgramId').val());
+        }
+        else {
+            alert("Please select speciality");
+            return false;
+        }
+
+        if ($('#EventOrganizationId').val() != "" && $('#EventOrganizationId').val() != null) {
+            $('#evntOrganizationId').val($('#EventOrganizationId').val());
+
+        }
+
+        if ($('#EventDepartmentId').val() != "" && $('#EventDepartmentId').val() != null) {
+            $('#evntDepartmentId').val($('#EventDepartmentId').val());
+
+        }
+        $('#SiteId').val(0);
+        $('#OrganizationId').val('');
+
+        $('#uploadSpeciality123Dlg').modal('show');
+        $("#AddSpecialityForm").submit();
+    }
+
+    //Ajax call to delete Speciality
+    function DeleteSpeciality(ID) {
+
+        var url = '/OrderForms/DeleteSite/';
+        $.ajax({
+            async: false,
+            cache: false,
+            type: 'POST',
+            url: url,
+            dataType: 'json',
+            data: { id: ID },
+            success: function (result) {
+                if (result.Code == 0) $("#site" + ID + "Tr").remove();
+                else
+                    alert("Unexpected error occurred.")
+            },
+            error: function (ex) {
+            }
+        });
+    }
+
+
+    //Method to validate required fields
+    function validateSpeciality() {
+
+        if (!document.getElementById('OrganizationId').value) {
+            alert('Please select Organization.');
+            document.getElementById('OrganizationId').focus();
+            return false;
+        }
+
+        if (!document.getElementById('SiteId').value) {
+            alert('Please select Department.');
+            document.getElementById('SiteId').focus();
+            return false;
+        }
+    }
+
+    //Method called on success of add specialty
+    function AddSpecialitySuccess() {
+        if ($('#evntDepartmentId').val() != "" && $('#evntDepartmentId').val() != 0 || $('#evntOrganizationId').val() != "" && $('#evntOrganizationId').val() != null) {
+            $('#SiteId').val($('#evntDepartmentId').val());
+            $('#OrganizationId').val($('#evntOrganizationId').val());
+        }
+        else {
+            $('#SiteId').val(0);
+            $('#OrganizationId').val('');
+
+            $('#evntDepartmentId').val(0);
+            $('#evntOrganizationId').val(0);
+        }
+    }
+
+</script>

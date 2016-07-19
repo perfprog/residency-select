@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "OESSetup";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@if (IsSectionDefined("AddToHead"))
+{
+    @RenderSection("AddToHead", required: false)
+}
+<div class="cl-mcont min_height_1000">
+    <div class="row">
+        @*<div class="row wizard-row">*@
+            <div class="col-md-12 fuelux">
+                <div class="block-flat">
+                    <div class="header">
+                    </div>
+                    <div class="block-wizard">
+                        <div id="wizard1" class="wizard wizard-ux clearfix">
+                            <ul class="steps">
+                                <li id="setupProjectli" data-target="#step1">SetUp<span class="chevron"></span></li>
+                                <li id="scheduleProjectli" data-target="#step2">Schedule<span class="chevron"></span></li>
+                                <li id="reviewProjectli" data-target="#step3">Review<span class="chevron"></span></li>
+                                <li id="completeProjectli" data-target="#step4">Complete<span class="chevron"></span></li>
+                            </ul>
+                        </div>
+                        <!-- *** SETUP *** -->
+                        <div class="step-content">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+@RenderSection("scripts", required: false)
+
+

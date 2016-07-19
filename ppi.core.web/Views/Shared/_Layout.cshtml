@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+    <title>@ViewBag.Title - Residency Select</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/csstheme")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/spin")
+    @if (IsSectionDefined("AddToHead"))
+    { 
+        @RenderSection("AddToHead", required: false)
+    }
+
+
+    <!--Google Fonts-->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div id="loading">
+                <div id="loadingcontent">
+                    <div id="loadingspinner">Please Wait....</div>
+                </div>
+            </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Residency Select", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Residency Select</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")    
+    @Scripts.Render("~/bundles/bootstraptheme")
+    @Scripts.Render("~/bundles/themeplugin")
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

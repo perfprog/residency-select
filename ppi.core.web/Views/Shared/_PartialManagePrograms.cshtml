@@ -1,0 +1,7 @@
+﻿@model  PPI.Core.Web.Models.ManageTextViewModel
+@using (Ajax.BeginForm("SelectProgram", "Reports", new AjaxOptions { UpdateTargetId = "Reports" }, new { id = "ReportForm" }))
+{
+    <label>Program</label>
+    @Html.DropDownListFor(m => m.ProgramId, new SelectList(Model.Programs, "Id", "ProgramName"), "Select Program");
+    
+}

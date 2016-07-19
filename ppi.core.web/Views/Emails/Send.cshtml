@@ -1,0 +1,556 @@
+﻿@model PPI.Core.Web.Models.EmailSendViewModel
+
+@using PPI.Core.Web.HtmlHelpers
+@{
+
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int i = 0;
+    int j = 0;
+    PPI.Core.Domain.Entities.Person metaParticipants = null;
+    string chkEnabled = "disabled";
+    string chkTitle = "";
+}
+
+@section AddToHead{
+    <link href="@Url.Content("~/Content/Libraries/datepicker.css")" rel="stylesheet" type="text/css" />
+}
+
+@if (Model.EventId != 0)
+{
+    if (Model.Ops.EmailStatsFlag)
+    {
+        <div>
+            <!--Email Stats PopUP-->
+            <div tabindex="-1" class="modal fade" id="openstatspreview" role="dialog" aria-hidden="true" aria-labelledby="openstatspreviewLabel" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content modal-sm" style=" width:350px">
+                        <div class="modal-header">
+                            <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                            <h2>Email Results</h2>
+                        </div>
+                        <div class="modal-body">
+                            <table style="width:90%">
+                                <tr>
+                                    <td>
+                                        Emails Sent:
+                                    </td>
+                                    <td>
+                                        @Model.Ops.EmailsSent
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Emails Failed:
+                                    </td>
+                                    <td>
+                                        @Model.Ops.EmailsFailed
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end PopUp -->
+        </div>
+    }
+
+    if (Model.Ops.ScheduleFlag || Model.Ops.RemoveFlag)
+    {
+        <div>
+            <!--Schedule Confirmation PopUP-->
+            <div tabindex="-1" class="modal fade" id="scheduleconfpopup" role="dialog" aria-hidden="true" aria-labelledby="scheduleconfpopuplabel" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content modal-sm" style=" width:350px">
+                        <div class="modal-header">
+                            <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                            <h2>Schedule Confirmation</h2>
+                        </div>
+                        <div class="modal-body">
+                            <table style="width:90%">
+                                <tr>
+                                    @if (Model.Ops.ScheduleFlag)
+                                    {
+                                        <td>
+                                            The specified emails have been scheduled.
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>
+                                            The specified emails have been removed from the schedule.
+                                        </td>
+                                    }
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end PopUp -->
+        </div>
+    }
+
+    if (Model.Ops.NothingFlag)
+    {
+        <div>
+            <!--Nothing To Do PopUP-->
+            <div tabindex="-1" class="modal fade" id="nothingtodopopup" role="dialog" aria-hidden="true" aria-labelledby="nothingtodopopuplabel" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content modal-sm" style=" width:350px">
+                        <div class="modal-header">
+                            <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                            <h4>Nothing To Do</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table style="width:90%">
+                                <tr>
+                                    <td>
+                                        No participants were selected.
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end PopUp -->
+        </div>
+    }
+
+    <div>
+        <!--Schedule PopUP-->
+        <div tabindex="-1" class="modal fade" id="scheduleDlg" role="dialog" aria-hidden="true" aria-labelledby="scheduleDlgLabel" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content modal-sm" style=" width:350px">
+                    <div class="modal-header">
+                        <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                        <h2>Schedule Emails</h2>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("Schedule", "Emails", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("eventId", Model.EventId)
+                            @Html.Hidden("emailTypeIdForSchedule")
+                            @Html.Hidden("scheduleDatePickerVal")
+                            @Html.Hidden("removeFlag")
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label class="control-label col-md-2" for="scheduleDatePicker">Email Date</label>
+                                    </td>
+                                    <td>
+                                        <div id="scheduleDatePicker"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="form-group pull-right" style="margin-top:25px">
+                                            <div>
+                                                <input type="button" id="scheduledEmailRemoveBtn" value="Unschedule" class="btn btn-danger btn-lg" />
+                                                <input type="submit" id="scheduledEmailBtn" value="Schedule" class="btn btn-info btn-lg" />
+                                                <input type="button" id="scheduledEmailCloseBtn" value="Cancel" class="btn btn-success btn-lg" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end PopUp -->
+    </div>
+
+    <div class="main-box clearfix">
+        <div class="main-box-body">
+            <div class="main-box-body clearfix">
+                <div class="row mt20">
+                    <div class="tabs-wrapper" style="border:4px solid #d0d8de;">
+
+                        @using (Html.BeginForm("CordinatorSendSwitch", "Emails"))
+                        {
+                            <div class="col-md-6 pull-right" style="margin-bottom:-4px;">
+                                <label for="eventFilter" class="col-md-2 control-label bold text-right" style="margin-left:50px;">Events</label>
+                                <div class="col-md-8 pull-right  m5">
+                                    @Html.DropDownList("EventId", null, new { @class = "form-control", onchange = "this.form.submit();" })
+                                </div>
+                            </div>
+                        }
+
+                        <ul class="nav nav-tabs">
+
+                            @foreach (var item in Model.Mailer)
+                            {
+                                <li class=@(item.active == true ? "active" : "") style="margin-left:0px; margin-top:1px;">
+                                    <a href="#tab-@item.Email.EmailType.EmailTypeNameText.ResxValues.FirstOrDefault(m => m.CultureId == 1).Value" data-toggle="tab">@item.Email.EmailType.EmailTypeNameText.ResxValues.FirstOrDefault(m => m.CultureId == 1).Value</a>
+                                </li>
+                                i++;
+                            }
+                        </ul>
+                        <div class="tab-content">
+
+                            @foreach (var listitem in Model.Mailer)
+                            {
+                                <div class="tab-pane fade in @(listitem.active == true ? "active" : "")" id="tab-@listitem.Email.EmailType.EmailTypeNameText.ResxValues.FirstOrDefault(m => m.CultureId == 1).Value">
+                                    <header class="main-box-header clearfix">
+                                        <h2 style="padding-top:0px;">Participants</h2>
+                                        <div class="row mt20">
+
+                                            <div class="col-md-3">
+                                                @using (Html.BeginForm("Send", "Emails", FormMethod.Get, new { @id = "formSearch-" + listitem.Email.EmailTypeId }))
+                                                {
+                                                    @Html.AntiForgeryToken()
+                                                    @Html.Hidden("EmailTypeId", listitem.Email.EmailTypeId)
+                                                    <div class="input-group text-left">
+                                                        @Html.TextBox("search", null, new { @class = "form-control pull-right", @placeholder = "Search Last Name, Email, AAMC, or HoganID", @ID = "searchsubmit" })
+                                                        <span class="input-group-addon"><i class="fa fa-search search-icon"></i></span>
+                                                        @Html.HiddenFor(m => m.EventId)
+                                                    </div>
+                                                }
+                                            </div>
+                                            <div class="col-md-9 text-right">
+                                                <ul class="list-inline ">
+                                                    Results Per Page
+                                                    @Html.PageSizeList(new List<string> { "10", "20", "50", "ALL" }, x => Url.Action("SetPageSize", new { pageSize = x, redirectTo = "Send" }))
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </header>
+                                    <div class="main-box-body clearfix">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <tr>
+                                                    @*<th>
+                                                            @Html.DisplayNameFor(model => metaParticipants.Id)
+                                                        </th>*@
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => metaParticipants.FirstName)
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(m => metaParticipants.LastName)
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(m => metaParticipants.AAMCNumber)
+                                                    </th>
+                                                    <th>
+                                                        @Html.DisplayNameFor(m => metaParticipants.PrimaryEmail)
+                                                    </th>                                                    
+                                                    <th>
+                                                        @if (ViewData["SurveyType"] != null)
+                                                        {
+                                                            if (ViewData["SurveyType"].ToString().ToUpper() == "J3P")
+                                                            {
+                                                                @Html.DisplayNameFor(m => metaParticipants.J3P_Id)
+                                                            }
+                                                            else
+                                                            {
+                                                               @Html.DisplayNameFor(m => metaParticipants.Hogan_Id)
+                                                            }
+                                                        }
+                                                        else
+                                                        {      
+                                                           @Html.DisplayNameFor(m => metaParticipants.Hogan_Id)                                                                                                                                                                  
+                                                        }
+                                                    </th>
+                                                    @if (listitem.Email.EmailTypeId == 4)
+                                                    {
+                                                        <th>
+                                                            Invite Date
+                                                        </th>
+                                                        <th>
+                                                            Last Reminder
+                                                        </th>
+                                                    }
+                                                    <th>
+                                                        Schedule Date
+                                                    </th>
+                                                    <th>
+                                                        @using (@Html.BeginForm("personCheckAll", "Emails", FormMethod.Post))
+                                                        {
+                                                            @Html.AntiForgeryToken()
+                                                            @Html.Hidden("listItem", listitem.Email.EmailTypeId)
+                                                            @Html.Hidden("selectAll", "0")
+                                                            @Html.Hidden("idList", "")
+                                                            <div class="checkbox-nice" title="Click to select all.  Click again to deselect all.">
+                                                                <label for="checkbox-selectAll-@listitem.Email.EmailTypeId" style="margin-top:-5px;padding-left:1.5em;font-size:14px; font-weight:bold;text-indent:-1.3em;"><input id="checkbox-selectAll-@listitem.Email.EmailTypeId" name="checkbox-selectAll-@listitem.Email.EmailTypeId" type="checkbox" title="Click to select all.  Click again to deselect all." /> Select</label>
+                                                            </div>
+                                                        }
+
+                                                        @*<div class="checkbox-nice">
+                                                                <input id="checkbox-selectAll" name="checkbox-selectAll" type="checkbox" />
+                                                                <label for="checkbox-selectAll"></label>
+                                                            </div>*@
+                                                    </th>
+                                                </tr>
+                                                @foreach (var item in listitem.Participants)
+                                                {
+                                                    <tr>
+                                                        @*<td>
+                                                                @Html.DisplayFor(modelItem => item.Id)
+                                                            </td>*@
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.FirstName)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.LastName)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.AAMCNumber)
+                                                        </td>
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.PrimaryEmail)
+                                                        </td>
+                                                        <td>
+                                                            @if (ViewData["SurveyType"] != null && ViewData["SurveyType"].ToString().ToUpper() == "J3P")
+                                                            {
+                                                                @Html.DisplayFor(modelItem => item.J3P_Id)
+                                                            }
+                                                            else
+                                                            { 
+                                                                @Html.DisplayFor(modelItem => item.Hogan_Id)
+                                                            }
+                                                        </td>
+                                                        @if (listitem.Email.EmailTypeId == 4)
+                                                        {
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.InviteSent, "ShortDateTime")
+                                                            </td>
+                                                            <td>
+                                                                @if (item.LastReminderSent != DateTime.MinValue)
+                                                                {
+                                                                    @Html.DisplayFor(modelItem => item.LastReminderSent, "ShortDateTime")
+                                                                }
+                                                            </td>
+                                                        }
+                                                        <td>
+                                                            @if (item.ScheduleDate != null)
+                                                            {
+                                                                @Html.DisplayFor(modelItem => item.ScheduleDate, "ShortDateTime")
+                                                            }
+                                                        </td>
+                                                        <td>
+                                                            @using (@Html.BeginForm("personCheck", "Emails", FormMethod.Post, new { @id = "form-" + item.Id + "-" + @listitem.Email.EmailTypeId }))
+                                                            {
+                                                                @Html.AntiForgeryToken()
+                                                                @Html.Hidden("Id", item.Id)
+                                                                @Html.Hidden("listItem", listitem.Email.EmailTypeId)
+                                                              
+                                                                <div class="checkbox-nice">                                                                    
+                                                                    @if ((ViewData["SurveyType"] != null && ViewData["SurveyType"].ToString().ToUpper() == "J3P"))                                                                        
+                                                                    {
+                                                                        if (!String.IsNullOrWhiteSpace(item.J3P_Id))
+                                                                        { chkEnabled = ""; chkTitle = ""; }
+                                                                        else { chkEnabled = "disabled"; chkTitle = "J3P_Id_Missing"; }                                                                           
+                                                                    }
+                                                                    else if ((ViewData["SurveyType"] != null && ViewData["SurveyType"].ToString().ToUpper() == "HOGAN"))
+                                                                    {
+                                                                        if (!String.IsNullOrWhiteSpace(item.Hogan_Id))
+                                                                        { chkEnabled = ""; chkTitle = ""; }             
+                                                                        else
+                                                                        { chkEnabled = "disabled"; chkTitle = "Hogan_ID_Missing"; }                                                               
+                                                                    }                                                                                                                                                                                                                   
+                                                                    @*<input id="checkbox-@item.Id-@listitem.Email.EmailTypeId" @(String.IsNullOrWhiteSpace(item.Hogan_Id) ? "disabled" : "") name="checkbox" type="checkbox" @(item.selected ? "checked" : "") />*@
+                                                                    @*<label for="checkbox-@item.Id-@listitem.Email.EmailTypeId" title=@(String.IsNullOrWhiteSpace(item.Hogan_Id) ? "Hogan_ID_Missing" : "")>*@
+                                                                    <input id="checkbox-@item.Id-@listitem.Email.EmailTypeId" @chkEnabled  name="checkbox" type="checkbox" @(item.selected ? "checked" : "") />
+                                                                    <label for="checkbox-@item.Id-@listitem.Email.EmailTypeId" title=@chkTitle ></label>  
+                                                                </div>
+                                                            }
+
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            </table>
+                                        </div>
+                                        <footer>
+                                            <div class="pagination">
+                                                <ul class="pagination">
+                                                    @Html.PageLinks(listitem.PagingInfo, x => Url.Action("Send", new { Page = x, EventId = @Model.EventId, emailTypeId = listitem.Email.EmailTypeId }))
+                                                </ul>
+                                            </div>
+                                            <div class="form-group pull-right">
+                                                @using (Html.BeginForm())
+                                                {
+                                                    @Html.AntiForgeryToken()
+                                                    @Html.HiddenFor(m => Model.EventId)
+                                                    @Html.Hidden("EmailTypeId", listitem.Email.EmailTypeId)
+                                                    <div>
+                                                        <!--<a id="scheduleButton-@listitem.Email.Id" class="btn btn-info btn-lg" href="#" data-toggle="modal">Schedule</a>-->
+                                                        <input type="submit" id="spinSubmit-@listitem.Email.Id" value="Send Now" class="btn btn-success btn200" />
+                                                    </div>
+                                                }
+                                            </div>
+                                        </footer>
+                                    </div>
+                                </div>
+                                                j++;
+                            }
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div>
+        <h2>No Events Availible</h2>
+    </div>
+}
+@section Scripts
+    {
+    <script src="~/Scripts/Plugin/bootstrap-datepicker.js"></script>
+
+    <script type="text/javascript">
+        var opts = {
+            lines: 12, // The number of lines to draw
+            length: 7, // The length of each line
+            width: 4, // The line thickness
+            radius: 10, // The radius of the inner circle
+            color: '#000', // #rgb or #rrggbb
+            speed: 1, // Rounds per second
+            trail: 60, // Afterglow percentage
+            shadow: false, // Whether to render a shadow
+            hwaccel: false // Whether to use hardware acceleration
+        };
+
+        $("ul[class='pagination'] li a").click(function () {
+            $("#loading").fadeIn();
+            var target = document.getElementById('loading');
+            var spinner = new Spinner(opts).spin(target);
+            $(target).data('spinner', spinner);
+        });
+
+        function SubmitForm(field) {
+            var target = document.getElementById('loading');
+            var spinner = new Spinner(opts).spin(target);
+            $(target).data('spinner', spinner);
+            $.ajax({
+                url: $(field).attr('action'),
+                type: 'post',
+                data: $(field).serialize(),
+                success: function (response) {
+                    $('#loading').data('spinner').stop();
+                }
+            });
+            //;
+        }
+
+        $('#scheduleDatePicker').datepicker({
+            format: 'mm/dd/yyyy',
+            startDate: '0d',
+            //endDate: '+1m',
+            todayHighlight: true,
+            todayBtn: true
+        })
+
+        $("#scheduleDatePicker").on("changeDate", function (event) {
+            $("#scheduleDatePickerVal").val(
+                $("#scheduleDatePicker").datepicker('getFormattedDate')
+             )
+        });
+
+        $("[id*='scheduleButton']").click(function () {
+            var theform = $(this).closest("form");
+            $('#emailTypeIdForSchedule').val($(theform).find("#EmailTypeId").val());
+            $("#scheduleDatePickerVal").val($("#scheduleDatePicker").datepicker('getFormattedDate'));
+            $('#scheduleDlg').modal('show');
+        });
+
+        $("#scheduledEmailCloseBtn").click(function () {
+            $('#scheduleDlg').modal('hide');
+        });
+
+        $("#scheduledEmailRemoveBtn").click(function () {
+            if (confirm('Remove any matching scheduled entries?')) {
+                $("#removeFlag").val(1);
+                var theform = $(this).closest("form");
+                theform.submit();
+            }
+        });
+
+        $("#scheduledEmailBtn").click(function () {
+            $("#removeFlag").val(0);
+        });
+
+        $("input:checkbox:enabled").click(function () {
+            var chkfield = $(this).closest("form");
+
+            if (!$(chkfield).find("#selectAll").val()) {
+                SubmitForm($(this).closest("form"));
+            }
+            else {
+                //Select All was clicked, build list of ids to send to controller
+
+                var target = document.getElementById('loading');
+                var spinner = new Spinner(opts).spin(target);
+                $(target).data('spinner', spinner);
+
+                var allVal = this.checked;
+                var idList = ""
+                var emailType = $(chkfield).find("#listItem").val();
+
+                if (allVal) {
+                    $(chkfield).find("#selectAll").val("1");
+                }
+                else {
+                    $(chkfield).find("#selectAll").val("0");
+                }
+               
+                $(':checkbox:enabled').each(function () {
+                    var chkfieldinner = $(this).closest("form")
+
+                    if (!$(chkfieldinner).find("#selectAll").val()) {
+                        if ($(chkfieldinner).find("#listItem").val() == emailType) {
+                            this.checked = allVal;
+
+                            idList = idList.concat(",");
+                            idList = idList.concat($(chkfieldinner).find("#Id").val())
+                        }
+                    }
+                });
+
+                $(chkfield).find("#idList").val(idList);
+
+                $.ajax({
+                    url: $(chkfield).attr('action'),
+                    type: 'post',
+                    data: $(chkfield).serialize(),
+                    success: function (response) {
+                        $('#loading').data('spinner').stop();
+                    }
+                });
+
+                //$('#loading').data('spinner').stop();
+            }
+        });
+
+        $(document).ready(function () {
+            $('input[type="submit"]').click(function () {
+                $("#loading").fadeIn();
+                var target = document.getElementById('loading');
+                var spinner = new Spinner(opts).spin(target);
+                $(target).data('spinner', spinner);
+            });
+
+            if ($('#openstatspreview').length > 0) {
+                $('#openstatspreview').modal('show');
+            }
+
+            if ($('#scheduleconfpopup').length > 0) {
+                $('#scheduleconfpopup').modal('show');
+            }
+
+            if ($('#nothingtodopopup').length > 0) {
+                $('#nothingtodopopup').modal('show');
+            }
+        });
+
+    </script>
+}

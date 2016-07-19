@@ -1,0 +1,77 @@
+﻿@model IEnumerable<PPI.Core.Domain.Entities.Email>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Index";
+
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Manage Emails</h2>
+        <hr /><br />
+        <div class="row plr20">
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th class="col-md-1">
+                        @Html.DisplayNameFor(model => model.DefaultFrom)
+                    </th>
+                    <th class="col-md-2">
+                        @Html.DisplayNameFor(model => model.Subject)
+                    </th>
+                    <th class="col-md-2">
+                        @Html.DisplayNameFor(model => model.Introduction)
+                    </th>
+                    <th class="col-md-2">
+                        @Html.DisplayNameFor(model => model.Closing)
+                    </th>
+                    <th class="col-md-3">
+                        @Html.DisplayNameFor(model => model.Event.Name)
+                    </th>
+                    <th class="col-md-1">Email Type</th>
+                    <th class="col-md-1"></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="font-size:12px;">
+                            @Html.DisplayFor(modelItem => item.DefaultFrom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Subject)
+                        </td>
+                        <td>
+                            @if (item.Introduction != null && item.Introduction.Length >= 60) {
+                                @Html.Raw(@item.Introduction.ToString().Substring(0,60)) <text>...</text>
+                            } else {
+                                @Html.Raw(item.Introduction)
+                            }
+                        </td>
+                        <td>
+                            @if (item.Closing != null && item.Closing.Length >= 60) {
+                                @Html.Raw(@item.Closing.ToString().Substring(0,60)) <text> ...</text>
+                            } else {
+                                @Html.Raw(item.Closing)
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Event.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmailType.EmailTypeNameText.ResxValues.FirstOrDefault(m => m.CultureId == 1).Value)
+                        </td>
+                        <td>
+                            <div class="groupbtn text-right">
+                                <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-default btn-sm btn80">Edit</a>
+                                <a href="@Url.Action("Details", new { id=item.Id })" class="btn btn-primary btn-sm btn80">Preview</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        </div>
+        </div>
+    </div>

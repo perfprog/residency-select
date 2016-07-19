@@ -1,0 +1,66 @@
+﻿@model PPI.Core.Domain.Entities.Email
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+
+        <div class="row">
+            <h2>Email Details</h2>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DefaultFrom)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DefaultFrom)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Subject)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Subject)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Introduction)
+                </dt>
+
+                <dd>
+                    @Html.Raw(Model.Introduction)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Closing)
+                </dt>
+
+                <dd>
+                    @Html.Raw(Model.Closing)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Event.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Event.Name)
+                </dd>
+
+            </dl>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-1 col-md-10">
+                        @Html.ActionLink("Back to Emails", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn200" })
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,324 @@
+﻿@model PPI.Core.Web.Models.AssessmentViewModel
+@using PPI.Core.Web.HtmlHelpers
+@{
+    ViewBag.Title = "Assessment";
+    Layout = "~/Views/Shared/_LayoutAssessment.cshtml";
+
+    string title = "";
+    if (ViewData["Page"].ToString() == "0")
+    { title = "Informed Consent"; }
+    else if (ViewData["Page"].ToString() == "1")
+    { title = "Participant’s Rights"; }
+    else if (ViewData["Page"].ToString() == "2")
+    { title = "Instructions"; }
+    else
+    { title = "Questions"; }
+}
+
+<h2 style="padding-left: 10px; color: #3498db">@title</h2>
+<div>
+    <!--Assessment complete PopUP-->
+    <div tabindex="-1" class="modal fade" id="uploadStatsDlg" role="dialog" aria-hidden="true" aria-labelledby="uploadStatsDlgLabel" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content modal-sm" style="width:700px">
+                <div class="modal-header">
+                    <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                    <h4></h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        You are about to complete your Assessment.  Once completed, you will not be able to change your answers.
+                        Click ‘OK’ to save and complete the assessment.  Click ‘Cancel’ if you wish to make changes.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    @Html.ActionLink("OK", "SaveAssessment", new { }, new { @class = "btn btn-primary" })
+                    <input type="button" id="uploadStatsCloseBtn" value="Cancel" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end PopUp -->
+</div>
+
+<div class="main-box">
+    <div class="main-box-body clearfix">
+        @if (ViewData["Page"].Equals(0))
+        {
+            <!--Informed Consent section-->
+            <div id="InformedConsent" class="table-responsiv assesment">
+                <p>&nbsp</p>
+                <p>Thank you for your interest in participating. The following provides you with the additional information necessary to obtain informed consent. Please review the information.</p>
+
+                <b>DESCRIPTION OF THE RESEARCH:</b>
+                <p>
+                    You are invited to participate in a research study that assesses the preferences and attitudes of employees in healthcare organizations. The purpose of the research is to understand the nature of preferences, attitudes, values, and beliefs across individuals working in the field of healthcare. You will be asked to complete a questionnaire online at your convenience, which will take about 30 minutes to complete. The practical significance of the research is to better understand how these beliefs affect the experience of healthcare professionals at work. The research will be conducted by researchers at Teachers College, Columbia University and J3Personica. This study has been approved by the Institutional Review Board of Teachers College, Columbia University (Protocol #15-379).
+                </p>
+                <b>RISKS AND BENEFITS:</b>
+
+                <p>The risks and possible benefits associated with this study are minimal, including boredom and fatigue. To mitigate these risks, please note that you are able to take a break during the course of participating in the study, as needed. There are no direct benefits for participating in the study. Participation is voluntary; therefore, participation may be stopped at any time without penalty.</p>
+
+                <b>PAYMENTS:</b>
+
+                <p>You will not receive payment for your participation in this study.</p>
+
+                <b>DATA STORAGE TO PROTECT CONFIDENTIALITY:</b>
+
+                <p>All responses will be confidential. The data from this study will be kept in a locked file on the researcher’s computer. No data will be collected that can determine the identity of the participant.</p>
+
+                <b>TIME INVOLVEMENT:</b>
+
+                <p>Your participation will take approximately 30 minutes.</p>
+
+                <b>HOW WILL RESULTS BE USED:</b>
+
+                <p>The results of the study will be used in an applied psychology research project, professional conferences, and the data will be published in an academic journal. Results from this study will only be reported in aggregate. Individual data will not be reported.</p>
+
+                <div align="right">
+                    @Html.ActionLink("Next", "Index", new { @page = Convert.ToInt32(ViewData["Page"]) + 1 }, new { @class = "btn btn-primary btn200" })
+                </div>
+            </div>
+            <!--End Informed Consent section-->
+        }
+        else if (ViewData["Page"].Equals(1))
+        {
+            <!--Participant’s Rights section-->
+            <div id="ParticipantRights" class="table-responsiv assesment">
+                <p>&nbsp;</p>
+                <b>Principal Investigator: </b>
+                <p>Dr. William Pasmore</p>
+
+                <b>Research Title:</b>
+
+                <p>An Assessment of the Preferences and Attitudes of Healthcare Professionals.</p>
+
+                <ul style="list-style-type: disc;">
+                    <li><p>My participation in research is voluntary. I may refuse to participate or withdraw from participation at any time without jeopardy to future medical care, employment, student status or other entitlements.</p></li>
+                    <li><p>The researcher may withdraw me from the research at his/her professional discretion.</p></li>
+                    <li><p>If, during the course of the study, significant new information that has been developed becomes available which may relate to my willingness to continue to participate, the investigator will provide this information to me.</p></li>
+                    <li><p>Any information derived from the research project that personally identifies me will not be voluntarily released or disclosed without my separate consent, except as specifically required by law.</p></li>
+                    <li><p>If at any time I have any questions regarding the research or my participation, I can contact the investigator, who will answer my questions. The investigator's email address is healthcarepreferencesstudy@j3personica.com.</p></li>
+                    <li><p>If at any time I have comments, or concerns regarding the conduct of the research or questions about my rights as a research subject, I should contact the Teachers College, Columbia University Institutional Review Board /IRB. The phone number for the IRB is (212) 678-4105. Or, I can write to the IRB at Teachers College, Columbia University, 525 W. 120th Street, New York, NY, 10027, Box 151.</p></li>
+                    <li><p>I can receive a copy of the Research Description and this Participant's Rights document by emailing the principal investigator.</p></li>
+                    <li><p>I have read the Research Description and Participant’s Rights forms.</p></li>
+                </ul>
+
+                <p>Thank you in advance for your participation!</p>
+                <input type="checkbox" id="ChkAgree" onclick="EnableNextButton(this);" /><b> Checking the checkbox below means that I agree to participate in this study.</b>
+
+                <table width="100%">
+                    <tr style="height:5px;">
+                        <td colspan="2">
+                            &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" width="50%">
+                            @Html.ActionLink("Previous", "Index", new { @page = Convert.ToInt32(ViewData["Page"]) - 1 }, new { @class = "btn btn-default btn200" })
+                        </td>
+                        <td align="right" width="50%">
+                            <div id="ActLnkNext" style="visibility: hidden">
+                                @Html.ActionLink("Next", "Index", new { @page = Convert.ToInt32(ViewData["Page"]) + 1 }, new { @class = "btn btn-primary btn200" })
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--End Participant’s Rights section-->
+        }
+        else if (ViewData["Page"].Equals(2))
+        {
+            <!--Instructions section-->
+            <div id="ParticipantRights" class="table-responsiv assesment">
+                <p>&nbsp;</p>
+                <p>In what follows, you will find a series of statements that are relevant to the work of a physician. Using the scale below, please rate how much you agree or disagree with how well the statement describes you, your thoughts, or your experiences at work.</p>
+                <ul style="list-style-type: disc">
+                    @foreach (var QuestOpt in Model.AssessmentQuestionOptions)
+                    {
+                        <li>
+                            <p>
+                                <b style="font-size:13px;">@Html.DisplayFor(model => QuestOpt.Option) = </b>
+                                <i style="font-size:13px;">@Html.DisplayFor(model => QuestOpt.Description)</i>
+                            </p>
+                        </li>
+                    }
+                </ul>
+                <p>
+                    If you do not see all seven agree/disagree response options on your screen, please scroll right or left, or expand your browser window.
+                </p>
+
+                <p>There are a total of 116 statements to be rated. Please respond as accurately and honestly as possible without thinking too much about any one item.</p>
+
+                <table width="100%">
+                    <tr>
+                        <td align="left" width="50%">
+                            @Html.ActionLink("Previous", "Index", new { @page = Convert.ToInt32(ViewData["Page"]) - 1 }, new { @class = "btn btn-default btn200" })
+                        </td>
+                        <td align="right" width="50%">
+                            @Html.ActionLink("Next", "GetAssessmentQuestions", new { @page = 1 }, new { @class = "btn btn-primary btn200" })
+                        </td>
+                    </tr>
+                </table>
+            </div>
+           <!--End instructions section-->
+        }
+        else
+        {
+            <!--Assessment question section-->
+            <div class="table-responsive assesment" id="AssessmentQuestions">
+                @using (Html.BeginForm())
+                {
+
+                    <p>&nbsp;</p>
+                    <p>Please rate how much you agree or disagree with how well the statement describes you, your thoughts, or your experiences at work.</p>
+
+                    <ul style="list-style-type: disc">
+                        @foreach (var QuestOpt in Model.AssessmentQuestionOptions)
+                        {
+                            <li>
+                                <p>
+                                    <b style="font-size:13px;">@Html.DisplayFor(model => QuestOpt.Option) = </b>
+                                    <i style="font-size:13px;">@Html.DisplayFor(model => QuestOpt.Description)</i>
+                                </p>
+                            </li>
+                        }
+                    </ul>
+
+                    <table class="table assesment">
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                            @foreach (var item in Model.AssessmentQuestionOptions)
+                            {
+                                <th class="col-md-1">
+                                    @Html.DisplayFor(model => item.Option)
+                                </th>
+                            }
+                        </tr>
+                        @foreach (var item in Model.AssessmentQuestions)
+                        {
+                            <tr>
+                                <td style="font-size:12px;">
+                                    @Html.DisplayFor(modelItem => item.Question)
+                                </td>
+                                @foreach (var QuestOpt in Model.AssessmentQuestionOptions)
+                                {
+                                    //Radio button groupname,Unique for each row in grid.
+                                    string radioName = string.Format("AssessQuestion_{0}", item.Id.ToString());
+                                    //UniqueID for the radio button.
+                                    string RadioID = string.Format("QuestOptions{0}_{1}", item.Id.ToString(), QuestOpt.Id.ToString());
+
+                                    bool RadioSelected = false;
+                                    if (((Dictionary<string, string>)ViewData["SelectList"]).ContainsKey(item.Id.ToString()))
+                                    {
+                                        if (((Dictionary<string, string>)ViewData["SelectList"])[item.Id.ToString()].Contains(RadioID))
+                                        { RadioSelected = true; }
+                                    }
+                                    <td>
+                                        @Html.RadioButton(radioName, QuestOpt.Id, RadioSelected, new { onchange = "RadioSelect(this,'" + item.Id.ToString() + "');", id = RadioID })
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </table>
+                    <footer>
+                        <table width="100%" class="assesment">
+                            <tr>
+                                <td colspan="2" width="100%" align="center">
+                                    Page @Model.PagingInfo.CurrentPage  of @Model.PagingInfo.PageCount
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" width="50%">
+                                    @if (Model.PagingInfo.CurrentPage > 1)
+                                    {
+                                        <div align="left">
+                                            @Html.ActionLink("Previous", "GetAssessmentQuestions", new { @page = Model.PagingInfo.CurrentPage - 1 }, new { @class = "btn btn-default btn200" })
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div align="left">
+                                            @Html.ActionLink("Previous", "Index", new { @page = 2 }, new { @class = "btn btn-default btn200" })
+                                        </div>
+                                    }
+                                </td>
+                                <td align="right" width="50%">
+                                    @if (Model.PagingInfo.CurrentPage != Model.PagingInfo.PageCount)
+                                    {
+                                        <div align="right">
+                                            @Html.ActionLink("Next", "GetAssessmentQuestions", new { @page = Model.PagingInfo.CurrentPage + 1 }, new { @class = "btn btn-primary btn200", onclick = "javascript:return validateAnswers(this);" })
+                                        </div>
+                                    }
+                                    @if (Model.PagingInfo.CurrentPage == Model.PagingInfo.PageCount)
+                                    {
+                                        <div align="right">
+                                            <input type="button" value="Complete Assessment" id="btnAssessCompltd" class="btn btn-primary btn200" onclick="javascript: return validateAnswers(this);" />
+                                        </div>
+                                    }
+                                </td>
+                            </tr>
+                        </table>
+                    </footer>
+                }
+            </div>
+          <!--End assessment question section-->
+        }
+    </div>
+</div>
+@section Scripts
+{
+    <script type="text/javascript">
+        function EnableNextButton(e) {
+            if (e.checked)
+                document.getElementById("ActLnkNext").style.visibility = 'visible';
+            else
+                document.getElementById("ActLnkNext").style.visibility = 'hidden';
+        }
+    </script>
+    <script type="text/javascript">
+        function RadioSelect(e, QuestID) {
+            $.ajax({
+                url: '@Url.Action("Select")',
+                method: 'POST',
+                data: { "isChecked": e.checked, "RadioBtnID": e.id, "AnswerSelected": e.value, "QuestionID": QuestID },
+                dataType: "json",
+                success: function (data) { },
+                error: function (xhr) { }
+            });
+        }
+    </script>
+    <script type="text/javascript">
+        function validateAnswers(e) {
+            var form = document.forms[0];
+            if (form == 'undefined')
+                form = document.forms[1];
+
+            for (var i = 0; i < form.elements.length; i++) {
+                if (form.elements[i].type == 'radio') {
+                    var RadioGrpName = form.elements[i].name;
+                    if (!$("input[name= '" + RadioGrpName + "']:checked").val()) {
+                        alert('Please select an answer for every questions');
+                        return false;
+                    }
+                }
+            }
+            if (e.id == "btnAssessCompltd") {
+                SHowPopup();
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        function SHowPopup() {
+            if ($('#uploadStatsDlg').length > 0) {
+                $('#uploadStatsDlg').modal('show');
+            }
+        }
+
+        $("#uploadStatsCloseBtn").click(function () {
+            $('#uploadStatsDlg').modal('hide');
+            return false;
+        });
+    </script>
+}

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[HoganMVPI]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [FieldName] VARCHAR(50) NULL, 
+    [LabelName] VARCHAR(50) NULL
+)

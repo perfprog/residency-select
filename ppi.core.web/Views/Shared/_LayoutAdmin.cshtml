@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=9;IE=8;IE=edge;chrome=1" />
+    <title>@ViewBag.Title - Residency Select</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/spin")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/csstheme")
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/jquery.minicolors.css" rel="stylesheet" />
+    <link href="~/Content/fuelux/css/fuelux.css" rel="stylesheet" />
+    <link href="~/Content/fuelux/css/fuelux-responsive.min.css" rel="stylesheet" />
+    
+    @if (IsSectionDefined("AddToHead"))
+    {
+        @RenderSection("AddToHead", required: false)
+    }
+
+    <!--Google Fonts-->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
+
+    <!--[if lt IE 9]>
+        <script src="~/Scripts/html5shiv.js"></script>
+        <script src="~/Scripts/respond.js"></script>
+    <![endif]-->
+
+</head>
+<body style="padding-top: 20px;">
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/bootstraptheme")
+    @Scripts.Render("~/bundles/themeplugin")
+    @Scripts.Render("~/bundles/Datetpicker")
+    <div id="loading">
+        <div id="loadingcontent">
+            <div id="loadingspinner">Please Wait....</div>
+        </div>
+    </div>
+    <header class="navbar" id="header-navbar" style="min-width:1280px">
+        <div class="container">
+
+            <img src="~/Content/Images/j3p_dots_portal.png" alt="" class="normal-logo logo-white" style="padding-top: 20px; padding-bottom: 20px; padding-left: 10px;" />
+
+            @Html.Partial("_LoginPartialTheme")
+
+            <!--
+            <a href="#" id="logo" class="navbar-brand">
+                    <img src="~/Content/Images/rs_small_logo_220x50.png" alt="" class="normal-logo logo-white" />
+            </a>
+            -->
+            <!--<div class="clearfix">
+                <button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="fa fa-bars"></span>
+                </button>
+
+                <div class="nav-no-collapse navbar-left pull-left hidden-sm hidden-xs">
+                    <ul class="nav navbar-nav pull-left">
+                        <li>
+                            <a class="btn" id="make-small-nav">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Right nav stuff-->
+            <!--</div> -->
+        </div>
+        @if (Boolean.Parse(System.Configuration.ConfigurationManager.AppSettings["ShowBanner"]))
+        {
+            <div class="row alert-danger text-center bold">
+                <span class="fa fa-warning"></span> @System.Configuration.ConfigurationManager.AppSettings["BannerText"] <span class="fa fa-warning"></span>
+            </div>
+        }
+    </header>
+    <div id="page-wrapper" class="container" style="min-width: 1280px">
+        <div class="row">
+            @Html.Partial("_LeftNavPartial")
+            <div id="content-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="row">
+
+                            <div class="col-lg-12 breadcrumb">
+                                <!--
+                                    <ol class="breadcrumb">
+                                        <li><a href="#">Home</a></li>
+                                        <li class="active"><span>Dashboard</span></li>
+                                    </ol>
+                                -->
+                                @Html.MvcSiteMap().SiteMapPath()
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                @RenderBody()
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <footer id="footer-bar" class="row">
+                    <p id="footer-copyright" class="col-xs-12">
+                        &copy; @DateTime.Now.Year - Residency Select
+                    </p>
+                </footer>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>    
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

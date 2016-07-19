@@ -1,0 +1,213 @@
+﻿@section AddToHead{
+    <link href="@Url.Content("~/Content/Libraries/morris.css")" rel="stylesheet" type="text/css" />    
+}
+@model PPI.Core.Web.Models.DashboardViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+@if (ViewData["EventList"] != null)
+{ 
+
+    <div class="row" style="padding-bottom:10px; min-width:1200px;">
+        <div class="col-md-6">
+            <div class="groupdashboardbtns">
+        <a href="@Url.Action("Index", "People", new { eventFilter = Model.eventId })" class="btn btn-primary btn200">
+            <i class="fa fa-users fa-lg mr5"></i> People
+        </a>
+        <a href="@Url.Action("Send", "Emails", new { eventId = Model.eventId })" class="btn btn-primary btn200">
+            <i class="fa fa-mail-reply-all fa-lg mr5"></i> Send Emails
+        </a>
+        <a href="@Url.Action("GetReports", "Reports", new { eventId = Model.eventId })" class="btn btn-primary btn200">
+            <i class="fa fa-book fa-lg mr5"></i> Get Reports
+        </a>
+    </div>  
+        </div>
+        @using (Html.BeginForm("DashboardSendSwitch", "Administration"))
+        {
+            <div class="form-group text-right" style="padding-bottom:10px;">
+                <label for="eventFilter" class="col-md-1 control-label bold">Events</label>
+                <div class="col-md-5">
+
+            <div class="form-group pull-right">                     
+                @Html.DropDownList("SelectedProgramSiteEventId", (SelectList)ViewData["EventList"], new { @class = "form-control", onchange = "this.form.submit();" })
+            </div>
+                </div>
+            </div>
+        }
+    </div>     
+    if (Model.eventId != -1)
+    {
+<div class="row">    
+    <div class="col-lg-4">
+        <div class="main-box clearfix profile-box">
+                    <div class="main-box-body clearfix">
+                <div class="profile-box-content">
+                    <div class="main-box-header">
+                        <div class="pull-right">
+                            <i class="fa fa-calendar"></i> As Of @Model.AsOfDate.ToShortDateString()
+                        </div>
+                    </div>
+                    <div class="main-box-body">
+                        <div id="hero-donut">
+                        </div>               
+                    </div>                                       
+                    <div class="center-block text-center">
+                        @Model.EventName
+                    </div>                             
+                </div>                
+                <div class="profile-box-footer clearfix">
+                    <a href="#" style="background-color:#FFD066">
+                        <span class="value">@Model.HPI.NumberCompleted</span>
+                        <span class="label">HPI (Usual Tendencies)</span>
+                    </a>
+                    <a href="#" style="background-color:#E11D38">
+                        <span class="value">@Model.HDS.NumberCompleted</span>
+                        <span class="label">HDS (Stress Tendencies)</span>
+                    </a>
+                            <a href="#" style="background-color: #164986">
+                        <span class="value">@Model.MVPI.NumberCompleted</span>
+                        <span class="label">MVPI (Drivers)</span>
+                    </a>
+                </div>
+            </div> 
+        </div>
+    </div>    
+    <div class="col-lg-4">
+        <div class="main-box small-graph-box emerald-bg" style="cursor:pointer;" id="AssessmentsComplete">
+            <span class="value">@Model.AssessmentComplete.NumberCompleted of @Model.AssessmentComplete.TotalNumber</span>
+            <span class="headline">Assessments Completed</span>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="@Model.AssessmentComplete.NumberCompleted" aria-valuemin="0" aria-valuemax="@Model.AssessmentComplete.TotalNumber" style="width: @Model.AssessmentComplete.PercentComplete%;">
+                </div>
+            </div>
+            <span class="subinfo">
+                <i class="fa fa-calendar"></i> as of @Model.AssessmentNotComplete.AsOfDate.ToShortDateString()
+            </span>
+        </div>
+        <div class="main-box small-graph-box yellow-bg" id="AssessmentsUncomplete" style="cursor:pointer;">
+            <span class="value">@Model.AssessmentNotComplete.NumberCompleted of @Model.AssessmentNotComplete.TotalNumber</span>
+            <span class="headline">Assessments Incomplete</span>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="@Model.AssessmentNotComplete.NumberCompleted" aria-valuemin="0" aria-valuemax="@Model.AssessmentNotComplete.TotalNumber" style="width: @Model.AssessmentNotComplete.PercentComplete%;">
+                </div>
+            </div>
+            <span class="subinfo">
+                <i class="fa fa-calendar"></i> as of @Model.AssessmentNotComplete.AsOfDate.ToShortDateString()
+            </span>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="main-box infographic-box">
+            <i class="fa fa-user red-bg"></i>
+            <!--<span class="headline">As Of @Model.AsOfDate.ToShortDateString() </span>            -->
+            <span class="headline">Today Completed</span>
+            <span class="value">@Model.AssessmentsToday</span>
+        </div>
+        <div class="main-box infographic-box">
+            <i class="fa fa-archive emerald-bg"></i>
+            <!--<span class="headline">As Of @Model.AsOfDate.ToShortDateString() </span>     -->
+            <span class="headline">Invitations</span>
+            <span class="value">@Model.InvitationsTotal</span>
+            <span class="headline">Reminders</span>
+            <span class="value">@Model.RemindersTotal</span>
+        </div>
+    </div>
+</div>
+
+    <div>        
+        <!--PopUP-->
+        <div tabindex="-1" class="modal fade" id="openpreview" role="dialog" aria-hidden="true" aria-labelledby="openpreviewLabel" style="display: none;">
+            <div class="modal-dialog">
+
+                <div class="modal-content modal-lg">
+                    <div class="modal-header">
+                        <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                        <h4><strong>Assessments</strong></h4>
+                    </div>
+                    <div class="modal-body">                        
+                        <div id="replaceme" class="main-box-body clearfix">                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end PopUp -->        
+    </div>
+    }
+    else
+    {
+        <div class="jumbotron">
+            <div class="row">
+                <table>
+                    <tr>
+                        <td valign="top" width="400"><img src="~/Content/Images/welcome_rs_portal.png" /></td>
+                        <td valign="top">
+                            <h1>Welcome to J3Personica</h1>
+                            <div class="profile-label mt20">
+                                <div class="alert alert-info ml20">
+                                    <i class="fa fa-check-circle fa-fw fa-lg"></i>
+                                    <strong>GET STARTED!</strong>  Simply select an Event from the dropdown above.
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    }
+@section Scripts
+{
+    <script src="~/Scripts/Plugin/jquery.knob.js"></script>
+    <script src="~/Scripts/Plugin/raphael-min.js"></script>    
+    <script src="~/Scripts/Plugin/morris.min.js"></script>            
+
+<script>
+
+    $("#AssessmentsUncomplete").click(function () {
+        $.ajax({
+            url: "/Administration/AssessmentsUncompleted?eventId=@Model.eventId",
+            cache: false,
+            type: 'get',
+            data: null,
+            success: function (response) {
+                $('#replaceme').html(response);
+                $('#openpreview').modal('show');
+            }
+        });
+    });
+
+    $("#AssessmentsComplete").click(function () {
+        $.ajax({
+            url: "/Administration/AssessmentsCompleted?eventId=@Model.eventId",
+            cache: false,
+            type: 'get',
+            data: null,
+            success: function (response) {
+                $('#replaceme').html(response);
+                $('#openpreview').modal('show');
+            }
+        });
+    });
+
+            if (@Model.eventId != -1)
+            {
+    Morris.Donut({
+        element: 'hero-donut',
+        data: [
+          {label: "HPI (Usual Tendencies)", value:@Model.HPI.NumberCompleted},
+          {label: "HDS (Stress Tendencies)", value: @Model.HDS.NumberCompleted},
+          {label: "MVPI (Drivers)", value: @Model.MVPI.NumberCompleted}
+        ],
+                    colors: ['#FFD066','#E11D38','#164986'],
+        resize: true
+    });
+            }
+
+</script>
+    }
+
+}
+else
+{
+    <h2>No Events</h2>
+}

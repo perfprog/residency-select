@@ -1,0 +1,145 @@
+﻿@model PPI.Core.Web.Models.EmailCordinatorViewModel
+@{
+    ViewBag.Title = "CordinatorIndex";
+
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int i = 0;
+    int j = 0;
+}
+
+@if (Model.EventId != 0)
+{
+    <div class="main-box clearfix">
+        <div class="main-box-body">
+            <h2>Email Edit</h2>
+            <hr /><br />
+            <div class="tabs-wrapper" style="border:4px solid #d0d8de;">
+                @using (Html.BeginForm("CordinatorEventSwitch", "Emails"))
+                {
+                            <div class="form-inline pull-right">
+                                <strong>Event</strong>&nbsp;&nbsp;
+                                @Html.DropDownList("EventId", null, new { @class = "form-control", onchange = "this.form.submit();" })
+                            </div>
+                }
+                <ul class="nav nav-tabs">
+                    @foreach (var item in Model.EmailSetup.Where(m => m.EmailTypeId != 6 || m.EmailTypeId == 7))
+                    {
+                                <li class=@(@i == 0 ? "active" : "")>
+                                    <a href="#tab-@item.EmailType.EmailTypeNameText.ResxValues.FirstOrDefault(m => m.CultureId == 1).Value" data-toggle="tab">@item.EmailType.EmailTypeNameText.ResxValues.FirstOrDefault(m => m.CultureId == 1).Value</a>
+                                </li>
+                        i++;
+                    }
+                </ul>
+                <div class="tab-content">
+                    @foreach (var Emailitem in Model.EmailSetup.Where(m => m.EmailTypeId != 6 || m.EmailTypeId == 7))
+                    {
+                                <div class="tab-pane fade in @(j == 0 ? "active" : "")" id="tab-@Emailitem.EmailType.EmailTypeNameText.ResxValues.FirstOrDefault(m => m.CultureId == 1).Value">
+                                    @using (Html.BeginForm("CreateCordinator", "Emails"))
+                             {
+                                        @Html.AntiForgeryToken()
+                                        <div class="form-horizontal">
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                            @Html.HiddenFor(model => Emailitem.Id)
+                                            @Html.HiddenFor(model => Emailitem.EventId)
+                                            @Html.HiddenFor(model => Emailitem.EmailTypeId)
+                                            @Html.HiddenFor(model => Emailitem.DefaultFrom)
+
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => Emailitem.Subject, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => Emailitem.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => Emailitem.Subject, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => Emailitem.Introduction, htmlAttributes: new { @class = "control-label col-md-2 bold" })
+                                                <div class="col-md-10">
+                                                    @Html.TextAreaFor(model => Emailitem.Introduction, new { @class = "form-control ckeditor", @rows = "5" })
+                                                    @Html.ValidationMessageFor(model => Emailitem.Introduction, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2 bold">Closing and Signature</label>
+                                                <div class="col-md-10">
+                                                    @Html.TextAreaFor(model => Emailitem.Closing, new { @class = "form-control ckeditor", @rows = "5" })
+                                                    @Html.ValidationMessageFor(model => Emailitem.Closing, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <a class="btn btn-primary btn200" href="#openpreview-@Emailitem.Id" data-toggle="modal">Preview</a>
+                                                    <!--PopUP-->
+                                                    <div tabindex="-1" class="modal fade" id="openpreview-@Emailitem.Id" role="dialog" aria-hidden="true" aria-labelledby="openpreviewLabel" style="display: none;">
+                                                        <div class="modal-dialog">
+
+                                                            <div class="modal-content modal-lg">
+                                                                <div class="modal-header">
+                                                                    <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+                                                                    <h2>Preview</h2>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <label class="bold">From:</label>
+                                                                    <label class="form-control">@Emailitem.DefaultFrom</label>
+                                                                    <label class="bold">Subject</label>
+                                                                    <label class="form-control">@Emailitem.Subject</label>
+                                                                    <label class="bold">Email</label>
+                                                                    <div class="main-box-body clearfix">
+                                                                        @Html.Raw(@Emailitem.Preview)
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--end PopUp-->
+                                                    <input type="submit" value="Save" class="btn btn-success btn200" onclick="javascript:return validate();" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                 j++;
+                             }
+                                </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    <div>
+        <h2>No Events Availible</h2>
+    </div>
+}
+@section Scripts
+{
+<script src="~/Scripts/Plugin/ckeditor/ckeditor.js"></script>
+<script>
+    CKEDITOR.config.toolbar = [
+['Bold', 'Italic', 'Underline', 'StrikeThrough', '-', 'TextColor', 'FontSize', '-', 'NumberedList', 'BulletedList', '-', 'Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', '-', 'Outdent', 'Indent', '-', 'spellchecker'],
+    ];
+</script>
+
+
+
+<script type="text/javascript">
+
+    function validate() {
+
+        if (!document.getElementById('Emailitem_Subject').value) {
+            alert('Please enter a Subject for this email.');
+            document.getElementById('Subject').focus();
+            return false;
+        }
+
+    }
+
+</script>
+
+}
+
+

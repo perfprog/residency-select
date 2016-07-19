@@ -1,0 +1,12 @@
+﻿@model PPI.Core.Web.Models.RegisterViewModel
+@using (Ajax.BeginForm("SelectRole", "Account", new AjaxOptions { UpdateTargetId = "Sites" }, new { id = "SitesForm" }))
+{    
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserRole, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownList("UserRole", (SelectList)ViewData["UserRole"], "Select", new { @class = "form-control" })
+        </div>
+    </div>
+}
+
+

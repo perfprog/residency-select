@@ -1,0 +1,87 @@
+﻿@model IEnumerable<PPI.Core.Domain.Entities.PracticeScale>
+@using PPI.Core.Web.HtmlHelpers
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <h2>Index</h2>
+
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn  btn-primary btn-lg btn-block" })
+        </p>
+        <div>
+            <table class="table table-responsive">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LowerBound)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UpperBound)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.HoganField.FieldName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PracticeCategory.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PracticeLevel.Name)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LowerBound)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UpperBound)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HoganField.FieldName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PracticeCategory.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PracticeLevel.Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-default btn-sm" })
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-sm" })
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        </div>
+    </div>
+        @section Scripts
+    {
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("a[href]").not("a[href*=Delete]").click(function () {
+                        $("#loading").fadeIn();
+                        var opts = {
+                            lines: 12, // The number of lines to draw
+                            length: 7, // The length of each line
+                            width: 4, // The line thickness
+                            radius: 10, // The radius of the inner circle
+                            color: '#000', // #rgb or #rrggbb
+                            speed: 1, // Rounds per second
+                            trail: 60, // Afterglow percentage
+                            shadow: false, // Whether to render a shadow
+                            hwaccel: false // Whether to use hardware acceleration
+                        };
+                        var target = document.getElementById('loading');
+                        var spinner = new Spinner(opts).spin(target);
+                    });
+                });
+            </script>
+        }

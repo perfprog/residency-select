@@ -1,0 +1,10 @@
+﻿@model PPI.Core.Web.Models.RegisterViewModel
+@if (Model != null)
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Site, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownList("Site", (SelectList)ViewData["Site"], "Select", new { @class = "form-control" })
+        </div>
+    </div>
+}

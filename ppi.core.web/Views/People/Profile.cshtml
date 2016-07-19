@@ -1,0 +1,245 @@
+﻿@model PPI.Core.Web.Models.PersonProfileViewModel
+@section AddToHead{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Libraries/magnific-popup.css")" />
+}
+@{
+    ViewBag.Title = "Profile";
+    var metaCandidateProfile = Model.Person;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    //PPI.Core.Domain.Entities.PersonEmail metaPersonEmail = null;
+    string AssessProcess = string.Empty;
+}
+<div class="main-box clearfix">
+    <div class="main-box-body">
+        <div class="row" id="user-profile">
+            <div class="col-md-4" style="max-width:400px;">
+
+                <header class="main-box-header clearfix">
+                    <h2>@Model.FullName</h2>
+                </header>
+                <div class="main-box-body clearfix">
+                    <div class="profile-label">
+                        <div class="alert alert-info">
+                            <i class="fa fa-info-circle fa-fw fa-lg"></i>
+                            @if (!string.IsNullOrWhiteSpace(Model.J3PProcess))
+                            {
+                                AssessProcess = "J3P " + Model.J3PProcess;
+                            }
+                            else
+                            {
+                                AssessProcess = "Hogan " + @Model.HoganProcess;
+                            }
+                            <strong>STATUS:</strong> @AssessProcess
+                        </div>
+                    </div>
+
+                    @if (Model.Hogan_Id != null)
+                    {
+                        <table width="100%" cellpadding="2" cellspacing="2">
+                            <tr>
+                                <td width="230"><span class="profile HPI pull-left" style="width:200px; margin-right:10px;">HPI (Usual Tendencies)</span></td>
+                                <td><div class="label label-large label-primary pull-right" style="margin-top:0px;">@Model.HPI</div></td>
+                            </tr>
+                            <tr>
+                                <td><span class="profile HDS pull-left" style="width:200px;">HDS (Stress Tendencies)</span></td>
+                                <td><div class="label label-large label-primary pull-right" style="margin-top:0px;">@Model.HDS</div></td>
+                            </tr>
+                            <tr>
+                                <td><span class="profile MVPI pull-left" style="width:200px;">MVPI (Drivers)</span></td>
+                                <td><div class="label label-large label-primary pull-right" style="margin-top:0px;">@Model.MVPI</div></td>
+                            </tr>
+                        </table>
+                    }
+
+                    <div class="form-group mt20">
+                        As of @Model.AsOfDate
+                    </div>
+
+                    <div class="form-group mt20">
+                        @Html.ActionLink("Back to Participants", "Index", new { area = "" }, new { @class = "btn btn-default btn200" })
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-8">
+                <div class="clearfix">
+                    <div class="row mt20">
+                        <div class="tabs-wrapper profile-tabs" style="border:4px solid #d0d8de;">
+
+                            <ul class="nav nav-tabs">
+                                @if(Model.Hogan_Id != null)
+                                { 
+                                    <li class="active" style="margin-left:1px;"><a href="#tab-Programs" data-toggle="tab">Programs</a></li>
+                                }
+                                <!--<li><a href="#tab-Reports" data-toggle="tab">Reports</a></li>                    -->
+                                <li><a href="#tab-Email" data-toggle="tab">Email</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+
+                                <div class="tab-pane" id="tab-Email">
+
+                                    @if (Model.PersonEmails.Count > 0)
+                                    {
+                                        @*Email grid*@
+
+                                        <div class="main-box-body clearfix">
+                                            <div class="table-responsive">
+                                                <table class="table">
+
+                                                    <tr>
+                                                        <th class="col-md-2">
+                                                            @*@Html.DisplayNameFor(m => Model.PersonEmails[0].SentDate)*@
+                                                            Date Sent
+                                                        </th>
+                                                        <th class="col-md-1">
+                                                            Type
+                                                        </th>
+                                                        <th class="col-md-2">
+                                                            @*@Html.DisplayNameFor(m => Model.PersonEmails[0].Email.DefaultFrom)*@
+                                                            From
+                                                        </th>
+                                                        <th class="col-md-2">
+                                                            Subject
+                                                        </th>
+                                                        <th class="col-md-1">
+                                                            Body
+                                                        </th>
+                                                        <th class="col-md-2">
+                                                            Event
+                                                        </th>
+                                                        <th class="col-md-1">
+                                                            Origin
+                                                        </th>
+                                                        <th class="col-md-1">
+                                                            Status
+                                                        </th>
+                                                    </tr>
+                                                    @foreach (var item in @Model.PersonEmails)
+                                                    {
+                                                        <tr>
+                                                            <td style="font-size:12px;">
+                                                                @if (item.SentDate != null)
+                                                                {
+                                                                    var dateFormatted = ((DateTime)item.SentDate).ToString("g");
+                                                                    @Html.DisplayFor(d => dateFormatted)
+                                                                }
+                                                            </td>
+                                                            <td>
+                                                                @item.Email.EmailType.EmailTypeNameText.ResxValues.FirstOrDefault(m => m.CultureId == ViewBag.CultureId).Value
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Email.DefaultFrom)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Email.Subject)
+                                                            </td>
+                                                            <td>
+                                                                <a href="@Url.Action("Preview", "Emails", new { id = item.Id })" target="_blank" class="btn btn-primary btn-sm" title="Open and View Email">View Email</a>
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Email.Event.Name)
+                                                            </td>
+                                                            <td>
+                                                                @Html.DisplayFor(modelItem => item.Origin)
+                                                            </td>
+                                                            <td>
+                                                                @item.EmailStatus.Resx.ResxValues.FirstOrDefault(m => m.CultureId == ViewBag.CultureId).Value
+                                                                @if (item.EmailStatusId == 2)
+                                                                {
+                                                                    <label>: </label>
+                                                                    @Html.DisplayFor(modelItem => item.ErrorMessage)
+                                                                }
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </table>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div>
+                                            <h2>No Email Activity is Available</h2>
+                                        </div>
+                                    }
+                                </div>
+
+                                @if (Model.Hogan_Id != null)
+                                {
+                                    <div class="tab-pane fade in active" id="tab-Programs">
+
+                                        <div class="main-box-body clearfix">
+                                            <div class="panel-group accordion" id="accordion">
+                                                @foreach (var item in Model.ProgramEvents)
+                                                {
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title">
+                                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#@item.ProgramId">
+                                                                    @Html.DisplayTextFor(m => item.ProgramName)
+
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="@item.ProgramId" class="panel-collapse collapse">
+                                                            <div class="panel-body">
+                                                                <div class="main-box-body clearfix">
+                                                                    @foreach (var listitem in item.Events)
+                                                                    {
+                                                                        <div class="col-md-3 col-sm-6 col-xs-12 pricing-package simple">
+                                                                            <div class="pricing-package-inner">
+                                                                                <div class="package-header">
+                                                                                    <h3>@listitem.ProgramSite.Site.FriendlyName</h3>
+                                                                                </div>
+                                                                                <div class="package-content">
+                                                                                    <div class="package-price">
+                                                                                        <span class="package-month">Reports</span>
+                                                                                    </div>
+                                                                                    <ul class="package-top-features">
+                                                                                        @foreach (var reportlist in listitem.EventPracticeReports)
+                                                                                        {
+                                                                                            <li>
+                                                                                                @if (reportlist.PracticeReport.PracticeGroup == "Match")
+                                                                                                {
+                                                                                                    @Html.ActionLink(@reportlist.PracticeReport.Name, "PreviewMatchReport", "Reports", new { @attachment = true, @hoganId = Model.Hogan_Id, @language = 1, @report = reportlist.PracticeReport.Id, @programId = reportlist.Event.ProgramSite.ProgramId, @SiteId = reportlist.Event.ProgramSite.SiteId, @eventId = reportlist.EventId }, @Model.ReportDataAvailible.Contains(reportlist.PracticeReportId) ? null : new { @class = "not-active", @title = "Data Not Available" })
+                                                                                                }
+                                                                                                else
+                                                                                                {
+                                                                                                    @Html.ActionLink(@reportlist.PracticeReport.Name, "PreviewProfessionReport", "Reports", new { @attachment = true, @hoganId = Model.Hogan_Id, @language = 1, @report = reportlist.PracticeReport.Id, @programId = reportlist.Event.ProgramSite.ProgramId, @SiteId = reportlist.Event.ProgramSite.SiteId, @eventId = reportlist.EventId }, @Model.ReportDataAvailible.Contains(reportlist.PracticeReportId) ? null : new { @class = "not-active", @title = "Data Not Available" })
+                                                                                                }
+                                                                                            </li>
+
+                                                                                        }
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="package-footer">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    }
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $(".not-active").on("click", function (event) {
+            event.preventDefault();
+        });
+    </script>
+}
