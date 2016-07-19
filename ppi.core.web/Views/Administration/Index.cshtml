@@ -25,12 +25,13 @@
         @using (Html.BeginForm("DashboardSendSwitch", "Administration"))
         {
             <div class="form-group text-right" style="padding-bottom:10px;">
+                
                 <label for="eventFilter" class="col-md-1 control-label bold">Events</label>
-                <div class="col-md-5">
+                <div class="col-md-4">
 
-            <div class="form-group pull-right">                     
-                @Html.DropDownList("SelectedProgramSiteEventId", (SelectList)ViewData["EventList"], new { @class = "form-control", onchange = "this.form.submit();" })
-            </div>
+                    <div class="form-group pull-right">
+                        @Html.DropDownList("SelectedProgramSiteEventId", (SelectList)ViewData["EventList"], new { @class = "form-control", onchange = "this.form.submit();" })
+                    </div>
                 </div>
             </div>
         }
