@@ -44,5 +44,20 @@ namespace PPI.Core.Domain.Entities
         public virtual ICollection<EventPracticeReport> EventPracticeReports { get; set; }
         public virtual ICollection<PersonEvent> PersonEvent { get; set; }
         public virtual ICollection<PersonPracticeReport> PersonPracticeReport { get; set; }
+
+        //Get yes or no for Billable non-billable
+        public String getBillableYesNo() {
+            String s = "";
+            if (this.Billable == null)
+                s = "No";
+            else { 
+                if ((Boolean)this.Billable)
+                    s = "Yes";
+                else
+                    s = "No";
+            }
+            return s;
+        }
+
     }
 }

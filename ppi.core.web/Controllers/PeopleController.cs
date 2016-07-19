@@ -399,7 +399,10 @@ namespace PPI.Core
                 HttpPostedFileBase hpf = Request.Files[i] as HttpPostedFileBase;
                 if (hpf.ContentLength == 0)
                     continue;
-                savedFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, PPI.Core.Web.Properties.Settings.Default.UploadFilesFolderName, Path.GetFileName(hpf.FileName));
+                string name_without_extention = Path.GetFileNameWithoutExtension(hpf.FileName);
+                string get_extetion = Path.GetExtension(hpf.FileName);
+                string file_name = name_without_extention + DateTime.Now.ToString("yyyyMMddHHmmssfff") + get_extetion;
+                savedFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, PPI.Core.Web.Properties.Settings.Default.UploadFilesFolderName, file_name);
                 hpf.SaveAs(savedFileName);
                 stats.FileName = hpf.FileName;
 
@@ -656,7 +659,10 @@ namespace PPI.Core
                 HttpPostedFileBase hpf = Request.Files[i] as HttpPostedFileBase;
                 if (hpf.ContentLength == 0)
                     continue;
-                savedFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, PPI.Core.Web.Properties.Settings.Default.UploadFilesFolderName, Path.GetFileName(hpf.FileName));
+                string name_without_extention = Path.GetFileNameWithoutExtension(hpf.FileName);
+                string get_extetion = Path.GetExtension(hpf.FileName);
+                string file_name = name_without_extention + DateTime.Now.ToString("yyyyMMddHHmmssfff") + get_extetion;
+                savedFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, PPI.Core.Web.Properties.Settings.Default.UploadFilesFolderName, file_name);
                 hpf.SaveAs(savedFileName);
                 stats.FileName = hpf.FileName;
 

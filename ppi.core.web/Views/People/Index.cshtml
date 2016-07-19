@@ -203,7 +203,7 @@
 
 
         <div class="table-responsive">
-            <table class="table">
+            <table class="table" style="table-layout:fixed" >
                 <tr>
                     <th class="col-md-1">
                         @Html.DisplayNameFor(model => metaCandidates.Title)
@@ -241,37 +241,37 @@
                 @foreach (var item in Model.People)
                 {
                     <tr>
-                        <td style="font-size:12px;">
+                        <td style="font-size:12px; word-wrap:break-word;">
                             @Html.DisplayFor(modelItem => item.Title)
                         </td>
-                        <td>
+                        <td style="word-wrap:break-word">
                             @Html.DisplayFor(modelItem => item.FirstName)
                         </td>
-                        <td>
+                        <td style="word-wrap:break-word">
                             @Html.DisplayFor(modelItem => item.LastName)
                         </td>
-                        <td>
+                        <td style="word-wrap:break-word">
                             @Html.DisplayFor(modelItem => item.Gender)
                         </td>
-                        <td>
+                        <td style="word-wrap:break-word">
                             @Html.DisplayFor(modelItem => item.AAMCNumber)
                         </td>
-                        <td>
+                        <td style="word-wrap:break-word">
                             @Html.DisplayFor(modelItem => item.PrimaryEmail)
                         </td>  
-                        <td>
+                        <td style="word-wrap:break-word">
                             @if (!string.IsNullOrWhiteSpace(item.J3P_Id))
                             { @Html.DisplayName("J3P"); }
                             else
                             { @Html.DisplayName("Hogan"); }
                         </td>                     
-                        <td>
+                        <td style="word-wrap:break-word">
                             @Html.DisplayFor(modelItem => item.J3P_Id)
                         </td>
-                        <td>
+                        <td style="word-wrap:break-word">
                             @Html.DisplayFor(modelItem => item.Hogan_Id)
                         </td>
-                        <td>
+                        <td style="word-wrap:break-word">
                            
                             <div id="assessmentStatus">
                                 @if (string.IsNullOrWhiteSpace(item.J3P_Id))
@@ -290,8 +290,7 @@
                                     }
                                 }
                             </div>
-                        </td>
-                        <td>
+                            <br><br>
                             <div class="groupbtn">
                             <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-default btn-sm btn60">Edit</a>
                             <a href="@Url.Action("Profile", new { id = item.Id })" class="btn btn-primary btn-sm btn60">Profile</a>
